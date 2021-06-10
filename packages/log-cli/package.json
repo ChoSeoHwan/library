@@ -21,5 +21,6 @@
   "dependencies": {
     "commander": "^7.2.0",
     "log-core": "^1.0.1"
-  }
+  },
+  "gitHead": "34122fef7e925375a5a897ea3dbab27186aa43fb"
 }
