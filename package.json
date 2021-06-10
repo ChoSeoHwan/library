@@ -1,0 +1,14 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ChoSeoHwan/library.git",
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
