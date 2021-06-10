@@ -1,0 +1,25 @@
+{
+  "name": "log-cli",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "bin": {
+    "log-cli": "lib/log-cli.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "dependencies": {
+    "commander": "^7.2.0",
+    "log-core": "^1.0.0"
+  }
+}
