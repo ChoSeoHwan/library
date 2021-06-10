@@ -1,5 +1,5 @@
 {
-  "name": "log-cli",
+  "name": "log-cli-choseohwan",
   "version": "1.0.4",
   "description": "> TODO: description",
   "author": "wtae1216 <wtae1216@gmail.com>",
@@ -21,5 +21,6 @@
   "dependencies": {
     "commander": "^7.2.0",
     "log-core": "^1.0.4"
-  }
+  },
+  "gitHead": "adde7245dd4c123a68358fe18d3e73c428a96674"
 }
