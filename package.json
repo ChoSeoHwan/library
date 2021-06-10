@@ -12,5 +12,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true
+  "private": true,
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
