@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "commander": "^7.2.0",
-    "log-core": "^1.0.4"
+    "log-core": "^1.0"
   },
   "gitHead": "a59eef4ea0d537b57c7d2f94ffd6a1a8b3b84b59"
 }
