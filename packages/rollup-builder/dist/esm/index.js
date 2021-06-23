@@ -1,4 +1,2 @@
-var test = 'test';
-
-export { test };
+var t="test";export{t as test};
 //# sourceMappingURL=index.js.map

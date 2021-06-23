@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../../../src/index.ts"],"sourcesContent":["export const test = 'test';"],"names":["test"],"mappings":"IAAaA,IAAI,GAAG;;;;"}
+{"version":3,"file":"index.js","sources":["../../../src/index.ts"],"sourcesContent":["export const test = 'test';"],"names":["test"],"mappings":"IAAaA,EAAO"}
