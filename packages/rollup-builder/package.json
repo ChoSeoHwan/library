@@ -39,6 +39,7 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
+    "prepublish": "yarn build",
     "preversion": "yarn build",
     "build": "rollup -c rollup.config.js"
   }
