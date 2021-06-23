@@ -27,5 +27,6 @@
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1"
   },
-  "scripts": {}
+  "scripts": {},
+  "gitHead": "6d80da1f2e2a89ee474c11300c0c53936f05f368"
 }
