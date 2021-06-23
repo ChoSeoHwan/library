@@ -1,0 +1,9 @@
+{
+    "extends": "@choseohwan/tsconfig/lib/tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "baseUrl": "src"
+    },
+    "include": ["src/*"],
+    "exclude": ["dist/*"]
+}
