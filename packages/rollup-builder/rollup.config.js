@@ -19,6 +19,7 @@ const commonJSOptions = {
 
 const babelOptions = {
     extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
+    plugins: ["@babel/plugin-transform-runtime"]
 };
 
 const resolveOptions = {
