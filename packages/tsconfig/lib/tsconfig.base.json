@@ -1,0 +1,15 @@
+{
+    "extends": "@tsconfig/recommended/tsconfig.json",
+    "compilerOptions": {
+        "lib": ["es5", "es6","es2018", "dom"],
+        "module": "ESNext",
+        "types": ["jest", "node"],
+        "target": "es5",
+        "allowJs": false,
+        "strict": true,
+        "strictNullChecks": true,
+        "declaration": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["node_modules"]
+}

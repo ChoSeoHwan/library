@@ -1,0 +1,32 @@
+{
+  "name": "@choseohwan/tsconfig",
+  "version": "1.0.0",
+  "description": "choseohwan's tsconfig library",
+  "keywords": [
+    "tsconfig",
+    "typescript",
+    "config"
+  ],
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "main": "lib/tsconfig.base.json",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1"
+  },
+  "scripts": {}
+}
