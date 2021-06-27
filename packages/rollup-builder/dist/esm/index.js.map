@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../../../src/index.ts"],"sourcesContent":["export const test = 'test';"],"names":["test"],"mappings":"IAAaA,EAAO"}
+{"version":3,"file":"index.js","sources":["../../../src/index.ts"],"sourcesContent":["export const test = 'test';\nconst a = 1;\nif (a === 1) {\n    console.log('true');\n}\n"],"names":["test","console","log"],"mappings":"IAAaA,EAAO,OAGhBC,QAAQC,IAAI"}
