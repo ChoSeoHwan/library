@@ -44,7 +44,6 @@
   },
   "scripts": {
     "prepublish": "yarn build",
-    "preversion": "yarn build",
     "build": "rollup -c rollup.config.js",
     "eslint": "eslint src/**/*.ts",
     "eslint:fix": "yarn eslint --fix"
