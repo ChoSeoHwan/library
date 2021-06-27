@@ -1,26 +1,26 @@
-import { terser } from "rollup-plugin-terser";
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescriptPlugin from "@rollup/plugin-typescript";
-import babel from "@rollup/plugin-babel";
-import cleaner from "rollup-plugin-cleaner";
-import { DEFAULT_EXTENSIONS } from "@babel/core";
-import typescript from "typescript";
+import { terser } from 'rollup-plugin-terser';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescriptPlugin from '@rollup/plugin-typescript';
+import babel from '@rollup/plugin-babel';
+import cleaner from 'rollup-plugin-cleaner';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import typescript from 'typescript';
 
 const typescriptOptions = {
     typescript,
-    tsconfig: "tsconfig.json",
+    tsconfig: 'tsconfig.json'
 };
 
 const commonJSOptions = {
-    extensions: [".js", ".ts"],
-    include: ["node_modules/**"]
+    extensions: ['.js', '.ts'],
+    include: ['node_modules/**']
 };
 
 const babelOptions = {
-    extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
+    extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
     babelHelpers: 'runtime',
-    plugins: ["@babel/plugin-transform-runtime"]
+    plugins: ['@babel/plugin-transform-runtime']
 };
 
 const resolveOptions = {
@@ -42,7 +42,7 @@ export default [
             }
         ],
         plugins: [
-            cleaner({targets: ['dist/esm']}),
+            cleaner({ targets: ['dist/esm'] }),
             resolve(resolveOptions),
             commonjs(commonJSOptions),
             typescriptPlugin({
@@ -64,7 +64,7 @@ export default [
             }
         ],
         plugins: [
-            cleaner({targets: ['dist/umd']}),
+            cleaner({ targets: ['dist/umd'] }),
             resolve(resolveOptions),
             commonjs(commonJSOptions),
             typescriptPlugin({
@@ -74,5 +74,5 @@ export default [
             babel(babelOptions),
             terser()
         ]
-    },
-]
+    }
+];

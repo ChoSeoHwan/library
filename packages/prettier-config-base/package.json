@@ -1,0 +1,29 @@
+{
+  "name": "@choseohwan/prettier-config-base",
+  "version": "1.0.0",
+  "description": "prettier base config",
+  "keywords": [
+    "prettier",
+    "config"
+  ],
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "main": ".prettierrc.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}
