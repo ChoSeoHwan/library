@@ -15,14 +15,18 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
+  "gitHead": "e8bd9ef4da062dfaf8754b9fe9fc4a3f8b35d6fb",
   "main": "dist/esm/index.js",
   "directories": {
-    "src": "src",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
     "src"
   ],
+  "dependencies": {
+    "@choseohwan/eslint-config-base": "^1.0",
+    "@choseohwan/prettier-config-base": "^1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/plugin-transform-arrow-functions": "^7.14.5",
@@ -41,7 +45,8 @@
   "scripts": {
     "prepublish": "yarn build",
     "preversion": "yarn build",
-    "build": "rollup -c rollup.config.js"
-  },
-  "gitHead": "e8bd9ef4da062dfaf8754b9fe9fc4a3f8b35d6fb"
+    "build": "rollup -c rollup.config.js",
+    "eslint": "eslint src/**/*.ts",
+    "eslint:fix": "yarn eslint --fix"
+  }
 }

@@ -5,8 +5,8 @@
   "repository": "https://github.com/ChoSeoHwan/library.git",
   "author": "wtae1216 <wtae1216@gmail.com>",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
-    "eslint": "^7.28.0",
     "lerna": "^4.0.0",
     "rollup": "^2.51.2",
     "typescript": "^4.3.2"
