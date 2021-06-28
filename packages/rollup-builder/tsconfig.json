@@ -1,5 +1,5 @@
 {
-    "extends": "@choseohwan/tsconfig/lib/tsconfig.base.json",
+    "extends": "@choseohwan/tsconfig-base",
     "compilerOptions": {
         "rootDir": "src",
         "baseUrl": "src"
