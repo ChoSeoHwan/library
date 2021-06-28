@@ -1,5 +1,5 @@
 {
-  "name": "@choseohwan/tsconfig",
+  "name": "@choseohwan/tsconfig-base",
   "version": "1.0.2",
   "description": "choseohwan's tsconfig library",
   "keywords": [
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "main": "lib/tsconfig.base.json",
+  "main": "tsconfig.json",
   "directories": {
     "lib": "lib"
   },
