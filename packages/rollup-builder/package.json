@@ -49,6 +49,6 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "prepublish": "yarn build",
-    "build": "yarn eslint-fix && yarn test && rollup -c rollup.config.js"
+    "build": "yarn eslint:fix && yarn test && rollup -c rollup.config.js"
   }
 }
