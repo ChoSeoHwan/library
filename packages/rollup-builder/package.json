@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "@choseohwan/eslint-config-base": "^1.0.1",
+    "@choseohwan/jest-config-base": "^1.0",
     "@choseohwan/prettier-config-base": "^1.0.1",
     "@choseohwan/tsconfig-base": "^1.0.4"
   },
@@ -43,9 +44,11 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "scripts": {
+    "eslint": "eslint src/**/*.ts __tests__/**/*.[jt]s",
+    "eslint:fix": "yarn eslint --fix",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "prepublish": "yarn build",
-    "build": "rollup -c rollup.config.js",
-    "eslint": "eslint src/**/*.ts",
-    "eslint:fix": "yarn eslint --fix"
+    "build": "yarn eslint-fix && yarn test && rollup -c rollup.config.js"
   }
 }

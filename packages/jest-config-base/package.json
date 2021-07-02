@@ -1,0 +1,27 @@
+{
+  "name": "@choseohwan/jest-config-base",
+  "version": "1.0.0",
+  "description": "jest base config for @choseohwan packages",
+  "keywords": [
+    "jest",
+    "config"
+  ],
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "main": "jest.config.js",
+  "scripts": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.6",
+    "jest-html-reporter": "^3.4.1",
+    "ts-jest": "^27.0.3"
+  }
+}

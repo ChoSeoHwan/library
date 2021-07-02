@@ -1,5 +1,8 @@
 {
     "extends": [
         "@choseohwan/eslint-config-base"
-    ]
+    ],
+    "env": {
+        "node": true
+    }
 }
