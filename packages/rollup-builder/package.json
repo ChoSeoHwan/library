@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@choseohwan/eslint-config-base": "^1.0.1",
-    "@choseohwan/jest-config-base": "^1.0",
+    "@choseohwan/jest-config-base": "^1.0.1",
     "@choseohwan/prettier-config-base": "^1.0.1",
     "@choseohwan/tsconfig-base": "^1.0.4"
   },
