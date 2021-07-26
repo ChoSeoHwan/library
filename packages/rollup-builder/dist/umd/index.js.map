@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../../../src/index.ts"],"sourcesContent":["export const test = 'test';\nconst a = 1;\nif (a === 1) {\n    console.log('true');\n}\n"],"names":["console","log"],"mappings":"qPAGIA,QAAQC,IAAI,eAHI"}
