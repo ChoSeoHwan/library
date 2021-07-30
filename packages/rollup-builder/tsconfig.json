@@ -1,9 +1,12 @@
 {
     "extends": "@choseohwan/tsconfig-base",
     "compilerOptions": {
-        "rootDir": "src",
-        "baseUrl": "src"
+        "rootDir": "./",
+        "baseUrl": "./",
+        "paths": {
+            "~src/*": ["src/*"]
+        }
     },
-    "include": ["src/*"],
-    "exclude": ["dist/*"]
+    "include": ["src/**/*"],
+    "exclude": ["dist/**/*"]
 }

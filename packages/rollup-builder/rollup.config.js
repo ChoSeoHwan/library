@@ -1,14 +1,12 @@
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescriptPlugin from '@rollup/plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import cleaner from 'rollup-plugin-cleaner';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
-import typescript from 'typescript';
 
 const typescriptOptions = {
-    typescript,
     tsconfig: 'tsconfig.json'
 };
 
@@ -20,32 +18,37 @@ const commonJSOptions = {
 const babelOptions = {
     extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
     babelHelpers: 'runtime',
-    plugins: ['@babel/plugin-transform-runtime']
+    plugins: [
+        '@babel/plugin-transform-runtime',
+        '@babel/plugin-transform-arrow-functions'
+    ]
 };
 
 const resolveOptions = {
     browser: true
 };
 
-const input = 'src/index.ts',
-    name = 'rollupBuilder';
+const name = 'rollupBuilder';
 
 export default [
     {
-        input,
+        input: {
+            'index': 'src/index.ts',
+            'option': 'src/option/index.ts',
+            'builder': 'src/builder/index.ts'
+        },
         output: [
             {
                 dir: 'dist/esm',
                 name,
                 format: 'es',
-                sourcemap: true
             }
         ],
         plugins: [
             cleaner({ targets: ['dist/esm'] }),
             resolve(resolveOptions),
             commonjs(commonJSOptions),
-            typescriptPlugin({
+            typescript({
                 ...typescriptOptions,
                 outDir: 'dist/esm'
             }),
@@ -54,7 +57,7 @@ export default [
         ]
     },
     {
-        input,
+        input: 'src/index.ts',
         output: [
             {
                 dir: 'dist/umd',
@@ -67,7 +70,7 @@ export default [
             cleaner({ targets: ['dist/umd'] }),
             resolve(resolveOptions),
             commonjs(commonJSOptions),
-            typescriptPlugin({
+            typescript({
                 ...typescriptOptions,
                 outDir: 'dist/umd'
             }),

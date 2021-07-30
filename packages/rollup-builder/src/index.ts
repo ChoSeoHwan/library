@@ -1,5 +1,5 @@
-export const test = 'test';
-const a = 1;
-if (a === 1) {
-    console.log('true');
-}
+import buildRollupOptions from '~src/buildRollupOptions';
+
+export * as builder from '~src/builder';
+export * as options from '~src/option';
+export default buildRollupOptions;
