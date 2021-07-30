@@ -5,22 +5,27 @@ import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import cleaner from 'rollup-plugin-cleaner';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const typescriptOptions = {
     tsconfig: 'tsconfig.json'
 };
 
 const commonJSOptions = {
-    extensions: ['.js', '.ts'],
-    include: ['node_modules/**']
+    extensions: ['.js', '.ts']
 };
 
 const babelOptions = {
-    extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
+    extensions: [...DEFAULT_EXTENSIONS, '.ts'],
     babelHelpers: 'runtime',
     plugins: [
         '@babel/plugin-transform-runtime',
-        '@babel/plugin-transform-arrow-functions'
+        [
+            '@babel/plugin-transform-arrow-functions',
+            {
+                "spec": true
+            }
+        ]
     ]
 };
 
@@ -46,14 +51,15 @@ export default [
         ],
         plugins: [
             cleaner({ targets: ['dist/esm'] }),
-            resolve(resolveOptions),
-            commonjs(commonJSOptions),
+            peerDepsExternal(),
             typescript({
                 ...typescriptOptions,
                 outDir: 'dist/esm'
             }),
             babel(babelOptions),
-            terser()
+            resolve(resolveOptions),
+            commonjs(commonJSOptions),
+            terser(),
         ]
     },
     {
@@ -68,14 +74,15 @@ export default [
         ],
         plugins: [
             cleaner({ targets: ['dist/umd'] }),
-            resolve(resolveOptions),
-            commonjs(commonJSOptions),
+            peerDepsExternal(),
             typescript({
                 ...typescriptOptions,
                 outDir: 'dist/umd'
             }),
             babel(babelOptions),
-            terser()
+            resolve(resolveOptions),
+            commonjs(commonJSOptions),
+            terser(),
         ]
     }
 ];
