@@ -4,10 +4,9 @@
         "rootDir": "./",
         "baseUrl": "./",
         "paths": {
-            "~src/*": ["src/*"],
-            "~types/*" : ["types/*"]
+            "~src/*": ["src/*"]
         }
     },
-    "include": ["src/**/*", "types/**/*"],
+    "include": ["src/**/*"],
     "exclude": ["dist/**/*"]
 }
