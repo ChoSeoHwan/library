@@ -83,11 +83,11 @@ export default [
             }
         ],
         plugins: [
-            cleaner({ targets: ['dist/esm'] }),
+            cleaner({ targets: ['dist/umd'] }),
             peerDepsExternal(),
             typescript({
                 ...typescriptOptions,
-                outDir: 'dist/esm',
+                outDir: 'dist/umd',
                 tsconfigDefaults: {
                     compilerOptions: {
                         plugins: [
