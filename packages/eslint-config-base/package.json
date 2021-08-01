@@ -34,6 +34,11 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsdoc": "^35.4.3",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0"
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.3.2"
+  },
+  "peerDependencies": {
+    "eslint": "^7",
+    "prettier": "^2"
   }
 }
