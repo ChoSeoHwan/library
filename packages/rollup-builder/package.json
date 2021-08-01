@@ -68,7 +68,7 @@
     "eslint:fix": "yarn eslint --fix",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "prepublish": "yarn build",
+    "preversion": "yarn build",
     "build": "rollup -c rollup.config.js"
   },
   "peerDependencies": {
