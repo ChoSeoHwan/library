@@ -1,13 +1,15 @@
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import cleaner from 'rollup-plugin-cleaner';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import ttypescript from 'ttypescript';
+import typescript from 'rollup-plugin-typescript2';
 
 const typescriptOptions = {
+    typescript: ttypescript,
     tsconfig: 'tsconfig.json'
 };
 
@@ -47,6 +49,7 @@ export default [
                 dir: 'dist/esm',
                 name,
                 format: 'es',
+                sourcemap: false
             }
         ],
         plugins: [
@@ -54,7 +57,14 @@ export default [
             peerDepsExternal(),
             typescript({
                 ...typescriptOptions,
-                outDir: 'dist/esm'
+                outDir: 'dist/esm',
+                tsconfigDefaults: {
+                    compilerOptions: {
+                        plugins: [
+                            { "transform": "typescript-transform-paths", "afterDeclarations": true }
+                        ]
+                    }
+                }
             }),
             babel(babelOptions),
             resolve(resolveOptions),
@@ -69,15 +79,22 @@ export default [
                 dir: 'dist/umd',
                 name,
                 format: 'umd',
-                sourcemap: true
+                sourcemap: false
             }
         ],
         plugins: [
-            cleaner({ targets: ['dist/umd'] }),
+            cleaner({ targets: ['dist/esm'] }),
             peerDepsExternal(),
             typescript({
                 ...typescriptOptions,
-                outDir: 'dist/umd'
+                outDir: 'dist/esm',
+                tsconfigDefaults: {
+                    compilerOptions: {
+                        plugins: [
+                            { "transform": "typescript-transform-paths", "afterDeclarations": true }
+                        ]
+                    }
+                }
             }),
             babel(babelOptions),
             resolve(resolveOptions),
