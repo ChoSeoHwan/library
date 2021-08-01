@@ -1,12 +1,12 @@
 declare module 'rollup-plugin-cleaner' {
     import { Plugin } from 'rollup';
 
-    interface CleanerOption {
+    interface Parameters {
         targets?: string[];
         silent?: boolean;
     }
 
-    function cleaner(option: CleanerOption): Plugin;
+    function cleaner(option: Parameters): Plugin;
 
     export default cleaner;
 }
