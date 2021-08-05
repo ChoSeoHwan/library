@@ -81,7 +81,7 @@ Add separator(,) to number.
 ***Usage***
 
 ```typescript
-import '@choseohwan/utils/prototype';
+import '@choseohwan/utils/prototypes';
 
 const number = 123456789;
 console.log(`number: ${number.addSeparator()}`);
@@ -120,7 +120,7 @@ Add separator(,) to number.
 ***Usage***
 
 ```typescript
-import '@choseohwan/utils/prototype';
+import '@choseohwan/utils/prototypes';
 
 const number = 123456;
 console.log(`number: ${number.convertKorean()}`);
