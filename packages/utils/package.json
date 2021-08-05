@@ -9,8 +9,18 @@
   "author": "wtae1216 <wtae1216@gmail.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/src/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "./": [
+        "dist/esm/src/option/index.d.ts"
+      ],
+      "./prototypes": [
+        "dist/esm/src/prototypes/index.d.ts"
+      ]
+    }
+  },
   "directories": {
     "src": "src",
     "dist": "dist"
