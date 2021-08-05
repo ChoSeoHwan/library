@@ -2,7 +2,8 @@ name: publish test version
 
 on:
   push:
-    branches: [ test ]
+    branches: 
+      - test
 
 jobs:
   CD:
