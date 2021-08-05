@@ -11,5 +11,10 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+
+      - name: create test version
+        run: |
+          lerna version --conventional-prerelease --preid beta -m "create test version : %v"
+
       - name: publish test version
-        run: lerna publish from-package --canary --preid beta --dist-tag test
+        run: lerna publish from-package --dist-tag test
