@@ -15,13 +15,6 @@
     "./": "./dist/esm/index.js",
     "./prototypes": "./dist/esm/prototypes.js"
   },
-  "typesVersions": {
-    "*": {
-      "prototypes": [
-        "dist/esm/src/prototypes/index.d.ts"
-      ]
-    }
-  },
   "directories": {
     "src": "src",
     "dist": "dist"
