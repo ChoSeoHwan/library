@@ -19,7 +19,7 @@ jobs:
 
       - name: config npm token
         run: |
-          - echo "//registry.npmjs.org/:_authToken=${{secrets.npm_token}}" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{secrets.npm_token}}" > .npmrc
 
       - name: create test version
         run: |
