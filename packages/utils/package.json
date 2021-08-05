@@ -11,12 +11,13 @@
   "license": "ISC",
   "main": "dist/esm/index.js",
   "types": "dist/esm/src/index.d.ts",
+  "exports": {
+    "./": "./dist/esm/index.js",
+    "./prototypes": "./dist/esm/prototypes.js"
+  },
   "typesVersions": {
     "*": {
-      "./": [
-        "dist/esm/src/option/index.d.ts"
-      ],
-      "./prototypes": [
+      "prototypes": [
         "dist/esm/src/prototypes/index.d.ts"
       ]
     }
