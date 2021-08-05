@@ -101,6 +101,3 @@ typings/
 .tern-port
 
 .idea
-
-# dist
-./packages/utils/dist
