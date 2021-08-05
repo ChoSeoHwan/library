@@ -23,7 +23,8 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "peerDependencies": {
     "prettier": "^2.3.2"
   }
 }
