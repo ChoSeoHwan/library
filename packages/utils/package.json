@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -50,7 +50,7 @@
     "@choseohwan/eslint-config-base": "^1.0.4",
     "@choseohwan/jest-config-base": "^1.0.1",
     "@choseohwan/prettier-config-base": "^1.0.1",
-    "@choseohwan/rollup-builder": "^1.0.20",
+    "@choseohwan/rollup-builder": "^1.0.22",
     "@choseohwan/tsconfig-base": "^1.0.5"
   }
 }
