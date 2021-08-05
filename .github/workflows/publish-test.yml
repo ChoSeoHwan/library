@@ -1,0 +1,13 @@
+name: publish test version
+
+on:
+  push:
+    branches: [ test ]
+
+jobs:
+  CD:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: publish test version
+        run: lerna publish from-package --canary --preid beta --dist-tag test
