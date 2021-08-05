@@ -22,4 +22,6 @@ jobs:
           lerna version --conventional-prerelease --preid beta -m "create test version : %v" --yes
 
       - name: publish test version
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
         run: lerna publish from-package --dist-tag test --yes
