@@ -1,0 +1,41 @@
+{
+  "name": "@choseohwan/utils",
+  "version": "1.0.0",
+  "description": "typescript utility functions",
+  "keywords": [
+    "utils",
+    "utilities"
+  ],
+  "author": "wtae1216 <wtae1216@gmail.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "main": "lib/utils.js",
+  "directories": {},
+  "files": [],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "scripts": {
+    "eslint": "eslint './src/**/*.ts'",
+    "eslint:fix": "yarn eslint --fix",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "prepublish": "yarn build",
+    "build": "rollup -c rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "devDependencies": {
+    "@choseohwan/eslint-config-base": "^1.0.4",
+    "@choseohwan/jest-config-base": "^1.0.1",
+    "@choseohwan/prettier-config-base": "^1.0.1",
+    "@choseohwan/rollup-builder": "^1.0.20",
+    "@choseohwan/tsconfig-base": "^1.0.5"
+  },
+  "dependencies": {}
+}
