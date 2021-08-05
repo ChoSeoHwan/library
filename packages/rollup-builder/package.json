@@ -66,8 +66,11 @@
     "@rollup/plugin-node-resolve": "^13.0",
     "rollup-plugin-cleaner": "^1.0",
     "rollup-plugin-terser": "^7.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "ttypescript": "^1.5.12",
-    "typescript-transform-paths": "^3.1.0"
+    "rollup-plugin-typescript2": "^0.30",
+    "ttypescript": "^1.5",
+    "typescript-transform-paths": "^3.1",
+    "rollup": "^2.51",
+    "typescript": "^4.3",
+    "ts-node": ">=8.0.2"
   }
 }
