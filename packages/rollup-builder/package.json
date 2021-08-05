@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
@@ -64,6 +64,7 @@
     "@rollup/plugin-babel": "^5.3",
     "@rollup/plugin-commonjs": "^20.0",
     "@rollup/plugin-node-resolve": "^13.0",
+    "@types/node": "^16.4",
     "rollup": "^2.51",
     "rollup-plugin-cleaner": "^1.0",
     "rollup-plugin-terser": "^7.0",
@@ -71,7 +72,6 @@
     "ts-node": ">=8.0.2",
     "ttypescript": "^1.5",
     "typescript": "^4.3",
-    "typescript-transform-paths": "^3.1",
-    "@types/node": "^16.4"
+    "typescript-transform-paths": "^3.1"
   }
 }
