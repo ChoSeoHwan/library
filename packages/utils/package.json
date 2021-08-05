@@ -9,9 +9,15 @@
   "author": "wtae1216 <wtae1216@gmail.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "lib/utils.js",
-  "directories": {},
-  "files": [],
+  "main": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "src": "src",
+    "dist": "dist"
+  },
+  "files": [
+    "dist/*"
+  ],
   "publishConfig": {
     "access": "public"
   },
