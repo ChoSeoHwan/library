@@ -10,5 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: actions/checkout@v2
       - name: publish test version
         run: lerna publish from-package --canary --preid beta --dist-tag test
