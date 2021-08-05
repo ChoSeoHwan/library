@@ -5,12 +5,12 @@ javascript/typescript utility functions for @choseohwan project
 ## Install
 
 ### npm
-```bat
+```shell
 npm install @choseohwan/utils --save-dev
 ```
 
 ### yarn
-```bat
+```shell
 yarn add @choseohwan/utils -D
 ```
 

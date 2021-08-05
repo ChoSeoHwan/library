@@ -1,17 +1,17 @@
 # `@choseohwan/prettier-config-base`
 
-base prettier config for @choseohwan project
+base prettier config for SeoHwan Cho's project
 
 ## Install
 
 ### npm
-```bat
-npm install @choseohwan/prettier-config-base --save-dev
+```shell
+npm install @choseohwan/prettier-config-base prettier --save-dev
 ```
 
 ### yarn
-```bat
-yarn add @choseohwan/prettier-config-base -D
+```shell
+yarn add @choseohwan/prettier-config-base prettier -D
 ```
 
 ## Usage

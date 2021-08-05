@@ -1,17 +1,17 @@
 # `jest-config-base`
 
-jest base config for @choseohwan project
+jest base config for SeoHwan Cho's project
 
 ## Install
 
 ### npm
-```bat
-npm install @choseohwan/jest-config-base --save-dev
+```shell
+npm install @choseohwan/jest-config-base jest @types/jest ts-jest --save-dev
 ```
 
 ### yarn
-```bat
-yarn add @choseohwan/jest-config-base -D
+```shell
+yarn add @choseohwan/jest-config-base jest @types/jest ts-jest -D
 ```
 
 ## Usage
