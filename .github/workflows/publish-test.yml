@@ -12,6 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: config git user
+        run: |
+          git config user.name github-actions
+          git config user.emil wtae1216@gmail.com
+
       - name: create test version
         run: |
           lerna version --conventional-prerelease --preid beta -m "create test version : %v" --yes
