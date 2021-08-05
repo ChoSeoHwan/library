@@ -1,17 +1,17 @@
-# `tsconfig`
+# `tsconfig-base`
 
-tsconfig base config for @choseohwan project
+tsconfig base config for SeoHwan Cho's project
 
 ## Install
 
 ### npm
-```bat
-npm install @choseohwan/tsconfig-base --save-dev
+```shell
+npm install @choseohwan/tsconfig-base typescript --save-dev
 ```
 
 ### yarn
-```bat
-yarn add @choseohwan/tsconfig-base -D
+```shell
+yarn add @choseohwan/tsconfig-base typescript -D
 ```
 
 ## Usage

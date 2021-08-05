@@ -1,17 +1,17 @@
 # `@choseohwan/eslint-config-base`
 
-eslint base config for @choseohwan project
+eslint base config for SeoHwan Cho's project
 
 ## Install
 
 ### npm
-```bat
-npm install @choseohwan/eslint-config-base --save-dev
+```shell
+npm install @choseohwan/eslint-config-base eslint prettier typescript --save-dev
 ```
 
 ### yarn
-```bat
-yarn add @choseohwan/eslint-config-base -D
+```shell
+yarn add @choseohwan/eslint-config-base eslint prettier typescript -D
 ```
 
 ## Usage

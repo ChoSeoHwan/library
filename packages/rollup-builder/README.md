@@ -1,16 +1,16 @@
 # `@choseohwan/rollup-builder`
 
-rollup builder fo rollup config easier
+rollup builder for rollup config easier
 
 ## Install
 
 ### npm
-```bat
+```shell
 npm install @choseohwan/rollup-builder --save-dev
 ```
 
 ### yarn
-```bat
+```shell
 yarn add @choseohwan/rollup-builder -D
 ```
 
