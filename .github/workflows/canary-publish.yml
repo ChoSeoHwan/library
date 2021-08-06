@@ -31,3 +31,20 @@ jobs:
             } catch (err) {
               core.setFailed(`Request failed with error ${err}`)
             }
+
+      - name: get comment with upgrade text
+        uses: peter-evans/find-comment@v1
+        id: comment
+        with:
+          issue-number: ${{ fromJSON(steps.pr.outputs.result).number }}
+          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
+          body-includes: "#upgrade-type@"
+
+      - name: get upgrade type from comment
+        uses: actions/github-script@v4
+        env:
+          COMMENT_BODY: ${{ steps.comment.outputs.comment-body }}
+        with:
+          script: |
+            const commentBody = ${COMMENT_BODY}
+            core.info(`comment body is ${commentBody}`)
