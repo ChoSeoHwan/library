@@ -39,6 +39,7 @@ jobs:
           issue-number: ${{ fromJSON(steps.pr.outputs.result).number }}
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
           body-includes: "#upgrade-type@"
+          direction: last
 
       - name: get upgrade type from comment
         uses: actions/github-script@v4
