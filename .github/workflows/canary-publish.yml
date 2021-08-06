@@ -46,5 +46,6 @@ jobs:
           COMMENT_BODY: ${{ steps.comment.outputs.comment-body }}
         with:
           script: |
-            const commentBody = ${COMMENT_BODY}
-            core.info(`comment body is ${commentBody}`)
+            const { COMMENT_BODY } = process.env
+
+            core.info(`comment body : ${COMMENT_BODY}`)
