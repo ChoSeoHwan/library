@@ -1,0 +1,33 @@
+name: canary publish
+
+on:
+  issue_comment:
+    types: [ created ]
+
+jobs:
+  canary-publish:
+    name: canary-publish
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '#canary-publish')
+    steps:
+      - name: get pr information
+        uses: actions/github-script@v4
+        id: pr
+        with:
+          script: |
+            const request = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            }
+
+            core.info(`Getting PR #${request.pull_number} from ${request.owner}/${request.repo}`)
+            try {
+              const result = await github.pulls.get(request)
+              core.info(`Got PR: ${JSON.stringify(result.data)}`)
+              return result.data
+            } catch (err) {
+              core.setFailed(`Request failed with error ${err}`)
+            }
