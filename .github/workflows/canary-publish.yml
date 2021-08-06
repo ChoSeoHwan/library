@@ -32,17 +32,26 @@ jobs:
               core.setFailed(`Request failed with error ${err}`)
             }
 
-      - name: get upgrade type from comment
+      - name: get upgrade type from label
         uses: actions/github-script@v4
         env:
-          LABELS: ${{ fromJSON(steps.pr.outputs.result).labels }}
+          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { LABELS } = process.env
+            let { LABELS } = process.env;
+            LABELS = JSON.parse(LABELS);
+
             const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
             const upgradeLabels = LABELS.filter((label) => regexp.test(label));
 
             if (upgradeLabels.length > 1) {
+              github.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: '❗ Canary publish Faild: Upgrade label must be include only once'
+              })
               throw new Error('Upgrade label must be include only once');
             }
 
@@ -51,8 +60,8 @@ jobs:
 
             const type = matches && matches[1] ? matches[1] : 'patch';
 
-            core.info(`Labels : ${JSON.stringify(LABELS)}`)
-            core.info(`Upgrade type : ${type}`)
+            core.info(`Labels : ${JSON.stringify(LABELS)}`);
+            core.info(`Upgrade type : ${type}`);
 
             return type;
 
