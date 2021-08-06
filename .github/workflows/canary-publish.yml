@@ -32,29 +32,26 @@ jobs:
               core.setFailed(`Request failed with error ${err}`)
             }
 
-      - name: get comment with upgrade text
-        uses: peter-evans/find-comment@v1
-        id: comment
-        with:
-          issue-number: ${{ fromJSON(steps.pr.outputs.result).number }}
-          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
-          body-includes: "/upgrade-type@"
-          direction: last
-
       - name: get upgrade type from comment
         uses: actions/github-script@v4
         env:
-          COMMENT_BODY: ${{ steps.comment.outputs.comment-body }}
+          LABELS: ${{ fromJSON(steps.pr.outputs.result).labels }}
         with:
           script: |
-            const { COMMENT_BODY } = process.env
+            const { LABELS } = process.env
+            const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
+            const upgradeLabels = LABELS.filter((label) => regexp.test(label));
 
-            const regexp = /\/upgrade-type@(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
-            const matches = COMMENT_BODY.match(regexp)
+            if (upgradeLabels.length > 1) {
+              throw new Error('Upgrade label must be include only once');
+            }
 
-            const type =  matches && matches[1] ? matches[1] : 'patch'
+            const label = upgradeLabels[0] || 'upgrade:patch';
+            const matches = label.match(regexp);
 
-            core.info(`Original comment body : ${COMMENT_BODY}`)
+            const type = matches && matches[1] ? matches[1] : 'patch';
+
+            core.info(`Labels : ${JSON.stringify(LABELS)}`)
             core.info(`Upgrade type : ${type}`)
 
             return type;
