@@ -35,4 +35,4 @@ jobs:
           lerna version --conventional-prerelease --preid beta -m "create test version" --yes
 
       - name: publish test version
-        run: lerna publish from-package --dist-tag test --yes
+        run: lerna publish from-package --dist-tag test -m "publish test version" --yes
