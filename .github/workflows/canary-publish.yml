@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '#canary-publish')
+      startsWith(github.event.comment.body, '/canary-publish')
     steps:
       - name: get pr information
         uses: actions/github-script@v4
@@ -38,7 +38,7 @@ jobs:
         with:
           issue-number: ${{ fromJSON(steps.pr.outputs.result).number }}
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
-          body-includes: "#upgrade-type@"
+          body-includes: "/upgrade-type@"
           direction: last
 
       - name: get upgrade type from comment
@@ -49,4 +49,13 @@ jobs:
           script: |
             const { COMMENT_BODY } = process.env
 
-            core.info(`comment body : ${COMMENT_BODY}`)
+            const regexp = /\/upgrade-type@(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
+            const matches = str.match(regexp)
+
+            const type =  matches && matches[1] ? matches[1] : 'patch'
+
+            core.info(`Original comment body : ${COMMENT_BODY}`)
+            core.info(`Upgrade type : ${type}`)
+
+            return type;
+
