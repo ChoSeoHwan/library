@@ -32,7 +32,7 @@ jobs:
 
       - name: create release version
         run: |
-          lerna version -m "create release version : %v" --yes
+          lerna version -m "create release version" --yes
 
       - name: publish test version
         run: lerna publish from-package --yes

@@ -32,7 +32,7 @@ jobs:
 
       - name: create test version
         run: |
-          lerna version --conventional-prerelease --preid beta -m "create test version : %v" --yes
+          lerna version --conventional-prerelease --preid beta -m "create test version" --yes
 
       - name: publish test version
         run: lerna publish from-package --dist-tag test --yes
