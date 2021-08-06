@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-base",
-  "version": "1.0.7",
+  "version": "1.0.8-next.14+96295d4",
   "description": "eslint config library",
   "keywords": [
     "eslint",
@@ -41,5 +41,6 @@
     "eslint": "^7",
     "prettier": "^2",
     "typescript": "^4"
-  }
+  },
+  "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
 }
