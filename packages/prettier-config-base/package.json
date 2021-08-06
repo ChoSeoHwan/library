@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/prettier-config-base",
-  "version": "1.0.3",
+  "version": "1.0.4-next.15",
   "description": "prettier base config",
   "keywords": [
     "prettier",
@@ -25,5 +25,6 @@
   },
   "peerDependencies": {
     "prettier": "^2.3.2"
-  }
+  },
+  "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
 }

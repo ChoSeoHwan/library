@@ -1,9 +1,9 @@
-name: publish test version
+name: publish release version
 
 on:
   push:
     branches: 
-      - test
+      - main
 
 jobs:
   CD:
@@ -30,9 +30,9 @@ jobs:
       - name: install packages
         run: yarn install
 
-      - name: create test version
+      - name: create release version
         run: |
-          lerna version --conventional-prerelease --preid beta -m "create test version" --yes
+          lerna version -m "create release version" --yes
 
       - name: publish test version
-        run: lerna publish from-package --dist-tag test -m "publish test version" --yes
+        run: lerna publish from-package --yes

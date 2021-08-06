@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/jest-config-base",
-  "version": "1.0.3",
+  "version": "1.0.4-next.15",
   "description": "jest base config for @choseohwan packages",
   "keywords": [
     "jest",
@@ -28,5 +28,6 @@
     "@types/jest": "^26.0.24",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.4"
-  }
+  },
+  "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
 }
