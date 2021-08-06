@@ -40,7 +40,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             let { LABELS } = process.env;
-            LABELS = JSON.parse(LABELS);
+            LABELS = JSON.parse(LABELS).map((label) => label.name);
 
             const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
             const upgradeLabels = LABELS.filter((label) => regexp.test(label));
