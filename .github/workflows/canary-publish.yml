@@ -50,7 +50,7 @@ jobs:
             const { COMMENT_BODY } = process.env
 
             const regexp = /\/upgrade-type@(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
-            const matches = str.match(regexp)
+            const matches = COMMENT_BODY.match(regexp)
 
             const type =  matches && matches[1] ? matches[1] : 'patch'
 
