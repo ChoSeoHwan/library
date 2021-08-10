@@ -73,13 +73,18 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: set npm autority
+        run: |
+          yarn logout
+          echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.npm_token }}
+
       - name: install dependencies
         run: yarn install
-
-      - name: set npm authority
-        uses: dkershner6/use-npm-token-action@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
 
       - name: publish package
         run: lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
