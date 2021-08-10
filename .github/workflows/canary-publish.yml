@@ -88,8 +88,15 @@ jobs:
         run: echo "::set-output name=list::$(lerna list --json)"
 
       - name: echo packages list
-        run:
-          echo ${{ fromJSON(steps.packages.outputs.list) }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { LIST } = process.env;
+
+            core.info(`list : ${LIST}`);
+        env:
+          LIST: ${{ steps.packages.outputs.list }}
 
 
 #      - name: install dependencies
