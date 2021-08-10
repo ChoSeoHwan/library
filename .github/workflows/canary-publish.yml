@@ -108,11 +108,10 @@ jobs:
         run: yarn install
 
       - name: publish package
-        run: lerna publish pre${{ env.TYPE }} --canary --preid ${{ env.NUMBER }}_${{ env.REF }} --dist-tag ${{ env.NUMBER }}_${{ env.REF }} --no-push --no-git-tag-version --yes
+        run: lerna publish pre${{ env.TYPE }} --canary --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
         env:
           TYPE: ${{ steps.upgrade-type.outputs.result }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
-          REF: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
 
       - name: PR comment
         if: always()
@@ -125,7 +124,7 @@ jobs:
             let message = '';
             switch (STATUS) {
               case 'success':
-                message = `🎉 canary publish complete! You can install canary version via \`yarn add package@${NUMBER}_${REF}\``;
+                message = `🎉 canary publish complete! You can install canary version via \`yarn add package@alpha-${NUMBER}\``;
                 break;
 
               case 'failure':
