@@ -1,4 +1,4 @@
-name: canary publish
+name: canary remove
 
 on:
   issue_comment:
@@ -6,11 +6,11 @@ on:
 
 jobs:
   canary-publish:
-    name: canary-publish
+    name: canary-remove
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
+      startsWith(github.event.comment.body, '/canary-remove')
     steps:
       - name: get pr information
         uses: actions/github-script@v4
@@ -31,35 +31,6 @@ jobs:
             } catch (err) {
               core.setFailed(`Request failed with error ${err}`)
             }
-
-      - name: get upgrade type from label
-        id: upgrade-type
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            let { LABELS } = process.env;
-            LABELS = JSON.parse(LABELS).map((label) => label.name);
-
-            const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
-            const upgradeLabels = LABELS.filter((label) => regexp.test(label));
-
-            if (upgradeLabels.length > 1) {
-              core.setFailed('Upgrade label must be include only once');
-              return;
-            }
-
-            const label = upgradeLabels[0] || 'upgrade:patch';
-            const matches = label.match(regexp);
-
-            const type = matches && matches[1] ? matches[1] : 'patch';
-
-            core.info(`Labels : ${JSON.stringify(LABELS)}`);
-            core.info(`Upgrade type : ${type}`);
-
-            return type;
-        env:
-          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -83,14 +54,26 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.npm_token }}
 
-      - name: install dependencies
-        run: yarn install
+      - name: get lerna packages list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
-      - name: publish package
-        run: lerna publish pre${{ env.TYPE }} --canary --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
+      - name: echo packages list
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            let { LIST } = process.env;
+
+            core.info(`list: ${LIST}`);
+            LIST = JSON.parse(LIST);
+
+            LIST.forEach((item) => {
+              core.info(`item: ${item.name}`);
+            });
+
         env:
-          TYPE: ${{ steps.upgrade-type.outputs.result }}
-          NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
+          LIST: ${{ steps.packages.outputs.list }}
 
       - name: PR comment
         if: always()
@@ -103,11 +86,11 @@ jobs:
             let message = '';
             switch (STATUS) {
               case 'success':
-                message = `🎉 canary publish complete! You can install canary version via \`yarn add package@alpha-${NUMBER}\``;
+                message = `🎉 canary remove complete! Removed tag is \`alpha-${NUMBER}\``;
                 break;
 
               case 'failure':
-                message = '❗ canary publish failed. Check error in github action page.';
+                message = '❗ canary remove failed. Check error in github action page.';
                 break;
             }
 
