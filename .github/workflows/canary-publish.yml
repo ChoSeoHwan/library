@@ -77,9 +77,9 @@ jobs:
         run: yarn install
 
       - name: set npm authority
-        run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: dkershner6/use-npm-token-action@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: publish package
         run: lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
