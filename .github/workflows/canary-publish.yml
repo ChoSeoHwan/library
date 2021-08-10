@@ -62,11 +62,12 @@ jobs:
 
       - name: PR comment
         if: always()
-        env:
-          STATUS: ${{job.status}}
+        uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { STATUS } = process.env;
 
             core.info(STATUS);
+        env:
+          STATUS: ${{job.status}}
