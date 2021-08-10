@@ -46,13 +46,8 @@ jobs:
             const upgradeLabels = LABELS.filter((label) => regexp.test(label));
 
             if (upgradeLabels.length > 1) {
-              github.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: '❗ Canary publish Faild: Upgrade label must be include only once'
-              })
-              throw new Error('Upgrade label must be include only once');
+              core.setFailed('Upgrade label must be include only once');
+              exit;
             }
 
             const label = upgradeLabels[0] || 'upgrade:patch';
@@ -65,3 +60,8 @@ jobs:
 
             return type;
 
+      - name: catch error
+        if: always()
+        run: echo $status
+        env:
+          statuc: ${{job.status}}
