@@ -47,7 +47,7 @@ jobs:
 
             if (upgradeLabels.length > 1) {
               core.setFailed('Upgrade label must be include only once');
-              exit;
+              return;
             }
 
             const label = upgradeLabels[0] || 'upgrade:patch';
@@ -68,6 +68,23 @@ jobs:
           script: |
             const { STATUS } = process.env;
 
-            core.info(STATUS);
+            let message = '';
+            switch (STATUS) {
+              case 'success':
+                message = '🎉 canary publish complete! You can install canary version via `yarn add package@beta`';
+                break;
+
+              case 'failure':
+                message = '❗ canary publish failed. Check error in github action page.';
+                break;
+            }
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            })
+
         env:
-          STATUS: ${{job.status}}
+          STATUS: ${{ job.status }}
