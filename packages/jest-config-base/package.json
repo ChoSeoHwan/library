@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/jest-config-base",
-  "version": "1.0.4-next.16",
+  "version": "1.0.4",
   "description": "jest base config for @choseohwan packages",
   "keywords": [
     "jest",
