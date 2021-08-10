@@ -33,9 +33,8 @@ jobs:
             }
 
       - name: get upgrade type from label
+        id: upgrade-type
         uses: actions/github-script@v4
-        env:
-          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -59,6 +58,8 @@ jobs:
             core.info(`Upgrade type : ${type}`);
 
             return type;
+        env:
+          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -74,6 +75,11 @@ jobs:
 
       - name: install dependencies
         run: yarn install
+
+      - name: publish package
+        run: lerna publish pre$TYPE --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
+        env:
+          TYPE: ${{ steps.upgrade-type.outputs.result }}
 
       - name: PR comment
         if: always()
