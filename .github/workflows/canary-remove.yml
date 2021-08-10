@@ -73,7 +73,7 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
-            LIST.forEach((item) => {
+            LIST.forEach(async (item) => {
               core.info(`remove canary: ${item.name}@alpha-${NUMBER}`);
               await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
             });
