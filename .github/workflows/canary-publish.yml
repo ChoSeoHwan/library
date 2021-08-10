@@ -87,7 +87,9 @@ jobs:
         run: yarn install
 
       - name: publish package
-        run: lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
+        run: |
+          ll ./node_modules/@choseohwan/rollup-builder/dist/
+          lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
         env:
           TYPE: ${{ steps.upgrade-type.outputs.result }}
 

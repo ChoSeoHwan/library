@@ -32,7 +32,6 @@ jobs:
 
       - name: create test version
         run: |
-          ll ./node_modules/@choseohwan/rollup-builder/dist/
           lerna version --conventional-prerelease --preid beta -m "create test version" --yes
 
       - name: publish test version
