@@ -85,16 +85,20 @@ jobs:
 
       - name: get lerna packages list
         id: packages
-        run: echo "::set-output name=list::toJSON($(lerna list --json | xargs))"
+        run: echo "::set-output name=list::$(lerna list --json | xargs)"
 
       - name: echo packages list
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { LIST } = process.env;
+            let { LIST } = process.env;
+            LIST = JSON.parse(LIST);
 
-            core.info(`list : ${LIST}`);
+            LIST.forEach((item) => {
+              core.info(`item: ${item.name}`);
+            });
+
         env:
           LIST: ${{ steps.packages.outputs.list }}
 
