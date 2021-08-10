@@ -88,7 +88,7 @@ jobs:
 
       - name: publish package
         run: |
-          ls -al ./node_modules/
+          ls -al ./node_modules/@choseohwan/
           lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
         env:
           TYPE: ${{ steps.upgrade-type.outputs.result }}
