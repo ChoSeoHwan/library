@@ -60,8 +60,13 @@ jobs:
 
             return type;
 
-      - name: catch error
+      - name: PR comment
         if: always()
-        run: echo $status
         env:
-          statuc: ${{job.status}}
+          STATUS: ${{job.status}}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { STATUS } = process.env;
+
+            core.info(STATUS);
