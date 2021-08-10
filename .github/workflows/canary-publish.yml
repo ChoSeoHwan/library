@@ -89,7 +89,7 @@ jobs:
 
       - name: echo packages list
         run:
-          echo ${{ steps.packages.outputs.list }}
+          echo ${{ fromJSON(steps.packages.outputs.list) }}
 
 
 #      - name: install dependencies
