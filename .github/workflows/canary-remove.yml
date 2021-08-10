@@ -58,22 +58,29 @@ jobs:
         id: packages
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
-      - name: echo packages list
+      - run: npm ci
+      - run: npm install @actions/exec
+
+      - name: remove canary tag
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            let { LIST } = process.env;
+            const exec = require('@actions/exec');
 
-            core.info(`list: ${LIST}`);
+            const { NUMBER } = process.env;
+
+            let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
             LIST.forEach((item) => {
-              core.info(`item: ${item.name}`);
+              core.info(`remove canary: ${item.name}@alpha-${NUMBER}`);
+              await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
             });
 
         env:
           LIST: ${{ steps.packages.outputs.list }}
+          NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
 
       - name: PR comment
         if: always()
