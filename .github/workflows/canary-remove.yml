@@ -58,7 +58,8 @@ jobs:
         id: packages
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
-      - run: yarn add @actions/exec
+      - run: yarn
+      - run: yarn add @actions/exec -W
 
       - name: remove canary tag
         uses: actions/github-script@v4
