@@ -60,6 +60,21 @@ jobs:
 
             return type;
 
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
+          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: install dependencies
+        run: yarn install
+
       - name: PR comment
         if: always()
         uses: actions/github-script@v4
