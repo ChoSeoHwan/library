@@ -83,37 +83,36 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.npm_token }}
 
-      - name: get lerna packages list
-        id: packages
-        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
-
-      - name: echo packages list
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            let { LIST } = process.env;
-
-            core.info(`list: ${LIST}`);
-            LIST = JSON.parse(LIST);
-
-            LIST.forEach((item) => {
-              core.info(`item: ${item.name}`);
-            });
-
-        env:
-          LIST: ${{ steps.packages.outputs.list }}
-
-
-#      - name: install dependencies
-#        run: yarn install
-
-#      - name: publish package
-#        run: |
-#          ls -al ./node_modules/@choseohwan/rollup-builder/
-#          lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
+#      - name: get lerna packages list
+#        id: packages
+#        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
+#
+#      - name: echo packages list
+#        uses: actions/github-script@v4
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          script: |
+#            let { LIST } = process.env;
+#
+#            core.info(`list: ${LIST}`);
+#            LIST = JSON.parse(LIST);
+#
+#            LIST.forEach((item) => {
+#              core.info(`item: ${item.name}`);
+#            });
+#
 #        env:
-#          TYPE: ${{ steps.upgrade-type.outputs.result }}
+#          LIST: ${{ steps.packages.outputs.list }}
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: publish package
+        run: |
+          ls -al ./node_modules/@choseohwan/rollup-builder/
+          lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
+        env:
+          TYPE: ${{ steps.upgrade-type.outputs.result }}
 
       - name: PR comment
         if: always()
