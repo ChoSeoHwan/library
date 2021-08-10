@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '#canary-publish')
+      startsWith(github.event.comment.body, '/canary-publish')
     steps:
       - name: get pr information
         uses: actions/github-script@v4
@@ -32,19 +32,92 @@ jobs:
               core.setFailed(`Request failed with error ${err}`)
             }
 
-      - name: get comment with upgrade text
-        uses: peter-evans/find-comment@v1
-        id: comment
-        with:
-          issue-number: ${{ fromJSON(steps.pr.outputs.result).number }}
-          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
-          body-includes: "#upgrade-type@"
-
-      - name: get upgrade type from comment
+      - name: get upgrade type from label
+        id: upgrade-type
         uses: actions/github-script@v4
-        env:
-          COMMENT_BODY: ${{ steps.comment.outputs.comment-body }}
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const commentBody = ${COMMENT_BODY}
-            core.info(`comment body is ${commentBody}`)
+            let { LABELS } = process.env;
+            LABELS = JSON.parse(LABELS).map((label) => label.name);
+
+            const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
+            const upgradeLabels = LABELS.filter((label) => regexp.test(label));
+
+            if (upgradeLabels.length > 1) {
+              core.setFailed('Upgrade label must be include only once');
+              return;
+            }
+
+            const label = upgradeLabels[0] || 'upgrade:patch';
+            const matches = label.match(regexp);
+
+            const type = matches && matches[1] ? matches[1] : 'patch';
+
+            core.info(`Labels : ${JSON.stringify(LABELS)}`);
+            core.info(`Upgrade type : ${type}`);
+
+            return type;
+        env:
+          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
+
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
+          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: set npm autority
+        run: |
+          yarn logout
+          echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.npm_token }}
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: publish package
+        run: |
+          ls -al ./node_modules/@choseohwan/rollup-builder/
+          lerna publish pre${{ env.TYPE }} --canary --preid beta --dist-tag beta --no-push --no-git-tag-version --yes
+        env:
+          TYPE: ${{ steps.upgrade-type.outputs.result }}
+
+      - name: PR comment
+        if: always()
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { STATUS } = process.env;
+
+            let message = '';
+            switch (STATUS) {
+              case 'success':
+                message = '🎉 canary publish complete! You can install canary version via `yarn add package@beta`';
+                break;
+
+              case 'failure':
+                message = '❗ canary publish failed. Check error in github action page.';
+                break;
+            }
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            })
+
+        env:
+          STATUS: ${{ job.status }}
