@@ -82,7 +82,7 @@ jobs:
 
             const statusList = LIST.reduce((statusList, item) => {
               statusList[item.name] = true;
-              return statusList;:
+              return statusList;
             }, {});
 
             const promises = LIST.map(async (item) => {
