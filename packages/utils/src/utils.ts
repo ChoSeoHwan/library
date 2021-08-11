@@ -8,5 +8,5 @@ export const delay = (time: number): Promise<void> =>
     new Promise((resolve) => {
         setTimeout(resolve, time);
 
-        console.log('test_pr_2');
+        console.log('test_pr_3');
     });
