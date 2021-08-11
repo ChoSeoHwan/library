@@ -85,10 +85,10 @@ jobs:
             });
 
             await Promise.all(promise);
-            core.info(`LIST: ${LIST.length}, ERROR: ${errorCnt}`);
+            core.info(`Packages count: ${LIST.length}\nError count: ${errorCnt}`);
 
             if (errorCnt >= LIST.length) {
-              core.setFailed('all packges remove tag failed');
+              core.setFailed('Failed to delete tags from all packages.');
             }
 
         env:
