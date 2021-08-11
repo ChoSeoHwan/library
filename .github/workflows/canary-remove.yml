@@ -15,12 +15,13 @@ jobs:
       - name: Comment to command
         uses: hasura/comment-progress@v2.1.0
         with:
-          id: canary-remove-comment
+          id: canary-remove-comment-${{ github.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.issue.number }}
           message: |
             > /canary-remove
+
             Trying to remove canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
@@ -81,6 +82,7 @@ jobs:
 
             const statusList = LIST.reduce((statusList, item) => {
               statusList[item.name] = true;
+              return statusList;:
             }, {});
 
             const promises = LIST.map(async (item) => {
