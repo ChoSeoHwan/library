@@ -74,7 +74,7 @@ jobs:
             LIST = JSON.parse(LIST);
 
             let errorCnt = 0;
-            LIST.forEach(async (item) => {
+            const promise = LIST.map(async (item) => {
               try {
                 core.info(`Try to remove canary version: ${item.name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
@@ -84,6 +84,7 @@ jobs:
               }
             });
 
+            await Promise.all(promise);
             core.info(`LIST: ${LIST.length}, ERROR: ${errorCnt}`);
 
             if (errorCnt >= LIST.length) {
