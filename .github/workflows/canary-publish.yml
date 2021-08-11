@@ -77,6 +77,25 @@ jobs:
       - name: install dependencies
         run: yarn install
 
+      - name: get lerna changed list
+        id: changed-packages
+        run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
+
+      - name: check lerna changed list
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            let { LIST } = process.env;
+            LIST = JSON.parse(LIST);
+
+            if (LIST.length === 0) {
+              core.setFailed('No packages have changed');
+              return;
+            }
+        env:
+          LIST: ${{ steps.changed-packages.outputs.list }}
+
       - name: publish package
         run: lerna publish pre${{ env.TYPE }} --canary --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
         env:
@@ -94,5 +113,5 @@ jobs:
 
         env:
           STATUS: ${{ job.status }}
-          SUCCESS_MSG: "🎉 canary publish complete! You can install canary version via `yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
-          ERROR_MSG: "❗ canary publish failed. Check error in github action page."
+          SUCCESS_MSG: "🎉 canary publish complete!<br>You can install canary version via `yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
+          ERROR_MSG: "❗ canary publish failed.<br>Check error in github [action page](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})."

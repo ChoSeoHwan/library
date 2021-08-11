@@ -12,6 +12,19 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-remove')
     steps:
+      - name: Comment to command
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-remove-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.issue.number }}
+          message: |
+            > /canary-remove
+
+            Trying to remove canary version...
+            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
       - name: checkout master
         uses: actions/checkout@v2
 
@@ -45,17 +58,18 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.npm_token }}
 
-      - name: get lerna packages list
-        id: packages
-        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
-
       - name: install dependencies
         run: |
           yarn install
           yarn add @actions/exec -W
 
+      - name: get lerna packages list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
+
       - name: remove canary tag
         uses: actions/github-script@v4
+        id: removed-packages
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -66,38 +80,82 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
-            let errorCnt = 0;
-            const promise = LIST.map(async (item) => {
+            const statusList = LIST.reduce((statusList, item) => {
+              statusList[item.name] = true;
+              return statusList;
+            }, {});
+
+            const promises = LIST.map(async (item) => {
               try {
                 core.info(`Try to remove canary version: ${item.name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
               } catch (error) {
-                errorCnt++;
+                statusList[item.name] = false;
                 core.warning(`Remove failed: ${item.name}@alpha-${NUMBER} `);
               }
             });
 
-            await Promise.all(promise);
-            core.info(`Packages count: ${LIST.length}\nError count: ${errorCnt}`);
+            await Promise.all(promises);
 
-            if (errorCnt >= LIST.length) {
-              core.setFailed('Failed to delete tags from all packages.');
+            let errorCount = 0;
+            const removedPackages = [];
+            for (const name in statusList) {
+              if (!statusList[name]) errorCount++;
+              else removedPackages.push(name);
             }
+
+            core.info(`Packages count: ${LIST.length}\nError count: ${errorCount}`);
+
+            if (errorCount >= LIST.length) {
+              core.setFailed('Failed to delete tags from all packages.');
+              return [];
+            }
+
+            return removedPackages;
 
         env:
           LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
 
-      - name: PR comment
+      - name: make comment
         if: always()
+        id: comment
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { errorHandler } = require('./.github/scripts');
-            await errorHandler({ github, context });
+            const { STATUS, TAG, ACTION_URL, REMOVED_PACKAGES } = process.env;
 
+            let message = "> /canary-remove\r\n\r\n";
+
+            switch (STATUS) {
+              case 'success':
+                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n`;
+                message += '**List of packages with tags removed**\r\n'
+                REMOVED_PACKAGES.forEach((package) => {
+                  message += `- ${package}\r\n`
+                });
+
+                break;
+
+              case 'failure':
+                message += `❗ canary remove failed.\r\nCheck error in github [action page](${ACTION_URL}).\r\n`;
+                break;
+            }
+
+            return { message };
         env:
           STATUS: ${{ job.status }}
-          SUCCESS_MSG: "🎉 canary remove complete! Removed tag is `alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
-          ERROR_MSG: "❗ canary remove failed. Check error in github action page."
+          TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
+          ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
+
+      - name: Comment on results
+        if: always()
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-remove-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.issue.number }}
+          message: ${{ fromJSON(steps.comment.outputs.result).message }}
