@@ -98,26 +98,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { STATUS, NUMBER } = process.env;
-
-            let message = '';
-            switch (STATUS) {
-              case 'success':
-                message = `🎉 canary publish complete! You can install canary version via \`yarn add package@alpha-${NUMBER}\``;
-                break;
-
-              case 'failure':
-                message = '❗ canary publish failed. Check error in github action page.';
-                break;
-            }
-
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: message
-            })
+            const script = require('../scripts/errorHandler.js');
+            await script({ github, context });
 
         env:
           STATUS: ${{ job.status }}
-          NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
+          SUCCESS_MSG: "🎉 canary publish complete! You can install canary version via \`yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}\`"
+          ERROR_MSG: "❗ canary publish failed. Check error in github action page."
