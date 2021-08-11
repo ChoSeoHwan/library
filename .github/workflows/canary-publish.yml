@@ -90,9 +90,13 @@ jobs:
       - name: install dependencies
         run: yarn install
 
-      - name: get lerna changed list
+      - name: get lerna changed package list
         id: changed-packages
         run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
+
+      - name: get lerna package list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
       - name: check lerna changed list
         uses: actions/github-script@v4
@@ -123,16 +127,16 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL } = process.env;
 
-            let { CHANGED_PACKAGES } = process.env;
-            CHANGED_PACKAGES = JSON.parse(CHANGED_PACKAGES);
+            let { PACKAGES } = process.env;
+            PACKAGES = JSON.parse(PACKAGES);
 
             let message = "> /canary-publish\r\n\r\n";
             switch (STATUS) {
               case 'success':
                 message += `🎉 canary publish complete!\r\n`;
                 message += `You can install canary version via \`yarn add package@${TAG}\`\r\n\r\n`
-                message += '**List of distributed packages**\r\n'
-                CHANGED_PACKAGES.forEach(({ name }) => {
+                message += '**Package list**\r\n'
+                PACKAGES.forEach(({ name }) => {
                   message += `- ${name}\r\n`
                 });
 
@@ -148,7 +152,7 @@ jobs:
           STATUS: ${{ job.status }}
           TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          CHANGED_PACKAGES: ${{ steps.changed-packages.outputs.list }}
+          PACKAGES: ${{ steps.packages.outputs.list }}
 
       - name: Comment on results
         if: always()
