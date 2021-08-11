@@ -12,6 +12,15 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-remove')
     steps:
+      - name: Comment to command
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-remove-comment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.number }}
+          message: 'Trying to remove canary version...'
+
       - name: checkout master
         uses: actions/checkout@v2
 
