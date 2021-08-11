@@ -80,7 +80,7 @@ jobs:
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
               } catch (error) {
                 errorCnt++;
-                core.notice(error.message);
+                core.info(error.message);
               }
             });
 
