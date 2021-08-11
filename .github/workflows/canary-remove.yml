@@ -88,7 +88,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const script = require('../scripts/errorHandler.js');
+            const script = require('./.github/scripts/errorHandler.js');
             await script({ github, context });
 
         env:
