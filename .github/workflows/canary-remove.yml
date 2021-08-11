@@ -126,7 +126,7 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL, REMOVED_PACKAGES } = process.env;
 
-            let message = '> /canary-remove\r\n\r\n';
+            let message = "> /canary-remove\r\n\r\n";
 
             switch (STATUS) {
               case 'success':
@@ -158,5 +158,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.issue.number }}
-          message: ${{ steps.comment.outputs.result }}
-          recreate: true
+          message: |
+            ${{ steps.comment.outputs.result }}
