@@ -103,5 +103,5 @@ jobs:
 
         env:
           STATUS: ${{ job.status }}
-          SUCCESS_MSG: "🎉 canary publish complete! You can install canary version via \`yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}\`"
+          SUCCESS_MSG: "🎉 canary publish complete! You can install canary version via `yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
           ERROR_MSG: "❗ canary publish failed. Check error in github action page."

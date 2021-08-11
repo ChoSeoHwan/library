@@ -93,5 +93,5 @@ jobs:
 
         env:
           STATUS: ${{ job.status }}
-          SUCCESS_MSG: "🎉 canary remove complete! Removed tag is \`alpha-${{ fromJSON(steps.pr.outputs.result).number }}\`"
+          SUCCESS_MSG: "🎉 canary remove complete! Removed tag is `alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
           ERROR_MSG: "❗ canary remove failed. Check error in github action page."
