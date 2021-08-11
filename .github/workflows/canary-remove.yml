@@ -12,6 +12,12 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-remove')
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: check git status
+        run: git status
+
       - name: get pr information
         uses: actions/github-script@v4
         id: pr
@@ -26,6 +32,9 @@ jobs:
           ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
           fetch-depth: 0
+
+      - name: check git status
+        run: git status
 
       - name: setup Node
         uses: actions/setup-node@v2
