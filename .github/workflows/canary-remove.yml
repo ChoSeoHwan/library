@@ -143,7 +143,7 @@ jobs:
                 break;
             }
 
-            return message;
+            return { message };
         env:
           STATUS: ${{ job.status }}
           TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
@@ -158,5 +158,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.issue.number }}
-          message: |
-            ${{ steps.comment.outputs.result }}
+          message: ${{ fromJSON(steps.comment.outputs.result).message }}
