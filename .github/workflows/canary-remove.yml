@@ -145,7 +145,7 @@ jobs:
           STATUS: ${{ job.status }}
           TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          REMOVED_PACKAGES: ${{ fromJSON(steps.removed-packages.outputs.result) }}
+          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
 
       - name: Comment on results
         uses: hasura/comment-progress@v2.1.0
