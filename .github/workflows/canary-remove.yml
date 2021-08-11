@@ -12,21 +12,16 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-remove')
     steps:
-      - name: checkout
+      - name: checkout master
         uses: actions/checkout@v2
-
-      - name: check git status
-        run: git status
 
       - name: get pr information
         uses: actions/github-script@v4
         id: pr
         with:
           script: |
-            core.info(`context: ${JSON.stringify(context)}`);
-
-            const script = require('./.github/scripts/getPrData.js');
-            return await script({ github, context, core });
+            const { getPrData } = require('./.github/scripts');
+            await getPrData({ github, context, core });
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -34,9 +29,6 @@ jobs:
           ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
           fetch-depth: 0
-
-      - name: check git status
-        run: git status
 
       - name: setup Node
         uses: actions/setup-node@v2
@@ -57,8 +49,10 @@ jobs:
         id: packages
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
-      - run: yarn
-      - run: yarn add @actions/exec -W
+      - name: install dependencies
+        run: |
+          yarn install
+          yarn add @actions/exec -W
 
       - name: remove canary tag
         uses: actions/github-script@v4
@@ -100,7 +94,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { errorHandler } = require('./.github/scripts/index.js');
+            const { errorHandler } = require('./.github/scripts');
             await errorHandler({ github, context });
 
         env:

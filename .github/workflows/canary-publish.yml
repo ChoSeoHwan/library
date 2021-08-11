@@ -12,12 +12,15 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-publish')
     steps:
+      - name: checkout master
+        uses: actions/checkout@v2
+
       - name: get pr information
         uses: actions/github-script@v4
         id: pr
         with:
           script: |
-            const { getPrData } = require('./.github/scripts/index.js');
+            const { getPrData } = require('./.github/scripts');
             await getPrData({ github, context, core });
 
       - name: get upgrade type from label
@@ -86,7 +89,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { errorHandler } = require('./.github/scripts/index.js');
+            const { errorHandler } = require('./.github/scripts');
             await errorHandler({ github, context });
 
         env:
