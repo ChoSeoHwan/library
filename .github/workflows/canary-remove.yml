@@ -76,13 +76,15 @@ jobs:
             let errorCnt = 0;
             LIST.forEach(async (item) => {
               try {
-                core.info(`remove canary: ${item.name}@alpha-${NUMBER}`);
+                core.info(`Try to remove canary version: ${item.name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
               } catch (error) {
                 errorCnt++;
-                core.info(error.message);
+                core.warning(`Remove failed: ${item.name}@alpha-${NUMBER} `);
               }
             });
+
+            core.info(`LIST: ${LIST.length}, ERROR: ${errorCnt}`);
 
             if (errorCnt >= LIST.length) {
               core.setFailed('all packges remove tag failed');
