@@ -130,7 +130,7 @@ jobs:
 
             switch (STATUS) {
               case 'success':
-                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n`;
+                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n\r\n`;
                 message += '**List of packages with tags removed**\r\n'
                 REMOVED_PACKAGES.forEach((package) => {
                   message += `- ${package}\r\n`

@@ -130,7 +130,7 @@ jobs:
             switch (STATUS) {
               case 'success':
                 message += `🎉 canary publish complete!\r\n`;
-                message += `You can install canary version via \`yarn add package@${TAG}\`\r\n`
+                message += `You can install canary version via \`yarn add package@${TAG}\`\r\n\r\n`
                 message += '**List of distributed packages**\r\n'
                 CHANGED_PACKAGES.forEach(({ name }) => {
                   message += `- ${name}\r\n`
