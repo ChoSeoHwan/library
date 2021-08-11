@@ -24,7 +24,7 @@ jobs:
         with:
           script: |
             const script = require('./.github/scripts/getPrData.js');
-            await script({ github, context, core });
+            return await script({ github, context, core });
 
       - name: checkout pr version
         uses: actions/checkout@v2
