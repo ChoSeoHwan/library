@@ -126,17 +126,20 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL, REMOVED_PACKAGES } = process.env;
 
-            core.info(`removed packages : ${JSON.stringify(REMOVED_PACKAGES)}`);
-
-            let message = '> /canary-remove\r\n';
+            let message = '> /canary-remove\r\n\r\n';
 
             switch (STATUS) {
               case 'success':
-                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\``;
+                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n`;
+                message += '**List of packages with tags removed**\r\n'
+                REMOVED_PACKAGES.forEach((package) => {
+                  message += `- ${package}\r\n`
+                });
+
                 break;
 
               case 'failure':
-                message += `❗ canary remove failed.\r\nCheck error in github [action page](${ACTION_URL}).`;
+                message += `❗ canary remove failed.\r\nCheck error in github [action page](${ACTION_URL}).\r\n`;
                 break;
             }
 
@@ -148,6 +151,7 @@ jobs:
           REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
 
       - name: Comment on results
+        if: always()
         uses: hasura/comment-progress@v2.1.0
         with:
           id: canary-remove-comment
