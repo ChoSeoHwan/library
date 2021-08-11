@@ -121,8 +121,7 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-
-            const { STATUS, TAG, ACTION_URL } = process.env;
+            const { STATUS, ACTION_URL } = process.env;
 
             let { CHANGED_PACKAGES } = process.env;
             CHANGED_PACKAGES = JSON.parse(CHANGED_PACKAGES);
@@ -147,7 +146,6 @@ jobs:
             return { message };
         env:
           STATUS: ${{ job.status }}
-          TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           CHANGED_PACKAGES: ${{ steps.changed-packages.outputs.list }}
 
