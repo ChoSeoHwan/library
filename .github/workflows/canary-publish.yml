@@ -21,7 +21,7 @@ jobs:
         with:
           script: |
             const { getPrData } = require('./.github/scripts');
-            await getPrData({ github, context, core });
+            return await getPrData({ github, context, core });
 
       - name: get upgrade type from label
         id: upgrade-type
