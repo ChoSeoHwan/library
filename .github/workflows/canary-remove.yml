@@ -18,8 +18,11 @@ jobs:
           id: canary-remove-comment
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.number }}
-          message: 'Trying to remove canary version...'
+          number: ${{ github.event.issue.number }}
+          message: |
+            Trying to remove canary version...<br>
+            If you want to see detailed execution status,
+            please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
       - name: checkout master
         uses: actions/checkout@v2
