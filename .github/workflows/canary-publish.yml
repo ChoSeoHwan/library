@@ -12,6 +12,19 @@ jobs:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-publish')
     steps:
+      - name: Comment to command
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.issue.number }}
+          message: |
+            > /canary-publish
+
+            Trying to publish canary version...
+            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
       - name: checkout master
         uses: actions/checkout@v2
 
@@ -102,16 +115,48 @@ jobs:
           TYPE: ${{ steps.upgrade-type.outputs.result }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
 
-      - name: PR comment
+      - name: make comment
         if: always()
+        id: comment
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { errorHandler } = require('./.github/scripts');
-            await errorHandler({ github, context });
+            const { STATUS, TAG, ACTION_URL } = process.env;
 
+            let { CHANGED_PACKAGES } = process.env;
+            CHANGED_PACKAGES = JSON.parse(CHANGED_PACKAGES);
+
+            let message = "> /canary-publish\r\n\r\n";
+            switch (STATUS) {
+              case 'success':
+                message += `🎉 canary publish complete!\r\n`;
+                message += `You can install canary version via \`yarn add package@${{ TAG }}\``
+                message += '**List of distributed packages**\r\n'
+                CHANGED_PACKAGES.forEach((package) => {
+                  message += `- ${package}\r\n`
+                });
+
+                break;
+
+              case 'failure':
+                message += `❗ canary publish failed.\r\nCheck error in github [action page](${ACTION_URL}).\r\n`;
+                break;
+            }
+
+            return { message };
         env:
           STATUS: ${{ job.status }}
-          SUCCESS_MSG: "🎉 canary publish complete!<br>You can install canary version via `yarn add package@alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
-          ERROR_MSG: "❗ canary publish failed.<br>Check error in github [action page](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})."
+          TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
+          ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CHANGED_PACKAGES: ${{ steps.changed-packages.outputs.list }}
+
+      - name: Comment on results
+        if: always()
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.issue.number }}
+          message: ${{ fromJSON(steps.comment.outputs.result).message }}
