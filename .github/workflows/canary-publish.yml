@@ -120,8 +120,8 @@ jobs:
         id: comment
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+
             const { STATUS, TAG, ACTION_URL } = process.env;
 
             let { CHANGED_PACKAGES } = process.env;
