@@ -73,10 +73,20 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
+            let errorCnt = 0;
             LIST.forEach(async (item) => {
-              core.info(`remove canary: ${item.name}@alpha-${NUMBER}`);
-              await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
+              try {
+                core.info(`remove canary: ${item.name}@alpha-${NUMBER}`);
+                await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
+              } catch (error) {
+                errorCnt++;
+                core.notice(error.message);
+              }
             });
+
+            if (errorCnt >= LIST.length) {
+              core.setFailed('all packges remove tag failed');
+            }
 
         env:
           LIST: ${{ steps.packages.outputs.list }}
