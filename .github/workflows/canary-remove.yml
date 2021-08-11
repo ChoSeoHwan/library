@@ -15,6 +15,12 @@ jobs:
       - name: checkout master
         uses: actions/checkout@v2
 
+      - name: get information
+        uses: actions/github-script@v4
+        with:
+          script: |
+            core.info(`context : ${JSON.stringify(context)}`);
+
       - name: get pr information
         uses: actions/github-script@v4
         id: pr
@@ -45,14 +51,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.npm_token }}
 
-      - name: get lerna packages list
-        id: packages
-        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
-
       - name: install dependencies
         run: |
           yarn install
           yarn add @actions/exec -W
+
+      - name: get lerna packages list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
       - name: remove canary tag
         uses: actions/github-script@v4
@@ -100,4 +106,4 @@ jobs:
         env:
           STATUS: ${{ job.status }}
           SUCCESS_MSG: "🎉 canary remove complete! Removed tag is `alpha-${{ fromJSON(steps.pr.outputs.result).number }}`"
-          ERROR_MSG: "❗ canary remove failed. Check error in github action page."
+          ERROR_MSG: "❗ canary remove failed. Check error in github [action page](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})."
