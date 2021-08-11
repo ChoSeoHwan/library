@@ -23,6 +23,8 @@ jobs:
         id: pr
         with:
           script: |
+            core.info(`context: ${JSON.stringify(context)}`);
+
             const script = require('./.github/scripts/getPrData.js');
             return await script({ github, context, core });
 
