@@ -1,4 +1,4 @@
-import { Plugin as RollupPlugin, RollupOptions } from 'rollup';
+import { Plugin as RollupPlugin } from 'rollup';
 
 import { OutputBuilder } from '~src/builder';
 import buildRollupOptions from '~src/buildRollupOptions';
