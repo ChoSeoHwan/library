@@ -43,7 +43,7 @@
     "test:watch": "jest --watchAll",
     "prepublish": "yarn build",
     "lint-staged": "lint-staged",
-    "build": "rollup -c rollup.config.js",
+    "build": "yarn eslint:fix && yarn test && rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
   },
   "bugs": {

@@ -1,14 +1,11 @@
-import { RollupTypescriptOptions } from '@rollup/plugin-typescript';
 import { Plugin as RollupPlugin } from 'rollup';
+import { RPT2Options } from 'rollup-plugin-typescript2';
 
 import Output from '~src/option/Output';
 import Plugin from '~src/option/Plugin';
 
 // typescript mocking
-const pluginCreator = (
-    option: RollupTypescriptOptions,
-    test?: string
-): RollupPlugin => ({
+const pluginCreator = (option: RPT2Options, test?: string): RollupPlugin => ({
     name: 'typescript',
     api: {
         ...option,
@@ -38,7 +35,7 @@ describe('option/plugin/Plugin', () => {
                 sourcemap: true
             });
 
-            const options: [RollupTypescriptOptions, string] = [
+            const options: [RPT2Options, string] = [
                 {
                     tsconfig: 'tsconfig.json'
                 },
@@ -71,7 +68,17 @@ describe('option/plugin/Plugin', () => {
             ): Parameters<typeof mockedPlugin> => [
                 {
                     tsconfig: 'tsconfig.json',
-                    outputDir: output.getOutputDir()
+                    tsconfigDefaults: {
+                        compilerOptions: {
+                            outDir: output.getOutputDir(),
+                            plugins: [
+                                {
+                                    transform: 'typescript-transform-paths',
+                                    afterDeclarations: true
+                                }
+                            ]
+                        }
+                    }
                 },
                 'testArguments'
             ];
@@ -99,7 +106,17 @@ describe('option/plugin/Plugin', () => {
                     name: 'typescript',
                     api: {
                         tsconfig: 'tsconfig.json',
-                        outputDir: output.getOutputDir(),
+                        tsconfigDefaults: {
+                            compilerOptions: {
+                                outDir: output.getOutputDir(),
+                                plugins: [
+                                    {
+                                        transform: 'typescript-transform-paths',
+                                        afterDeclarations: true
+                                    }
+                                ]
+                            }
+                        },
                         test: 'testArguments'
                     }
                 });
@@ -122,7 +139,7 @@ describe('option/plugin/Plugin', () => {
 
     describe('getOptions()', () => {
         it('plugin options 조회 테스트', () => {
-            const options: [RollupTypescriptOptions, string] = [
+            const options: [RPT2Options, string] = [
                 {
                     tsconfig: 'tsconfig.json'
                 },
@@ -137,7 +154,7 @@ describe('option/plugin/Plugin', () => {
 
     describe('setOptions()', () => {
         it('plugin options 등록 테스트', () => {
-            const options: [RollupTypescriptOptions, string] = [
+            const options: [RPT2Options, string] = [
                 {
                     tsconfig: 'tsconfig.json'
                 },
@@ -149,7 +166,7 @@ describe('option/plugin/Plugin', () => {
             expect(plugin.getOptions()).toMatchObject(options);
 
             // 새로운 option 등록
-            const newOptions: [RollupTypescriptOptions] = [
+            const newOptions: [RPT2Options] = [
                 { tsconfig: 'tsconfig.test.json' }
             ];
             plugin.setOptions(newOptions);

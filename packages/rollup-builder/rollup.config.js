@@ -19,34 +19,27 @@ const commonJSOptions = {
 
 const babelOptions = {
     extensions: [...DEFAULT_EXTENSIONS, '.ts'],
-    babelHelpers: 'runtime',
-    plugins: [
-        '@babel/plugin-transform-runtime',
-        [
-            '@babel/plugin-transform-arrow-functions',
-            {
-                "spec": true
-            }
-        ]
-    ]
+    babelHelpers: 'runtime'
 };
 
 const resolveOptions = {
     browser: true
 };
 
-const name = 'rollupBuilder';
-
 export default {
     input: 'src/index.ts',
+    context: 'window',
     output: {
         dir: 'dist',
         format: 'cjs',
-        sourcemap: false
+        sourcemap: false,
+        exports: 'named',
+        name: 'buildRollupOptions'
     },
     plugins: [
         cleaner({ targets: ['dist'] }),
         peerDepsExternal(),
+        resolve(resolveOptions),
         typescript({
             ...typescriptOptions,
             tsconfigDefaults: {
@@ -58,9 +51,8 @@ export default {
                 }
             }
         }),
-        babel(babelOptions),
-        resolve(resolveOptions),
         commonjs(commonJSOptions),
+        babel(babelOptions),
         terser()
     ]
 };

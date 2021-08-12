@@ -8,10 +8,11 @@ describe('builder/PluginsBuilder', () => {
             // plugin 테스트
             const expectPluginNames = [
                 'rollup-builder-cleaner',
+                'rollup-plugin-peer-deps-external',
+                'rollup-plugin-typescript2',
+                '@rollup/plugin-babel',
                 '@rollup/plugin-node-resolve',
                 '@rollup/plugin-commonjs',
-                '@rollup/plugin-typescript',
-                '@rollup/plugin-babel',
                 'rollup-plugin-terser'
             ];
             const pluginNames = plugins
