@@ -6,7 +6,6 @@ import cleaner from 'rollup-plugin-cleaner';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import typescript, { RPT2Options } from 'rollup-plugin-typescript2';
-import ttypescript from 'ttypescript';
 
 import { Plugin, Plugins } from '~src/option';
 
@@ -50,7 +49,7 @@ class PluginsBuilder {
             typescript,
             (output): [RPT2Options] => [
                 {
-                    typescript: ttypescript,
+                    typescript: require('ttypescript'),
                     tsconfigDefaults: {
                         compilerOptions: {
                             outDir: output.getOutputDir(),
