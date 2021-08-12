@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/tsconfig-base",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "choseohwan's tsconfig library",
   "keywords": [
     "tsconfig",
