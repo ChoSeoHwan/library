@@ -35,14 +35,15 @@ const resolveOptions = {
     browser: true
 };
 
-const name = 'rollupBuilder';
-
 export default {
     input: 'src/index.ts',
+    context: 'window',
     output: {
         dir: 'dist',
         format: 'cjs',
-        sourcemap: false
+        sourcemap: false,
+        exports: 'named',
+        name: 'buildRollupOptions'
     },
     plugins: [
         cleaner({ targets: ['dist'] }),

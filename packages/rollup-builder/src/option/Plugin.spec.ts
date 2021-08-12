@@ -106,7 +106,17 @@ describe('option/plugin/Plugin', () => {
                     name: 'typescript',
                     api: {
                         tsconfig: 'tsconfig.json',
-                        outputDir: output.getOutputDir(),
+                        tsconfigDefaults: {
+                            compilerOptions: {
+                                outDir: output.getOutputDir(),
+                                plugins: [
+                                    {
+                                        transform: 'typescript-transform-paths',
+                                        afterDeclarations: true
+                                    }
+                                ]
+                            }
+                        },
                         test: 'testArguments'
                     }
                 });
