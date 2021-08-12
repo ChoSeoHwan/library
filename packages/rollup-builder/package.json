@@ -27,9 +27,8 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.14.5",
-    "@babel/plugin-transform-arrow-functions": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-env": "^7.15.0",
     "@babel/runtime": "^7.14.6",
     "@choseohwan/eslint-config-base": "^1.0.10",
     "@choseohwan/jest-config-base": "^1.0.6",
@@ -56,12 +55,11 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "prepublish": "yarn build",
-    "build": "yarn eslint:fix && yarn test && rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
   },
   "peerDependencies": {
     "@babel/core": "^7.14",
-    "@babel/plugin-transform-arrow-functions": "^7.14",
     "@babel/plugin-transform-runtime": "^7.14",
     "@rollup/plugin-babel": "^5.3",
     "@rollup/plugin-commonjs": "^20.0",

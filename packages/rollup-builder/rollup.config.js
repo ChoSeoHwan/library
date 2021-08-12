@@ -19,16 +19,7 @@ const commonJSOptions = {
 
 const babelOptions = {
     extensions: [...DEFAULT_EXTENSIONS, '.ts'],
-    babelHelpers: 'runtime',
-    plugins: [
-        '@babel/plugin-transform-runtime',
-        [
-            '@babel/plugin-transform-arrow-functions',
-            {
-                "spec": true
-            }
-        ]
-    ]
+    babelHelpers: 'runtime'
 };
 
 const resolveOptions = {
@@ -48,6 +39,7 @@ export default {
     plugins: [
         cleaner({ targets: ['dist'] }),
         peerDepsExternal(),
+        resolve(resolveOptions),
         typescript({
             ...typescriptOptions,
             tsconfigDefaults: {
@@ -59,9 +51,8 @@ export default {
                 }
             }
         }),
-        babel(babelOptions),
-        resolve(resolveOptions),
         commonjs(commonJSOptions),
+        babel(babelOptions),
         terser()
     ]
 };
