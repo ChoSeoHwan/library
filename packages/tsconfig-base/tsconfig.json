@@ -4,7 +4,7 @@
         "lib": ["es5", "es6","es2018", "dom"],
         "module": "ESNext",
         "types": ["jest", "node"],
-        "target": "es5",
+        "target": "ESNext",
         "allowJs": false,
         "strict": true,
         "strictNullChecks": true,
