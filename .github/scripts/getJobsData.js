@@ -15,10 +15,10 @@ module.exports = async ({github, context, core}) => {
     core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
     try {
         /**
-         * @name github.actions.getJobForWorkflowRun
+         * @name github.actions.listJobsForWorkflowRun
          * @type {any}
          */
-        const result = await github.actions.getJobForWorkflowRun(params);
+        const result = await github.actions.listJobsForWorkflowRun(params);
         core.info(`Got jobs data: ${JSON.stringify(result.data)}`)
         return result.data
     } catch (err) {
