@@ -52,6 +52,14 @@ jobs:
     needs: [start-comment, pull-request-ci]
     runs-on: ubuntu-latest
     steps:
+      - name: get jobs data
+        uses: actions/github-script@v4
+        id: jobs
+        with:
+          script: |
+            const { getJobsData } = require('./.github/scripts');
+            return await getJobsData({ github, context, core });
+
       - name: Comments on passing the test
         if: ${{ success() }}
         uses: hasura/comment-progress@v2.1.0
