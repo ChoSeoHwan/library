@@ -1,12 +1,11 @@
 /**
- * Pull request 데이터 조회
+ * jobs 데이터 조회
  * @param {Record<string, any>} github
  * @param {Record<string, any>} context
  * @param {Record<string, any>} core
  * @return {Promise<*>}
  */
 module.exports = async ({github, context, core}) => {
-    core.info(`${JSON.stringify(context)}`);
     const params = {
         owner: context.repo.owner,
         repo: context.repo.repo,
@@ -15,7 +14,12 @@ module.exports = async ({github, context, core}) => {
 
     core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
     try {
-        const result = await github.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', params);
+
+        /**
+         * @name github.actions.getJobForWorkflowRun
+         * @type {any}
+         */
+        const result = await github.actions.getJobForWorkflowRun(params);
         core.info(`Got jobs data: ${JSON.stringify(result.data)}`)
         return result.data
     } catch (err) {
