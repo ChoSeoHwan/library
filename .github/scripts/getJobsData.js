@@ -6,10 +6,11 @@
  * @return {Promise<*>}
  */
 module.exports = async ({github, context, core}) => {
+    const { RUN_ID } = process.env;
     const params = {
         owner: context.repo.owner,
         repo: context.repo.repo,
-        job_id: context.runId
+        job_id: RUN_ID
     }
 
     core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
