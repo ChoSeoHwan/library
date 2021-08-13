@@ -9,7 +9,7 @@ module.exports = async ({github, context, core}) => {
     const params = {
         owner: context.repo.owner,
         repo: context.repo.repo,
-        job_id: context.runNumber
+        job_id: context.runId
     }
 
     core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
