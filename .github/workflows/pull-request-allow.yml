@@ -10,18 +10,13 @@ jobs:
     name: pull request ci
     runs-on: ubuntu-latest
     steps:
-      - name: echo event
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
-        run: echo "$GITHUB_CONTEXT"
-
       - name: Comment to pull request
         uses: hasura/comment-progress@v2.1.0
         with:
           id: canary-publish-comment-${{ github.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ github.event.pull_request.number }}
           message: |
             > pull request CI
 
