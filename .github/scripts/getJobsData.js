@@ -6,6 +6,7 @@
  * @return {Promise<*>}
  */
 module.exports = async ({github, context, core}) => {
+    core.info(`${JSON.stringify(context)}`);
     const params = {
         owner: context.repo.owner,
         repo: context.repo.repo,
