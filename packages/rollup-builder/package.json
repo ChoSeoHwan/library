@@ -54,7 +54,8 @@
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
     "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test:silent": "yarn test --silent",
+    "test:watch": "yarn test --watchAll",
     "prepublish": "yarn build",
     "build": "yarn eslint:fix && yarn test && rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"

@@ -3,5 +3,5 @@ const getPrData = require('./getPrData');
 
 module.exports = {
     errorHandler,
-    getPrData
+    getPrData,
 }
