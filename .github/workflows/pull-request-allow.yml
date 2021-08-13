@@ -1,0 +1,19 @@
+name: check allow pull request
+
+on:
+  pull_request:
+    branches: [ "master", "release/*" ]
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  pull-request-ci:
+    name: pull request ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout pull request version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: check current branch
+        run: git branch --show-current
