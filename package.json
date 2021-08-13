@@ -30,6 +30,6 @@
   "scripts": {
     "prepare": "husky install",
     "version": "lerna version -m \"chore(release): publish\"",
-    "version:prerelease": "lerna version -m \"chore(prerelease): publish\""
+    "version:prerelease": "lerna version --conventional-prerelease -m \"chore(prerelease): publish\""
   }
 }
