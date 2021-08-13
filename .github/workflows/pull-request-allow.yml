@@ -16,4 +16,4 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: check current branch
-        run: git branch --show-current
+        run: echo $(git branch --show-current)
