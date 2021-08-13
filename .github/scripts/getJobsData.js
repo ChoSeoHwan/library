@@ -14,7 +14,6 @@ module.exports = async ({github, context, core}) => {
 
     core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
     try {
-
         /**
          * @name github.actions.getJobForWorkflowRun
          * @type {any}
