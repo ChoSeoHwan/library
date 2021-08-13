@@ -19,14 +19,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "command": {
-    "version": {
-      "conventionalCommits": true
-    },
-    "publish": {
-      "conventionalCommits": true
-    }
-  },
   "scripts": {
     "prepare": "husky install",
     "upgrade": "lerna version -m \"chore: release version publish\"",
