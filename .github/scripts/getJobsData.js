@@ -6,19 +6,18 @@
  * @return {Promise<*>}
  */
 module.exports = async ({github, context, core}) => {
-    core.info(`jobs : ${JSON.stringify(context)}`);
-    // const request = {
-    //     owner: context.repo.owner,
-    //     repo: context.repo.repo,
-    //     pull_number: context.issue.number
-    // }
-    //
-    // core.info(`Getting PR #${request.pull_number} from ${request.owner}/${request.repo}`)
-    // try {
-    //     const result = await github.pulls.get(request)
-    //     core.info(`Got PR: ${JSON.stringify(result.data)}`)
-    //     return result.data
-    // } catch (err) {
-    //     core.setFailed(`Request failed with error ${err}`)
-    // }
+    const params = {
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        job_id: context.runId
+    }
+
+    core.info(`Getting Jobs #${params.job_id} from ${params.owner}/${params.repo}`)
+    try {
+        const result = await github.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', params);
+        core.info(`Got jobs data: ${JSON.stringify(result.data)}`)
+        return result.data
+    } catch (err) {
+        core.setFailed(`Request failed with error ${err}`)
+    }
 }
