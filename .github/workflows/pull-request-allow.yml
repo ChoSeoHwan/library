@@ -10,6 +10,10 @@ jobs:
     name: pull request ci
     runs-on: ubuntu-latest
     steps:
+      - name: check event action
+        run: |
+          echo "${{ github.event.action }}"
+
       - name: Comment to command
         uses: hasura/comment-progress@v2.1.0
         with:
@@ -36,4 +40,8 @@ jobs:
       - name: install dependencies
         run: yarn install
 
+      - name: Testing the packages
+        run: lerna run test:silent
 
+      - name: Check if packages are buildable
+        run: lerna run build
