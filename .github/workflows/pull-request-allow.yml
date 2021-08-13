@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo event
-        run:  |
-          echo $json_var | jq '.[].name'
         env:
-          json_var: ${{ fromJSON(github.event) }}
+          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+        run: echo "$GITHUB_CONTEXT"
 
       - name: Comment to pull request
         uses: hasura/comment-progress@v2.1.0
