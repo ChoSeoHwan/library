@@ -14,7 +14,7 @@ jobs:
         run:  |
           echo $json_var | jq '.[].name'
         env:
-          json_var: ${{ github.event }}
+          json_var: ${{ fromJSON(github.event) }}
 
       - name: Comment to pull request
         uses: hasura/comment-progress@v2.1.0
