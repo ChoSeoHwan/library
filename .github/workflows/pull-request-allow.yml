@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo event
-        run: |
-          echo "${{ github.event }}"
+        run:  |
+          echo $json_var | jq '.[].name'
+        env:
+          json_var: ${{ github.event }}
 
       - name: Comment to pull request
         uses: hasura/comment-progress@v2.1.0
