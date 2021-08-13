@@ -6,8 +6,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  pull-request-ci:
-    name: pull request ci
+  start-comment:
+    name: start comment
     runs-on: ubuntu-latest
     steps:
       - name: Comment to pull request
@@ -18,11 +18,15 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           message: |
-            > pull request CI
+            > Test for pull request
 
             Executing CI for pull request verification.
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
+  pull-request-ci:
+    name: pull request ci
+    runs-on: ubuntu-latest
+    steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
         with:
@@ -41,3 +45,35 @@ jobs:
 
       - name: Check if packages are buildable
         run: lerna run build
+
+  finish-comment:
+    name: finish comment
+    needs: [start-comment, pull-request-ci]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comments on passing the test
+        if: ${{ success() }}
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          message: |
+            > Test for pull request
+
+            🎉 The pull request passed the test.
+
+      - name: Comments on test failures
+        if: ${{ failure() }}
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          message: |
+            > Test for pull request
+
+            ❗ The pull request failed the test.
+            Check error in github [action page](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
