@@ -64,8 +64,6 @@ jobs:
           script: |
             const { getJobsData } = require('./.github/scripts');
             return await getJobsData({ github, context, core });
-        env:
-          RUN_ID: ${{ env.GITHUB_RUN_ID }}
 
       - name: Comments on passing the test
         if: ${{ success() }}
