@@ -20,11 +20,16 @@
     "packages/*"
   ],
   "command": {
+    "version": {
+      "conventionalCommits": true
+    },
     "publish": {
       "conventionalCommits": true
     }
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "lerna version -m \"chore(release): publish\"",
+    "version:prerelease": "lerna version -m \"chore(prerelease): publish\""
   }
 }
