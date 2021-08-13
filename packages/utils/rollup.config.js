@@ -2,7 +2,7 @@ import buildRollupOptions, { Input, OutputBuilder, PluginsBuilder } from '@chose
 
 const input = new Input('src/index.ts', {
     es: {
-        index: "src/inde.ts",
+        index: "src/index.ts",
         prototypes: "src/prototypes/index.ts"
     }
 });
