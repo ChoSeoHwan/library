@@ -14,7 +14,7 @@ describe('prototypes/Number', () => {
 
         it('음수 구분자 추가 확인', () => {
             const number = -123456789;
-            expect(number.addSeparator()).toBe('-123,456,789');
+            expect(number.addSeparator()).toBe('-123,456,78');
         });
 
         it('음수+소수점 구분자 추가 확인', () => {
