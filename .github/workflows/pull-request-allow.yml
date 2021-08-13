@@ -49,7 +49,7 @@ jobs:
   finish-comment:
     name: finish comment
     if: ${{ always() }}
-    needs: [start-comment, pull-request-ci]
+#    needs: [start-comment, pull-request-ci]
     runs-on: ubuntu-latest
     steps:
       - name: checkout pull request version
