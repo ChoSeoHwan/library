@@ -3,18 +3,18 @@ name: check allow pull request
 on:
   pull_request:
     branches: [ "main", "release" ]
-    types: [opened, edited, synchronize, reopened]
+    types: [opened, synchronize, reopened]
 
 jobs:
   pull-request-ci:
     name: pull request ci
     runs-on: ubuntu-latest
     steps:
-      - name: check event action
+      - name: echo event
         run: |
-          echo "${{ github.event.action }}"
+          echo "${{ github.event }}"
 
-      - name: Comment to command
+      - name: Comment to pull request
         uses: hasura/comment-progress@v2.1.0
         with:
           id: canary-publish-comment-${{ github.run_id }}
