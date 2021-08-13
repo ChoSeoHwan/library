@@ -52,18 +52,9 @@ jobs:
 #    needs: [start-comment, pull-request-ci]
     runs-on: ubuntu-latest
     steps:
-      - name: checkout pull request version
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: technote-space/workflow-conclusion-action@v2.0.1
 
-      - name: get jobs data
-        uses: actions/github-script@v4
-        id: jobs
-        with:
-          script: |
-            const { getJobsData } = require('./.github/scripts');
-            return await getJobsData({ github, context, core });
+      - run: echo $WORKFLOW_CONCLUSION
 
       - name: Comments on passing the test
         if: ${{ success() }}
