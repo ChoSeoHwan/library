@@ -29,7 +29,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "upgrade": "lerna version -m \"chore(release): publish\"",
-    "upgrade:prerelease": "lerna version --conventional-prerelease -m \"chore(prerelease): publish\""
+    "upgrade": "lerna version -m \"chore: release version publish\"",
+    "upgrade:prerelease": "lerna version --conventional-prerelease -m \"chore: prerelease version publish\""
   }
 }
