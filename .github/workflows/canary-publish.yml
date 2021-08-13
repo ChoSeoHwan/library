@@ -53,15 +53,6 @@ jobs:
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
           fetch-depth: 0
 
-
-      - name: get pr information
-        uses: actions/github-script@v4
-        id: pr
-        with:
-          script: |
-            const { getPrData } = require('./.github/scripts');
-            return await getPrData({ github, context, core });
-
       - name: setup Node
         uses: actions/setup-node@v2
         with:
