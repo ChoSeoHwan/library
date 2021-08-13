@@ -10,10 +10,21 @@ jobs:
     name: pull request ci
     runs-on: ubuntu-latest
     steps:
-      - name: checkout master
-        uses: actions/checkout@v2
+      - name: Comment to command
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.issue.number }}
+          message: |
+            > pull request CI
 
-      - name: check current branch
-        run: |
-          git branch -v
-          echo "current branch : $(git branch --show-current)\r\nsha : ${{ github.event.pull_request.head.sha }}"
+            Executing CI for pull request verification.
+            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
+      - name: checkout pull request version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
