@@ -6,50 +6,50 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-#  start-comment:
-#    name: start comment
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Comment to pull request
-#        uses: hasura/comment-progress@v2.1.0
-#        with:
-#          id: canary-publish-comment-${{ github.run_id }}
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          repository: ${{ github.repository }}
-#          number: ${{ github.event.pull_request.number }}
-#          message: |
-#            > Test for pull request
-#
-#            Executing CI for pull request verification.
-#            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
-#
-#  pull-request-ci:
-#    name: pull request ci
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: checkout pull request version
-#        uses: actions/checkout@v2
-#        with:
-#          ref: ${{ github.event.pull_request.head.sha }}
-#
-#      - name: setup Node
-#        uses: actions/setup-node@v2
-#        with:
-#          node-version: 14.x
-#
-#      - name: install dependencies
-#        run: yarn install
-#
-#      - name: Testing the packages
-#        run: lerna run test:silent
-#
-#      - name: Check if packages are buildable
-#        run: lerna run build
+  start-comment:
+    name: start comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment to pull request
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-publish-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          message: |
+            > Test for pull request
+
+            Executing CI for pull request verification.
+            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
+  pull-request-ci:
+    name: pull request ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout pull request version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: Testing the packages
+        run: lerna run test:silent
+
+      - name: Check if packages are buildable
+        run: lerna run build
 
   finish-comment:
     name: finish comment
     if: ${{ always() }}
-#    needs: [start-comment, pull-request-ci]
+    needs: [start-comment, pull-request-ci]
     runs-on: ubuntu-latest
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
@@ -57,7 +57,7 @@ jobs:
       - run: echo $WORKFLOW_CONCLUSION
 
       - name: Comments on passing the test
-        if: ${{ success() }}
+        if: ${{ env.WORKFLOW_CONCLUSION == 'success' }}
         uses: hasura/comment-progress@v2.1.0
         with:
           id: canary-publish-comment-${{ github.run_id }}
@@ -70,7 +70,7 @@ jobs:
             🎉 The pull request passed the test.
 
       - name: Comments on test failures
-        if: ${{ failure() }}
+        if: ${{ env.WORKFLOW_CONCLUSION == 'failure' }}
         uses: hasura/comment-progress@v2.1.0
         with:
           id: canary-publish-comment-${{ github.run_id }}
