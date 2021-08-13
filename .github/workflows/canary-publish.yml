@@ -5,8 +5,8 @@ on:
     types: [ created ]
 
 jobs:
-  canary-publish:
-    name: canary-publish
+  start-comment:
+    name: start comment
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
@@ -25,6 +25,14 @@ jobs:
             Trying to publish canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
+
+  canary-publish:
+    name: canary publish
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '/canary-publish')
+    steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
         with:
@@ -37,35 +45,6 @@ jobs:
           script: |
             const { getPrData } = require('./.github/scripts');
             return await getPrData({ github, context, core });
-
-      - name: get upgrade type from label
-        id: upgrade-type
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            let { LABELS } = process.env;
-            LABELS = JSON.parse(LABELS).map((label) => label.name);
-
-            const regexp = /upgrade:(major|minor|patch|premajor|preminor|prepatch|prerelease])/;
-            const upgradeLabels = LABELS.filter((label) => regexp.test(label));
-
-            if (upgradeLabels.length > 1) {
-              core.setFailed('Upgrade label must be include only once');
-              return;
-            }
-
-            const label = upgradeLabels[0] || 'upgrade:patch';
-            const matches = label.match(regexp);
-
-            const type = matches && matches[1] ? matches[1] : 'patch';
-
-            core.info(`Labels : ${JSON.stringify(LABELS)}`);
-            core.info(`Upgrade type : ${type}`);
-
-            return type;
-        env:
-          LABELS: ${{ toJSON(fromJSON(steps.pr.outputs.result).labels) }}
 
       - name: setup Node
         uses: actions/setup-node@v2
@@ -89,10 +68,6 @@ jobs:
         id: changed-packages
         run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
 
-      - name: get lerna package list
-        id: packages
-        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
-
       - name: check lerna changed list
         uses: actions/github-script@v4
         with:
@@ -109,9 +84,8 @@ jobs:
           LIST: ${{ steps.changed-packages.outputs.list }}
 
       - name: publish package
-        run: lerna publish pre${{ env.TYPE }} --canary --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
+        run: lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
         env:
-          TYPE: ${{ steps.upgrade-type.outputs.result }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
 
       - name: make comment
@@ -147,7 +121,7 @@ jobs:
           STATUS: ${{ job.status }}
           TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          PACKAGES: ${{ steps.packages.outputs.list }}
+          PACKAGES: ${{ steps.changed-packages.outputs.list }}
 
       - name: Comment on results
         if: always()
