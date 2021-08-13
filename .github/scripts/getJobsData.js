@@ -6,7 +6,7 @@
  * @return {Promise<*>}
  */
 module.exports = async ({github, context, core}) => {
-    core.info(`jobs : ${JSON.stringify(context.job)}`);
+    core.info(`jobs : ${JSON.stringify(context)}`);
     // const request = {
     //     owner: context.repo.owner,
     //     repo: context.repo.repo,
