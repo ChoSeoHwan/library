@@ -59,7 +59,7 @@ jobs:
       - name: make data file
         env:
           PR: ${{ steps.pr.outputs.result }}
-          CHANGED_PACKGES: ${{ steps.changed-packges.outputs.list }}
+          CHANGED_PACKGES: ${{ steps.changed-packages.outputs.list }}
 
         run: |
           mkdir ./data
