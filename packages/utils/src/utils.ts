@@ -7,4 +7,6 @@
 export const delay = (time: number): Promise<void> =>
     new Promise((resolve) => {
         setTimeout(resolve, time);
+
+        console.log('teat pr for forked');
     });
