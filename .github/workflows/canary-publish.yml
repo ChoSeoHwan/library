@@ -73,6 +73,7 @@ jobs:
 
       - name: echo data file
         run: |
+          pwd
           cd ./data
           ls -al
 
