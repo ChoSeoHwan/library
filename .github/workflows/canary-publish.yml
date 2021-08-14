@@ -52,15 +52,6 @@ jobs:
           mkdir ./data
           echo $PR_DATA > data/pr.json
 
-      - name: check file
-        run: |
-          echo 'ls -al | grep data'
-          ls -al | grep data
-
-          cd ./data
-          echo 'ls -al | grep pr'
-          ls -al | grep pr
-
       - name: upload data file
         uses: actions/upload-artifact@v2
         with:
@@ -82,8 +73,7 @@ jobs:
 
       - name: echo data file
         run: |
-          pwd
-          ls -al
+          cat pr.json
 
 #      - name: checkout pull request version
 #        uses: actions/checkout@v2
