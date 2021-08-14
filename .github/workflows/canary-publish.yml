@@ -47,7 +47,7 @@ jobs:
 
       - name: echo value
         env:
-          PR_HEAD: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
+          PR_HEAD: ${{ fromJSON(steps.pr.outputs.result).head.sha }}
           GITHUB_HEAD: ${{ github.sha }}
           ISSUE_HEAD: ${{ github.event.issue.head.sha }}
         run: |
