@@ -47,10 +47,12 @@ jobs:
 
       - name: echo value
         env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
           PR_HEAD: ${{ fromJSON(steps.pr.outputs.result).head.sha }}
           GITHUB_HEAD: ${{ github.sha }}
           ISSUE_HEAD: ${{ github.event.issue.head.sha }}
         run: |
+          echo "GITHUB CONTEXT : $GITHUB_CONTEXT"
           echo "PR HEAD : $PR_HEAD"
           echo "GITHUB HEAD : $GITHUB_HEAD"
           echo "ISSUE HEAD : $ISSUE_HEAD"
