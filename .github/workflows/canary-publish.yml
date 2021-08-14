@@ -73,7 +73,8 @@ jobs:
 
       - name: echo data file
         run: |
-          cat ./data/pr.json
+          cd ./data
+          ls -al
 
       - name: checkout pull request version
         uses: actions/checkout@v2
