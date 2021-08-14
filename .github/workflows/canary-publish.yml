@@ -25,6 +25,36 @@ jobs:
             Trying to publish canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
+  get-publish-data:
+    name: get publish data
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '/canary-publish')
+    steps:
+      - name: checkout pull request version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.issue.head.sha }}
+
+      - name: get pr information
+        uses: actions/github-script@v4
+        id: pr
+        with:
+          script: |
+            const { getPrData } = require('./.github/scripts');
+            return await getPrData({ github, context, core });
+
+      - name: echo value
+        env:
+          PR_HEAD: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
+          GITHUB_HEAD: ${{ github.sha }}
+          ISSUE_HEAD: ${{ github.event.issue.head.sha }}
+        run: |
+          echo "PR HEAD : $PR_HEAD"
+          echo "GITHUB HEAD : $GITHUB_HEAD"
+          echo "ISSUE HEAD : $ISSUE_HEAD"
+
 
   canary-publish:
     name: canary publish
