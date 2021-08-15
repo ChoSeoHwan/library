@@ -25,8 +25,8 @@ jobs:
             Trying to publish canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
-  get-publish-data:
-    name: get publish data
+  get-data:
+    name: get data
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
@@ -35,38 +35,7 @@ jobs:
       - name: checkout pull request version
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.issue.head.sha }}
-
-      - name: get pr information
-        uses: actions/github-script@v4
-        id: pr
-        with:
-          script: |
-            const { getPrData } = require('./.github/scripts');
-            return await getPrData({ github, context, core });
-
-      - name: echo value
-        env:
-          PR_HEAD: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
-          GITHUB_HEAD: ${{ github.sha }}
-          ISSUE_HEAD: ${{ github.event.issue.head.sha }}
-        run: |
-          echo "PR HEAD : $PR_HEAD"
-          echo "GITHUB HEAD : $GITHUB_HEAD"
-          echo "ISSUE HEAD : $ISSUE_HEAD"
-
-
-  canary-publish:
-    name: canary publish
-    runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
-    steps:
-      - name: checkout pull request version
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.issue.head.sha }}
+          ref: ${{ github.sha }}
 
       - name: get pr information
         uses: actions/github-script@v4
@@ -81,6 +50,52 @@ jobs:
         with:
           ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
           repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: get lerna changed package list
+        id: changed-packages
+        run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
+
+      - name: make data file
+        env:
+          PR: ${{ steps.pr.outputs.result }}
+          CHANGED_PACKGES: ${{ steps.changed-packages.outputs.list }}
+
+        run: |
+          mkdir ./data
+          echo $PR > data/pr.json
+          echo $CHANGED_PACKGES > data/changed-packages.json
+
+      - name: upload data file
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: data
+
+  canary-publish:
+    needs: [get-data]
+    name: canary publish
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '/canary-publish')
+    steps:
+      - name: download data file
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+
+      - name: set data value
+        id: data
+        run: |
+          echo "::set-output name=pr::$(cat pr.json)"
+          echo "::set-output name=changed-packages::$(cat changed-packages.json)"
+
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+          repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
           fetch-depth: 0
 
       - name: setup Node
@@ -101,10 +116,6 @@ jobs:
       - name: install dependencies
         run: yarn install
 
-      - name: get lerna changed package list
-        id: changed-packages
-        run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
-
       - name: check lerna changed list
         uses: actions/github-script@v4
         with:
@@ -118,12 +129,12 @@ jobs:
               return;
             }
         env:
-          LIST: ${{ steps.changed-packages.outputs.list }}
+          LIST: ${{ steps.data.outputs.changed-packages }}
 
       - name: publish package
         run: lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
         env:
-          NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
+          NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
       - name: make comment
         if: always()
@@ -156,9 +167,9 @@ jobs:
             return { message };
         env:
           STATUS: ${{ job.status }}
-          TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
+          TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          PACKAGES: ${{ steps.changed-packages.outputs.list }}
+          PACKAGES: ${{ steps.data.outputs.changed-packages }}
 
       - name: Comment on results
         if: always()
