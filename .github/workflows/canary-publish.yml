@@ -121,7 +121,7 @@ jobs:
 
             core.info(`published test : \n${PUBLISHED}`);
 
-            const regexp = /(?<=Successfully published:\r?\n)( - ([\w@/.\-+]+)(?:\r?\n)?)*/gm;
+            const regexp = /(?<=Successfully published:)( - ([\w@/.\-+]+))*/gm;
             const listText = PUBLISHED.match(regexp)[0];
 
             core.info(`list text : \n${listText}`);
