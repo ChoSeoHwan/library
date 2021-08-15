@@ -49,14 +49,14 @@ jobs:
         env:
           PR: ${{ steps.pr.outputs.result }}
         run: |
-          mkdir ./data
-          echo $PR > data/pr.json
+          mkdir ~/data
+          echo $PR > ~/data/pr.json
 
       - name: upload data file
         uses: actions/upload-artifact@v2
         with:
           name: data
-          path: data
+          path: ~/data
 
   canary-publish:
     needs: [get-data]
@@ -68,12 +68,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: data
-          path: data
+          path: ~/data
 
       - name: set downloaded data value
         id: data
         run: |
-          echo "::set-output name=pr::$(cat data/pr.json)"
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -144,7 +144,7 @@ jobs:
           PUBLISHED: ${{ steps.published.outputs.result }}
 
       - name: make data file
-        run: echo $PUBLISHED_PACKAGES > data/published-packages.json
+        run: echo $PUBLISHED_PACKAGES > ~/data/published-packages.json
         env:
           PUBLISHED_PACKAGES: ${{ steps.published-packages.outputs.result }}
 
@@ -152,7 +152,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: data
-          path: data
+          path: ~/data
 
   finish-comment:
     name: finish comment
@@ -166,13 +166,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: data
-          path: data
+          path: ~/data
 
       - name: set data value
         id: data
         run: |
-          echo "::set-output name=pr::$(cat data/pr.json)"
-          echo "::set-output name=published-packages::$(cat data/published-packages.json)"
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
+          echo "::set-output name=published-packages::$(cat ~/data/published-packages.json)"
 
       - name: make comment
         if: always()
