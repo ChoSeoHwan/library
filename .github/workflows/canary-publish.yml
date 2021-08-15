@@ -70,7 +70,7 @@ jobs:
           name: data
           path: data
 
-      - name: set data value
+      - name: set downloaded data value
         id: data
         run: |
           echo "::set-output name=pr::$(cat data/pr.json)"
@@ -118,22 +118,32 @@ jobs:
           script: |
             const { PUBLISHED } = process.env;
 
-            core.info(`published test : \n${PUBLISHED}`);
+            core.startGroup('publish command result');
+            core.info(PUBLISHED);
+            core.endGroup();
 
             const regexp = /(?<=Successfully published:)( - ([\w@/.\-+]+))*/gm;
             const listText = PUBLISHED.match(regexp)[0];
 
+            core.startGroup('parsed package list by text');
             core.info(`list text : \n${listText}`);
+            core.endGroup();
 
             const packageListRegexpt = /(?<= - )([\w@/.\-+]+)/g
             const packageList = listText.match(packageListRegexpt);
+
+            core.startGroup('published packages');
+            packageList.forEach((package) => {
+              core.info(`${package}\n`);
+            });
+            core.endGroup();
 
             return packageList;
 
         env:
           PUBLISHED: ${{ steps.published.outputs.result }}
 
-      - name: make published-packges file
+      - name: make data file
         run: echo $PUBLISHED_PACKAGES > data/published-packages.json
         env:
           PUBLISHED_PACKAGES: ${{ steps.published-packages.outputs.result }}
@@ -172,18 +182,24 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL } = process.env;
 
-            let { PACKAGES } = process.env;
-            PACKAGES = JSON.parse(PACKAGES);
-
             let message = "> /canary-publish\r\n\r\n";
             switch (STATUS) {
               case 'success':
+                let { PACKAGES } = process.env;
+                PACKAGES = JSON.parse(PACKAGES);
+
                 message += `🎉 canary publish complete!\r\n`;
                 message += `You can install canary version via \`yarn add package@${TAG}\`\r\n\r\n`
                 message += '**Published package list**\r\n'
-                PACKAGES.forEach(({ name }) => {
-                  message += `- \`${name}\`\r\n`
-                });
+
+                // published package list 추가
+                if (PACKAGES.length > 0) {
+                  PACKAGES.forEach(({ name }) => {
+                    message += `- \`${name}\`\r\n`
+                  });
+                } else {
+                  message += '*No packages have been published*';
+                }
 
                 break;
 
