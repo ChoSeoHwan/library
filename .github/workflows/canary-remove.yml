@@ -97,6 +97,7 @@ jobs:
               try {
                 core.info('Get version info from tag');
                 const versionListJSON = await exec.exec(`npm view ${name} versions --json`);
+                core.info(`version list json : ${versionListJSON}`);
                 versionList = JSON.parse(versionListJSON);
               } catch (error) {
                 core.warning(`Get version info failed: ${name}@alpha-${NUMBER}`);
