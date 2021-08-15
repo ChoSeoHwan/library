@@ -47,8 +47,6 @@ jobs:
       - name: set npm autority
         run: |
           yarn logout
-          echo "@apollo-elements:registry=https://registry.npmjs.org/" > .npmrc
-          echo "registry=https://registry.npmjs.org/" >> .npmrc
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
           npm whoami
         env:
@@ -169,9 +167,11 @@ jobs:
 
             switch (STATUS) {
               case 'success':
+                const removedPackageList = JSON.parse(REMOVED_PACKAGES);
+
                 message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n\r\n`;
                 message += '**List of packages with tags removed**\r\n'
-                REMOVED_PACKAGES.forEach((package) => {
+                removedPackageList.forEach((package) => {
                   message += `- ${package}\r\n`
                 });
 
