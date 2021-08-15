@@ -47,7 +47,6 @@ jobs:
       - name: set npm autority
         run: |
           yarn logout
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.npm_token }}
