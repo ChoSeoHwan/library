@@ -144,8 +144,10 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL } = process.env;
 
-#            let { PACKAGES } = process.env;
-#            PACKAGES = JSON.parse(PACKAGES);
+            /*
+            let { PACKAGES } = process.env;
+            PACKAGES = JSON.parse(PACKAGES);
+            */
 
             let message = "> /canary-publish\r\n\r\n";
             switch (STATUS) {
