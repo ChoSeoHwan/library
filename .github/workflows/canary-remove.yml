@@ -126,10 +126,9 @@ jobs:
               const versionRegexp = /1.0.18-alpha-9.30/g;
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
-              core.info(`canary type : ${typeof canaryVersionList}, versionList type : ${typeof versionList}`);
               core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
 
-              const promise = canaryVersionList.forEach(async (version) => {
+              const promise = canaryVersionList.map(async (version) => {
                 try {
                   core.info(`Try to remove canary version: ${name}@${version}`);
                   await exec.exec(`npm unpublish ${name}@${version}`);
