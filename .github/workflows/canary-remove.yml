@@ -42,7 +42,7 @@ jobs:
         id: pr
         with:
           script: |
-            const { getPrData } = require('./.github/scripts');
+            const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
       - name: make data file
