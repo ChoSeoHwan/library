@@ -126,7 +126,7 @@ jobs:
               const versionRegexp = /1.0.18-alpha-9.30/g;
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
-              core.info(`canary version list : ${canaryVersionList}`);
+              core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
 
               const promise = canaryVersionList.forEach(async (version) => {
                 try {
