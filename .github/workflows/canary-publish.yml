@@ -105,7 +105,8 @@ jobs:
         run: lerna run build
 
       - name: publish package
-        run: lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
+        run: |
+          RESULT=(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
@@ -117,8 +118,8 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL } = process.env;
 
-            let { PACKAGES } = process.env;
-            PACKAGES = JSON.parse(PACKAGES);
+#            let { PACKAGES } = process.env;
+#            PACKAGES = JSON.parse(PACKAGES);
 
             let message = "> /canary-publish\r\n\r\n";
             switch (STATUS) {
