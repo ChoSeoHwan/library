@@ -82,14 +82,15 @@ jobs:
 
             core.startGroup('unpublish canary version');
             const promises = packageList.map(async (name) => {
-              let unpublish = false;
+              let removed = false;
 
               try {
                 core.info(`Try to unpublish tag: ${name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${name} alpha-${NUMBER}`);
+
                 core.info(`Unpublish tag success: ${name}@alpha-${NUMBER}`);
+                removed = true;
               } catch (error) {
-                unpublish = true;
                 core.warning(`Unpublish tag failed: ${name}@alpha-${NUMBER} `);
               }
 
@@ -102,10 +103,10 @@ jobs:
 
                 await exec.exec(`npm view ${name} versions --json`, [], {
                   listeners: {
-                    stdout: (data: Buffer) => {
+                    stdout: (data) => {
                       outputList.push(data.toString());
                     },
-                    stderr: (data: Buffer) => {
+                    stderr: (data) => {
                       error = true;
                     }
                   }
@@ -120,8 +121,6 @@ jobs:
                 return;
               }
 
-              core.info(`version list : ${JSON.stringify(versionList)}\ntype: ${typeof versionList}`);
-
               const versionRegexp = /1.0.18-alpha-9.30/g;
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
@@ -131,14 +130,14 @@ jobs:
                     core.info(`Try to remove canary version: ${name}@${version}`);
                     await exec.exec(`npm unpublish ${name}@${version}`);
                     core.info(`Remove canary version success: ${name}@${version}`);
-                    unpublish = true;
+                    removed = true;
                   } catch (error) {
                     core.warning(`Remove canary version failed: ${name}@${version}`);
                   }
                 })
               );
 
-              if (unpublish) removedPackage.push(name);
+              if (removed) removedPackage.push(name);
             });
 
             await Promise.all(promises);
