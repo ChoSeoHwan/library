@@ -87,6 +87,7 @@ jobs:
               try {
                 core.info(`Try to unpublish tag: ${item.name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
+                core.info(`Unpublish tag success: ${item.name}@alpha-${NUMBER}`);
               } catch (error) {
                 statusList[item.name] = false;
                 core.warning(`Unpublish tag failed: ${item.name}@alpha-${NUMBER} `);
@@ -106,14 +107,17 @@ jobs:
               const versionRegexp = /1.0.18-alpha-9.30/g;
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
-              canaryVersionList.forEach((version) => {
-                try {
-                  core.info(`Try to remove canary version: ${item.name}@${version}`);
-                  await exec.exec(`npm unpublish ${item.name}@${version}`);
-                } catch (error) {
-                  core.warning(`Remove canary version failed: ${item.name}@${version}`);
-                }
-              });
+              await Promise.all(
+                canaryVersionList.forEach(async (version) => {
+                  try {
+                    core.info(`Try to remove canary version: ${item.name}@${version}`);
+                    await exec.exec(`npm unpublish ${item.name}@${version}`);
+                    core.info(`Remove canary version success: ${item.name}@${version}`);
+                  } catch (error) {
+                    core.warning(`Remove canary version failed: ${item.name}@${version}`);
+                  }
+                })
+              );
             });
 
             await Promise.all(promises);
