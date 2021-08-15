@@ -105,10 +105,36 @@ jobs:
         run: lerna run build
 
       - name: publish package
+        id: published
         run: |
           RESULT=(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
+          echo "::set-output name=result::$(echo $RESULT)"
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
+
+      - name: parsing published packages
+        id: published-packages
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const { PUBLISHED } = process.env;
+
+            const regexp = /(?<=Successfully published:\r?\n)( - ([\w@/.\-+]+)(?:\r?\n)?)*/gm;
+            const listText = PUBLISHED.match(regexp)[0];
+
+            core.info(`list text : \n${listText}`);
+
+            const packageListRegexpt = /(?<= - )([\w@/.\-+]+)/g
+            const packageList = listText.match(packageListRegexpt);
+
+            return packageList;
+
+        env:
+          PUBLISHED: ${{ steps.published.outputs.result }}
+
+      - name: echo published-packges
+        run: echo ${{ steps.published-packages.outputs.result }}
+
 
       - name: make comment
         if: always()
