@@ -128,18 +128,17 @@ jobs:
 
               core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
 
-              const promise = canaryVersionList.map(async (version) => {
+              for (const version of canaryVersionList) {
                 try {
                   core.info(`Try to remove canary version: ${name}@${version}`);
                   await exec.exec(`npm unpublish ${name}@${version}`);
+
                   core.info(`Remove canary version success: ${name}@${version}`);
                   removed = true;
                 } catch (error) {
                   core.warning(`Remove canary version failed: ${name}@${version}`);
                 }
-              });
-
-              await Promise.all(promise);
+              }
 
               if (removed) removedPackages.push(name);
 
