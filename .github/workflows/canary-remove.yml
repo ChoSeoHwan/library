@@ -81,28 +81,43 @@ jobs:
               return statusList;
             }, {});
 
-            /*
-            core.startGroup('unpublish canary tag');
+            core.info('start unpublish canary version');
             const promises = LIST.map(async (item) => {
+              core.startGroup(`${item.name}`);
               try {
-                core.info(`Try to remove canary version: ${item.name}@alpha-${NUMBER}`);
+                core.info(`Try to unpublish tag: ${item.name}@alpha-${NUMBER}`);
                 await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
               } catch (error) {
                 statusList[item.name] = false;
-                core.warning(`Remove failed: ${item.name}@alpha-${NUMBER} `);
+                core.warning(`Unpublish tag failed: ${item.name}@alpha-${NUMBER} `);
+                return;
               }
-            });
-            core.endGroup();
-            */
 
-            core.startGroup('remove all canary version');
-            const promises = LIST.map(async (item) => {
-              const versionList = await exec.exec(`npm view ${item.name} versions --json`);
-              core.info(versionList);
+              let versionList = [];
+              try {
+                core.info('Get version info from tag');
+                const versionListJSON = await exec.exec(`npm view ${item.name} versions --json`);
+                versionList = JSON.parse(versionListJSON);
+              } catch (error) {
+                core.warning(`Get version info failed: ${item.name}@alpha-${NUMBER}`);
+                return;
+              }
+
+              const versionRegexp = /1.0.18-alpha-9.30/g;
+              const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
+
+              canaryVersionList.forEach((version) => {
+                try {
+                  core.info(`Try to remove canary version: ${item.name}@${version}`);
+                  await exec.exec(`npm unpublish ${item.name}@${version}`);
+                } catch (error) {
+                  core.warning(`Remove canary version failed: ${item.name}@${version}`);
+                }
+              });
             });
-            core.endGroup();
 
             await Promise.all(promises);
+            core.info('finish unpublish canary version');
 
             let errorCount = 0;
             const removedPackages = [];
