@@ -119,6 +119,8 @@ jobs:
           script: |
             const { PUBLISHED } = process.env;
 
+            core.info(`published test : \n${PUBLISHED}`);
+
             const regexp = /(?<=Successfully published:\r?\n)( - ([\w@/.\-+]+)(?:\r?\n)?)*/gm;
             const listText = PUBLISHED.match(regexp)[0];
 
