@@ -194,7 +194,7 @@ jobs:
 
                 // published package list 추가
                 if (PACKAGES.length > 0) {
-                  PACKAGES.forEach(({ name }) => {
+                  PACKAGES.forEach((name) => {
                     message += `- \`${name}\`\r\n`
                   });
                 } else {
