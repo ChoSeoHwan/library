@@ -96,9 +96,25 @@ jobs:
               let versionList = [];
               try {
                 core.info('Get version info from tag');
-                const versionListJSON = await exec.exec(`npm view ${name} versions --json`);
-                core.info(`version list json : ${versionListJSON}`);
-                versionList = JSON.parse(versionListJSON);
+
+                const outputList = [];
+                let error = false;
+
+                await exec.exec(`npm view ${name} versions --json`, [], {
+                  listeners: {
+                    stdout: (data: Buffer) => {
+                      outputList.push(data.toString());
+                    },
+                    stderr: (data: Buffer) => {
+                      error = true;
+                    }
+                  }
+                });
+
+                if (error) throw new Error('get version failed');
+
+                core.info(`version list json : ${outputList.join('')}`);
+                versionList = JSON.parse(outputList.join(''));
               } catch (error) {
                 core.warning(`Get version info failed: ${name}@alpha-${NUMBER}`);
                 return;
