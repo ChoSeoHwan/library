@@ -5,9 +5,8 @@ on:
     types: [ created ]
 
 jobs:
-
-  canary-remove:
-    name: canary-remove
+  start-comment:
+    name: start comment
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
@@ -26,10 +25,17 @@ jobs:
             Trying to remove canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
+  get-data:
+    name: get data
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '/canary-remove')
+    steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.issue.head.sha }}
+          ref: ${{ github.sha }}
 
       - name: get pr information
         uses: actions/github-script@v4
@@ -38,6 +44,45 @@ jobs:
           script: |
             const { getPrData } = require('./.github/scripts');
             return await getPrData({ github, context, core });
+
+      - name: make data file
+        env:
+          PR: ${{ steps.pr.outputs.result }}
+        run: |
+          mkdir ~/data
+          echo $PR > ~/data/pr.json
+
+      - name: upload data file
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+  canary-remove:
+    name: canary-remove
+    needs: [get-data]
+    runs-on: ubuntu-latest
+    if:
+      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
+      startsWith(github.event.comment.body, '/canary-remove')
+    steps:
+      - name: download data file
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+      - name: set downloaded data value
+        id: data
+        run: |
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
+
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+          repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
+          fetch-depth: 0
 
       - name: setup Node
         uses: actions/setup-node@v2
@@ -153,6 +198,37 @@ jobs:
           LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
 
+      - name: make data file
+        run: echo $REMOVED_PACKAGES > ~/data/removed-packages.json
+        env:
+          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
+
+      - name: upload data file
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+  finish-comment:
+    name: finish comment
+    runs-on: ubuntu-latest
+    if: ${{ success() || failure() }}
+    needs: [start-comment, canary-remove]
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v2.0.1
+
+      - name: download data file
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+      - name: set data value
+        id: data
+        run: |
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
+          echo "::set-output name=removed-packages::$(cat ~/data/removed-packages.json)"
+
       - name: make comment
         if: always()
         id: comment
@@ -183,10 +259,10 @@ jobs:
 
             return { message };
         env:
-          STATUS: ${{ job.status }}
-          TAG: alpha-${{ fromJSON(steps.pr.outputs.result).number }}
+          STATUS: ${{ env.WORKFLOW_CONCLUSION }}
+          TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
+          REMOVED_PACKAGES: ${{ steps.data.outputs.removed-packages }}
 
       - name: Comment on results
         if: always()
