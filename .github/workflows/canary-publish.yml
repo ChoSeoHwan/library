@@ -45,26 +45,12 @@ jobs:
             const { getPrData } = require('./.github/scripts');
             return await getPrData({ github, context, core });
 
-      - name: checkout pr version
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ fromJSON(steps.pr.outputs.result).head.ref }}
-          repository: ${{ fromJSON(steps.pr.outputs.result).head.repo.full_name }}
-          fetch-depth: 0
-
-      - name: get lerna changed package list
-        id: changed-packages
-        run: echo "::set-output name=list::$(lerna changed --json | awk '{print}' ORS='')"
-
       - name: make data file
         env:
           PR: ${{ steps.pr.outputs.result }}
-          CHANGED_PACKGES: ${{ steps.changed-packages.outputs.list }}
-
         run: |
           mkdir ./data
           echo $PR > data/pr.json
-          echo $CHANGED_PACKGES > data/changed-packages.json
 
       - name: upload data file
         uses: actions/upload-artifact@v2
@@ -89,7 +75,6 @@ jobs:
         id: data
         run: |
           echo "::set-output name=pr::$(cat pr.json)"
-          echo "::set-output name=changed-packages::$(cat changed-packages.json)"
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -116,25 +101,42 @@ jobs:
       - name: install dependencies
         run: yarn install
 
-      - name: check lerna changed list
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            let { LIST } = process.env;
-            LIST = JSON.parse(LIST);
-
-            if (LIST.length === 0) {
-              core.setFailed('No packages have changed');
-              return;
-            }
-        env:
-          LIST: ${{ steps.data.outputs.changed-packages }}
+      - name: build all packages
+        run: lerna run build
 
       - name: publish package
-        run: lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
+        id: published
+        run: |
+          RESULT=$(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
+          echo "::set-output name=result::$(echo $RESULT)"
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
+
+      - name: parsing published packages
+        id: published-packages
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const { PUBLISHED } = process.env;
+
+            core.info(`published test : \n${PUBLISHED}`);
+
+            const regexp = /(?<=Successfully published:\r?\n)( - ([\w@/.\-+]+)(?:\r?\n)?)*/gm;
+            const listText = PUBLISHED.match(regexp)[0];
+
+            core.info(`list text : \n${listText}`);
+
+            const packageListRegexpt = /(?<= - )([\w@/.\-+]+)/g
+            const packageList = listText.match(packageListRegexpt);
+
+            return packageList;
+
+        env:
+          PUBLISHED: ${{ steps.published.outputs.result }}
+
+      - name: echo published-packges
+        run: echo ${{ steps.published-packages.outputs.result }}
+
 
       - name: make comment
         if: always()
@@ -144,8 +146,10 @@ jobs:
           script: |
             const { STATUS, TAG, ACTION_URL } = process.env;
 
+            /*
             let { PACKAGES } = process.env;
             PACKAGES = JSON.parse(PACKAGES);
+            */
 
             let message = "> /canary-publish\r\n\r\n";
             switch (STATUS) {
@@ -153,9 +157,9 @@ jobs:
                 message += `🎉 canary publish complete!\r\n`;
                 message += `You can install canary version via \`yarn add package@${TAG}\`\r\n\r\n`
                 message += '**Package list**\r\n'
-                PACKAGES.forEach(({ name }) => {
+                /*PACKAGES.forEach(({ name }) => {
                   message += `- ${name}\r\n`
-                });
+                });*/
 
                 break;
 
@@ -169,7 +173,6 @@ jobs:
           STATUS: ${{ job.status }}
           TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          PACKAGES: ${{ steps.data.outputs.changed-packages }}
 
       - name: Comment on results
         if: always()
