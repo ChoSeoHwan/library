@@ -5,6 +5,7 @@ on:
     types: [ created ]
 
 jobs:
+
   canary-remove:
     name: canary-remove
     runs-on: ubuntu-latest
@@ -46,12 +47,10 @@ jobs:
       - name: set npm autority
         run: |
           yarn logout
-          echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
-          echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm whoami
         env:
-          NPM_TOKEN: ${{ secrets.npm_token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: install dependencies
         run: |
@@ -75,36 +74,78 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
-            const statusList = LIST.reduce((statusList, item) => {
-              statusList[item.name] = true;
-              return statusList;
-            }, {});
+            const tag = `alpha-${NUMBER}`;
 
-            const promises = LIST.map(async (item) => {
-              try {
-                core.info(`Try to remove canary version: ${item.name}@alpha-${NUMBER}`);
-                await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
-              } catch (error) {
-                statusList[item.name] = false;
-                core.warning(`Remove failed: ${item.name}@alpha-${NUMBER} `);
-              }
-            });
+            const packageList = LIST.map((item) => item.name);
 
-            await Promise.all(promises);
-
-            let errorCount = 0;
             const removedPackages = [];
-            for (const name in statusList) {
-              if (!statusList[name]) errorCount++;
-              else removedPackages.push(name);
+
+            core.info('start unpublish canary version');
+
+            for (const name of packageList) {
+              core.startGroup(name);
+
+              let removed = false;
+
+              try {
+                core.info(`Try to unpublish tag: ${name}@${tag}`);
+                await exec.exec(`npm dist-tag rm ${name} ${tag}`);
+
+                core.info(`Unpublish tag success: ${name}@${tag}`);
+                removed = true;
+              } catch (error) {
+                core.warning(`Unpublish tag failed: ${name}@${tag}`);
+              }
+
+              let versionList = [];
+              try {
+                core.info('Get version info from tag');
+
+                const outputList = [];
+                let error = false;
+
+                await exec.exec(`npm view ${name} versions --json`, [], {
+                  listeners: {
+                    stdout: (data) => {
+                      outputList.push(data.toString());
+                    },
+                    stderr: (data) => {
+                      error = true;
+                    }
+                  }
+                });
+
+                if (error) throw new Error('get version failed');
+
+                versionList = JSON.parse(outputList.join(''));
+              } catch (error) {
+                core.warning(`Get version info failed: ${name}@${tag}`);
+                return;
+              }
+
+              const versionRegexp = new RegExp(`(([\\d]+\\.){2}[\\d]+)-(${tag})\\.?`, 'g');
+              const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
+
+              core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
+
+              for (const version of canaryVersionList) {
+                try {
+                  core.info(`Try to remove canary version: ${name}@${version}`);
+                  await exec.exec(`npm unpublish ${name}@${version}`);
+
+                  core.info(`Remove canary version success: ${name}@${version}`);
+                  removed = true;
+                } catch (error) {
+                  core.warning(`Remove canary version failed: ${name}@${version}`);
+                }
+              }
+
+              if (removed) removedPackages.push(name);
+
+              core.endGroup();
             }
 
-            core.info(`Packages count: ${LIST.length}\nError count: ${errorCount}`);
-
-            if (errorCount >= LIST.length) {
-              core.setFailed('Failed to delete tags from all packages.');
-              return [];
-            }
+            core.info('finish unpublish canary version');
 
             return removedPackages;
 
@@ -125,9 +166,11 @@ jobs:
 
             switch (STATUS) {
               case 'success':
+                const removedPackageList = JSON.parse(REMOVED_PACKAGES);
+
                 message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n\r\n`;
                 message += '**List of packages with tags removed**\r\n'
-                REMOVED_PACKAGES.forEach((package) => {
+                removedPackageList.forEach((package) => {
                   message += `- ${package}\r\n`
                 });
 
