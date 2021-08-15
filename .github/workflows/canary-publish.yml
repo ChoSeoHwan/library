@@ -108,7 +108,7 @@ jobs:
         id: published
         run: |
           RESULT=$(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
-          echo "::set-output name=result::$(echo $RESULT | awk '{print}' ORS='\\n')"
+          echo "::set-output name=result::$(echo $RESULT)"
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
@@ -121,7 +121,7 @@ jobs:
 
             core.info(`published test : \n${PUBLISHED}`);
 
-            const regexp = /(?<=Successfully published:\\n)( - ([\w@/.\-+]+)(?:\\n)?)*/gm;
+            const regexp = /(?<=Successfully published:\r?\n)( - ([\w@/.\-+]+)(?:\r?\n)?)*/gm;
             const listText = PUBLISHED.match(regexp)[0];
 
             core.info(`list text : \n${listText}`);
