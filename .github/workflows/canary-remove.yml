@@ -76,30 +76,30 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
-            const statusList = LIST.reduce((statusList, item) => {
-              statusList[item.name] = true;
-              return statusList;
-            }, {});
+            const packageList = LIST.map((item) => item.name);
+
+            const removedPackage = [];
 
             core.startGroup('unpublish canary version');
-            const promises = LIST.map(async (item) => {
+            const promises = packageList.map(async (name) => {
+              let unpublish = false;
+
               try {
-                core.info(`Try to unpublish tag: ${item.name}@alpha-${NUMBER}`);
-                await exec.exec(`npm dist-tag rm ${item.name} alpha-${NUMBER}`);
-                core.info(`Unpublish tag success: ${item.name}@alpha-${NUMBER}`);
+                core.info(`Try to unpublish tag: ${name}@alpha-${NUMBER}`);
+                await exec.exec(`npm dist-tag rm ${name} alpha-${NUMBER}`);
+                core.info(`Unpublish tag success: ${name}@alpha-${NUMBER}`);
               } catch (error) {
-                statusList[item.name] = false;
-                core.warning(`Unpublish tag failed: ${item.name}@alpha-${NUMBER} `);
-                return;
+                unpublish = true;
+                core.warning(`Unpublish tag failed: ${name}@alpha-${NUMBER} `);
               }
 
               let versionList = [];
               try {
                 core.info('Get version info from tag');
-                const versionListJSON = await exec.exec(`npm view ${item.name} versions --json`);
+                const versionListJSON = await exec.exec(`npm view ${name} versions --json`);
                 versionList = JSON.parse(versionListJSON);
               } catch (error) {
-                core.warning(`Get version info failed: ${item.name}@alpha-${NUMBER}`);
+                core.warning(`Get version info failed: ${name}@alpha-${NUMBER}`);
                 return;
               }
 
@@ -111,32 +111,21 @@ jobs:
               await Promise.all(
                 canaryVersionList.forEach(async (version) => {
                   try {
-                    core.info(`Try to remove canary version: ${item.name}@${version}`);
-                    await exec.exec(`npm unpublish ${item.name}@${version}`);
-                    core.info(`Remove canary version success: ${item.name}@${version}`);
+                    core.info(`Try to remove canary version: ${name}@${version}`);
+                    await exec.exec(`npm unpublish ${name}@${version}`);
+                    core.info(`Remove canary version success: ${name}@${version}`);
+                    unpublish = true;
                   } catch (error) {
-                    core.warning(`Remove canary version failed: ${item.name}@${version}`);
+                    core.warning(`Remove canary version failed: ${name}@${version}`);
                   }
                 })
               );
+
+              if (unpublish) removedPackage.push(name);
             });
 
             await Promise.all(promises);
             core.endGroup();
-
-            let errorCount = 0;
-            const removedPackages = [];
-            for (const name in statusList) {
-              if (!statusList[name]) errorCount++;
-              else removedPackages.push(name);
-            }
-
-            core.info(`Packages count: ${LIST.length}\nError count: ${errorCount}`);
-
-            if (errorCount >= LIST.length) {
-              core.setFailed('Failed to delete tags from all packages.');
-              return [];
-            }
 
             return removedPackages;
 
