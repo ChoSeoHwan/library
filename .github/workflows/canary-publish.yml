@@ -62,9 +62,7 @@ jobs:
     needs: [get-data]
     name: canary publish
     runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
+    if: ${{ success() }}
     steps:
       - name: download data file
         uses: actions/download-artifact@v2
@@ -149,9 +147,7 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
+    if: ${{ always() }}
     needs: [start-comment, canary-publish]
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
