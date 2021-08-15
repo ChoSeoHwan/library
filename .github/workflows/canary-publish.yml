@@ -147,7 +147,7 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: ${{ success() || failure() }}
     needs: [start-comment, canary-publish]
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
