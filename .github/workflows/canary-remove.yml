@@ -103,7 +103,7 @@ jobs:
                 return;
               }
 
-              core.info(`${JSON.stringify(versionList)}`);
+              core.info(`version list : ${JSON.stringify(versionList)}\ntype: ${typeof versionList}`);
 
               const versionRegexp = /1.0.18-alpha-9.30/g;
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
