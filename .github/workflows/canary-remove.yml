@@ -76,6 +76,8 @@ jobs:
             let { LIST } = process.env;
             LIST = JSON.parse(LIST);
 
+            const tag = `alpha-${NUMBER}`;
+
             const packageList = LIST.map((item) => item.name);
 
             const removedPackage = [];
@@ -88,13 +90,13 @@ jobs:
               let removed = false;
 
               try {
-                core.info(`Try to unpublish tag: ${name}@alpha-${NUMBER}`);
-                await exec.exec(`npm dist-tag rm ${name} alpha-${NUMBER}`);
+                core.info(`Try to unpublish tag: ${name}@${tag}`);
+                await exec.exec(`npm dist-tag rm ${name} ${tag}`);
 
-                core.info(`Unpublish tag success: ${name}@alpha-${NUMBER}`);
+                core.info(`Unpublish tag success: ${name}@${tag}`);
                 removed = true;
               } catch (error) {
-                core.warning(`Unpublish tag failed: ${name}@alpha-${NUMBER} `);
+                core.warning(`Unpublish tag failed: ${name}@${tag}`);
               }
 
               let versionList = [];
@@ -119,11 +121,11 @@ jobs:
 
                 versionList = JSON.parse(outputList.join(''));
               } catch (error) {
-                core.warning(`Get version info failed: ${name}@alpha-${NUMBER}`);
+                core.warning(`Get version info failed: ${name}@${tag}`);
                 return;
               }
 
-              const versionRegexp = /1.0.18-alpha-9.30/g;
+              const versionRegexp = new RegExp(`(([\\d]+\\.){2}[\\d]+)-(${tag})\\.?`, 'g');
               const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
               core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
