@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "main": ".eslintrc",
+  "main": ".eslintrc.js",
   "directories": {
     "lib": "lib"
   },
