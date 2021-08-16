@@ -47,4 +47,5 @@ jobs:
 
       - name: publish package prerelease version
         id: published
-        run: lerna publish --conventional-prerelease --preid next --dist-tag next --yes
+        run: |
+          lerna publish -m "chore: prerelease version publish" --conventional-prerelease --preid next --dist-tag next --yes
