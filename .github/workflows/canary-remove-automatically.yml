@@ -155,7 +155,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const makeComment = require('./.github/scripts/canary-remove/makeComment');
+            const makeComment = require('./.github/scripts/canary-remove-automatically/makeComment');
             return await makeComment();
         env:
           STATUS: ${{ env.WORKFLOW_CONCLUSION }}
