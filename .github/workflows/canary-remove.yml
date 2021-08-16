@@ -155,6 +155,13 @@ jobs:
           echo "::set-output name=pr::$(cat ~/data/pr.json)"
           echo "::set-output name=removed-packages::$(cat ~/data/removed-packages.json)"
 
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+          repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
+          fetch-depth: 0
+
       - name: make comment
         if: always()
         id: comment
