@@ -1,44 +1,30 @@
-name: canary publish
+name: canary remove automactically
 
 on:
-  issue_comment:
-    types: [ created ]
+  pull_request:
+    types: [closed]
 
 jobs:
-  check-condition:
-    name: check condition
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
-    runs-on: ubuntu-latest
-    steps:
-      - name: pass condition
-        run: echo "pass condition"
-
   start-comment:
     name: start comment
     runs-on: ubuntu-latest
-    needs: [check-condition]
-    if: success()
     steps:
-      - name: Comment to command
+      - name: Comment to remove the canary version
         uses: hasura/comment-progress@v2.1.0
         with:
-          id: canary-publish-comment-${{ github.run_id }}
+          id: canary-remove-automatically-comment-${{ github.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ github.event.pull_request.number }}
           message: |
-            > /canary-publish
+            > Remove canary version automatically when pull request closed.
 
-            Trying to publish canary version...
+            Trying to remove canary version...
             If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
   get-data:
     name: get data
     runs-on: ubuntu-latest
-    needs: [check-condition]
-    if: success()
     steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
@@ -66,9 +52,9 @@ jobs:
           name: data
           path: ~/data
 
-  canary-publish:
-    needs: [get-data, check-condition]
-    name: canary publish
+  canary-remove-automatically:
+    name: canary remove automatically
+    needs: [get-data]
     runs-on: ubuntu-latest
     if: success()
     steps:
@@ -104,33 +90,30 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: install dependencies
-        run: yarn install
-
-      - name: build all packages
-        run: lerna run build
-
-      - name: publish package
-        id: published
         run: |
-          RESULT=$(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
-          echo "::set-output name=result::$(echo $RESULT)"
+          yarn install
+          yarn add @actions/exec -W
+
+      - name: get lerna packages list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
+
+      - name: remove canary tag
+        uses: actions/github-script@v4
+        id: removed-packages
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
+            return await removeCanaryTag({ core });
         env:
+          LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
-      - name: parsing published packages
-        id: published-packages
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const parsingPublishedPackages = require('./.github/scripts/canary-publish/parsingPublishedPackages');
-            return await parsingPublishedPackages({ core });
-        env:
-          PUBLISHED: ${{ steps.published.outputs.result }}
-
       - name: make data file
-        run: echo $PUBLISHED_PACKAGES > ~/data/published-packages.json
+        run: echo $REMOVED_PACKAGES > ~/data/removed-packages.json
         env:
-          PUBLISHED_PACKAGES: ${{ steps.published-packages.outputs.result }}
+          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
 
       - name: upload data file
         uses: actions/upload-artifact@v2
@@ -141,8 +124,8 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
+    needs: [start-comment, canary-remove]
     if: success() || failure()
-    needs: [start-comment, canary-publish]
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
 
@@ -156,7 +139,7 @@ jobs:
         id: data
         run: |
           echo "::set-output name=pr::$(cat ~/data/pr.json)"
-          echo "::set-output name=published-packages::$(cat ~/data/published-packages.json)"
+          echo "::set-output name=removed-packages::$(cat ~/data/removed-packages.json)"
 
       - name: checkout pr version
         uses: actions/checkout@v2
@@ -170,21 +153,22 @@ jobs:
         id: comment
         uses: actions/github-script@v4
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const makeComment = require('./.github/scripts/canary-publish/makeComment');
+            const makeComment = require('./.github/scripts/canary-remove/makeComment');
             return await makeComment();
         env:
           STATUS: ${{ env.WORKFLOW_CONCLUSION }}
           TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
           ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          PACKAGES: ${{ steps.data.outputs.published-packages }}
+          REMOVED_PACKAGES: ${{ steps.data.outputs.removed-packages }}
 
       - name: Comment on results
         if: always()
         uses: hasura/comment-progress@v2.1.0
         with:
-          id: canary-publish-comment-${{ github.run_id }}
+          id: canary-remove-automatically-comment-${{ github.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ github.event.pull_request.number }}
           message: ${{ fromJSON(steps.comment.outputs.result).message }}
