@@ -119,7 +119,7 @@ jobs:
       - name: publish package
         id: published
         run: |
-          RESULT=$(lerna publish --canary --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
+          RESULT=$(lerna publish --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
           echo "::set-output name=result::$(echo $RESULT)"
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
