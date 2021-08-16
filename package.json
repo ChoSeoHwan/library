@@ -22,6 +22,9 @@
   "scripts": {
     "prepare": "husky install",
     "upgrade": "lerna version -m \"chore: release version publish\"",
-    "upgrade:prerelease": "lerna version --conventional-prerelease -m \"chore: prerelease version publish\""
+    "upgrade:prerelease": "lerna version --conventional-prerelease -m \"chore: prerelease version publish\"",
+    "publish:release": "lerna publish -m \"chore: release version publish\" --conventional-graduate",
+    "publish:next": "lerna publish -m \"chore: prerelease version publish\" --conventional-prerelease --preid next --dist-tag next",
+    "publish:canary": "lerna publish --conventional-prerelease --preid alpha-${{ env.NUMBER }} --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version"
   }
 }

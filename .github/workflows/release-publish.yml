@@ -1,17 +1,17 @@
-name: preprelease publish
+name: release version publish
 
 on:
   pull_request:
-    branches: [release]
+    branches: [main]
     types: [closed]
 
 jobs:
-  publish-prerelease-version:
-    name: publish prerelease version
+  publish-release-version:
+    name: publish release version
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged }}
     steps:
-      - name: checkout pull request base branch
+      - name: checkout pull request main branch
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.base.ref }}
@@ -48,4 +48,4 @@ jobs:
       - name: publish package prerelease version
         id: published
         run: |
-          yarn run publish:next --yes
+          yarn run publish:release --yes
