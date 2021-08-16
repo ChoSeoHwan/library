@@ -101,3 +101,5 @@ typings/
 .tern-port
 
 .idea
+
+test.json
