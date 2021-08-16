@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20-next.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.19...@choseohwan/utils@1.0.20-next.0) (2021-08-16)
+
+
+### Bug Fixes
+
+* **utils:** test for ci ([cf094e7](https://github.com/ChoSeoHwan/library/commit/cf094e70e02307dcf2b4dd6e7b82652b13af20a5))
+
+
+
+
+
 ## [1.0.19](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.19-next.0...@choseohwan/utils@1.0.19) (2021-08-16)
 
 
