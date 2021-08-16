@@ -1,0 +1,174 @@
+name: canary remove automactically
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  start-comment:
+    name: start comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment to remove the canary version
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-remove-automatically-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          message: |
+            > Remove canary version automatically when pull request closed.
+
+            Trying to remove canary version...
+            If you want to see detailed execution status, please [click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
+  get-data:
+    name: get data
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout pull request version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.sha }}
+
+      - name: get pr information
+        uses: actions/github-script@v4
+        id: pr
+        with:
+          script: |
+            const getPrData = require('./.github/scripts/getPrData');
+            return await getPrData({ github, context, core });
+
+      - name: make data file
+        env:
+          PR: ${{ steps.pr.outputs.result }}
+        run: |
+          mkdir ~/data
+          echo $PR > ~/data/pr.json
+
+      - name: upload data file
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+  canary-remove-automatically:
+    name: canary remove automatically
+    needs: [get-data]
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: download data file
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+      - name: set downloaded data value
+        id: data
+        run: |
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
+
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+          repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: set npm autority
+        run: |
+          yarn logout
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: install dependencies
+        run: |
+          yarn install
+          yarn add @actions/exec -W
+
+      - name: get lerna packages list
+        id: packages
+        run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
+
+      - name: remove canary tag
+        uses: actions/github-script@v4
+        id: removed-packages
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
+            return await removeCanaryTag({ core });
+        env:
+          LIST: ${{ steps.packages.outputs.list }}
+          NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
+
+      - name: make data file
+        run: echo $REMOVED_PACKAGES > ~/data/removed-packages.json
+        env:
+          REMOVED_PACKAGES: ${{ steps.removed-packages.outputs.result }}
+
+      - name: upload data file
+        uses: actions/upload-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+  finish-comment:
+    name: finish comment
+    runs-on: ubuntu-latest
+    needs: [start-comment, canary-remove]
+    if: success() || failure()
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v2.0.1
+
+      - name: download data file
+        uses: actions/download-artifact@v2
+        with:
+          name: data
+          path: ~/data
+
+      - name: set data value
+        id: data
+        run: |
+          echo "::set-output name=pr::$(cat ~/data/pr.json)"
+          echo "::set-output name=removed-packages::$(cat ~/data/removed-packages.json)"
+
+      - name: checkout pr version
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+          repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: make comment
+        if: always()
+        id: comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const makeComment = require('./.github/scripts/canary-remove/makeComment');
+            return await makeComment();
+        env:
+          STATUS: ${{ env.WORKFLOW_CONCLUSION }}
+          TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
+          ACTION_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REMOVED_PACKAGES: ${{ steps.data.outputs.removed-packages }}
+
+      - name: Comment on results
+        if: always()
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          id: canary-remove-automatically-comment-${{ github.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          message: ${{ fromJSON(steps.comment.outputs.result).message }}
