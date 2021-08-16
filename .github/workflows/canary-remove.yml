@@ -112,88 +112,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const exec = require('@actions/exec');
-
-            const { NUMBER } = process.env;
-
-            let { LIST } = process.env;
-            LIST = JSON.parse(LIST);
-
-            const tag = `alpha-${NUMBER}`;
-
-            const packageList = LIST.map((item) => item.name);
-
-            const removedPackages = [];
-
-            core.info('start unpublish canary version');
-
-            for (const name of packageList) {
-              core.startGroup(name);
-
-              let removed = false;
-
-              try {
-                core.info(`Try to unpublish tag: ${name}@${tag}`);
-                await exec.exec(`npm dist-tag rm ${name} ${tag}`);
-
-                core.info(`Unpublish tag success: ${name}@${tag}`);
-                removed = true;
-              } catch (error) {
-                core.warning(`Unpublish tag failed: ${name}@${tag}`);
-              }
-
-              let versionList = [];
-              try {
-                core.info('Get version info from tag');
-
-                const outputList = [];
-                let error = false;
-
-                await exec.exec(`npm view ${name} versions --json`, [], {
-                  listeners: {
-                    stdout: (data) => {
-                      outputList.push(data.toString());
-                    },
-                    stderr: (data) => {
-                      error = true;
-                    }
-                  }
-                });
-
-                if (error) throw new Error('get version failed');
-
-                versionList = JSON.parse(outputList.join(''));
-              } catch (error) {
-                core.warning(`Get version info failed: ${name}@${tag}`);
-                return;
-              }
-
-              const versionRegexp = new RegExp(`(([\\d]+\\.){2}[\\d]+)-(${tag})\\.?`, 'g');
-              const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
-
-              core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
-
-              for (const version of canaryVersionList) {
-                try {
-                  core.info(`Try to remove canary version: ${name}@${version}`);
-                  await exec.exec(`npm unpublish ${name}@${version}`);
-
-                  core.info(`Remove canary version success: ${name}@${version}`);
-                  removed = true;
-                } catch (error) {
-                  core.warning(`Remove canary version failed: ${name}@${version}`);
-                }
-              }
-
-              if (removed) removedPackages.push(name);
-
-              core.endGroup();
-            }
-
-            core.info('finish unpublish canary version');
-
-            return removedPackages;
-
+            const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
+            return await removeCanaryTag({ core });
         env:
           LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
@@ -236,28 +156,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { STATUS, TAG, ACTION_URL, REMOVED_PACKAGES } = process.env;
-
-            let message = "> /canary-remove\r\n\r\n";
-
-            switch (STATUS) {
-              case 'success':
-                const removedPackageList = JSON.parse(REMOVED_PACKAGES);
-
-                message += `🎉 canary remove complete!\r\nRemoved tag is \`${TAG}\`\r\n\r\n`;
-                message += '**List of packages with tags removed**\r\n'
-                removedPackageList.forEach((package) => {
-                  message += `- ${package}\r\n`
-                });
-
-                break;
-
-              case 'failure':
-                message += `❗ canary remove failed.\r\nCheck error in github [action page](${ACTION_URL}).\r\n`;
-                break;
-            }
-
-            return { message };
+            const makeComment = require('./.github/scripts/canary-publish/makeComment');
+            return await makeComment();
         env:
           STATUS: ${{ env.WORKFLOW_CONCLUSION }}
           TAG: alpha-${{ fromJSON(steps.data.outputs.pr).number }}
