@@ -1,4 +1,4 @@
-name: preprelease publish when pull request merged
+name: preprelease publish
 
 on:
   pull_request:
