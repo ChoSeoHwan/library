@@ -122,7 +122,7 @@ jobs:
             return await removeCanaryTag({ core });
         env:
           LIST: ${{ steps.packages.outputs.list }}
-          NUMBER: ${{ fromJSON(steps.pr.outputs.result).number }}
+          NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
       - name: make data file
         run: echo $REMOVED_PACKAGES > ~/data/removed-packages.json
