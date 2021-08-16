@@ -1,0 +1,16 @@
+name: check pull request branch
+
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  check-branch:
+    name: check branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: get context
+        run: echo $GITHUB
+        env:
+          GITHUB: ${{ toJSON(github) }}
