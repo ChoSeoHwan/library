@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check release branch
-        if: ${{ github.event.pull_request.head.ref != "release" }}
+        if: ${{ github.event.pull_request.head.ref != 'release' }}
         run: echo "::error ::Not a release branch"
