@@ -1,0 +1,15 @@
+name: pull request close
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo context
+        run: echo $GITHUB
+        env:
+          GITHUB: ${{ toJSON(github) }}

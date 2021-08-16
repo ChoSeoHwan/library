@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -53,8 +53,8 @@
   "devDependencies": {
     "@choseohwan/eslint-config-base": "^1.0.10",
     "@choseohwan/jest-config-base": "^1.0.7",
-    "@choseohwan/prettier-config-base": "^1.0.6",
-    "@choseohwan/rollup-builder": "^1.0.33",
+    "@choseohwan/prettier-config-base": "^1.0.7",
+    "@choseohwan/rollup-builder": "^1.0.34",
     "@choseohwan/tsconfig-base": "^1.0.11"
   },
   "lint-staged": {
