@@ -3,7 +3,6 @@ name: pull request close
 on:
   pull_request:
     types: [closed]
-    branches: [release]
 
 jobs:
   test:
