@@ -12,4 +12,6 @@ jobs:
     steps:
       - name: check release branch
         if: ${{ github.event.pull_request.head.ref != 'release' }}
-        run: echo "::error ::Not a release branch"
+        run: |
+          echo "::error ::Not a release branch"
+          exit 1;
