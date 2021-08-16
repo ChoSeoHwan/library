@@ -45,13 +45,14 @@ jobs:
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
-      - name: upload data file
+      - name: make data file
+        env:
+          PR: ${{ steps.pr.outputs.result }}
         run: |
           mkdir ~/data
           echo $PR > ~/data/pr.json
-        env:
-          PR: ${{ steps.pr.outputs.result }}
 
+      - name: upload data file
         uses: actions/upload-artifact@v2
         with:
           name: data
@@ -64,11 +65,13 @@ jobs:
     if: ${{ success() }}
     steps:
       - name: download data file
-        id: data
         uses: actions/download-artifact@v2
         with:
           name: data
           path: ~/data
+
+      - name: set downloaded data value
+        id: data
         run: |
           echo "::set-output name=pr::$(cat ~/data/pr.json)"
 
@@ -116,11 +119,12 @@ jobs:
         env:
           PUBLISHED: ${{ steps.published.outputs.result }}
 
-      - name: upload data file
+      - name: make data file
         run: echo $PUBLISHED_PACKAGES > ~/data/published-packages.json
         env:
           PUBLISHED_PACKAGES: ${{ steps.published-packages.outputs.result }}
 
+      - name: upload data file
         uses: actions/upload-artifact@v2
         with:
           name: data
@@ -135,12 +139,13 @@ jobs:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
 
       - name: download data file
-        id: data
         uses: actions/download-artifact@v2
         with:
           name: data
           path: ~/data
 
+      - name: set data value
+        id: data
         run: |
           echo "::set-output name=pr::$(cat ~/data/pr.json)"
           echo "::set-output name=published-packages::$(cat ~/data/published-packages.json)"
