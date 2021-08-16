@@ -5,12 +5,21 @@ on:
     types: [ created ]
 
 jobs:
-  start-comment:
-    name: start comment
-    runs-on: ubuntu-latest
+  check-condition:
+    name: check condition
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-publish')
+    runs-on: ubuntu-latest
+    steps:
+      - name: pass condition
+        run: echo "pass condition"
+
+  start-comment:
+    name: start comment
+    runs-on: ubuntu-latest
+    needs: [check-condition]
+    if: success()
     steps:
       - name: Comment to command
         uses: hasura/comment-progress@v2.1.0
@@ -28,9 +37,8 @@ jobs:
   get-data:
     name: get data
     runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-publish')
+    needs: [check-condition]
+    if: success()
     steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
@@ -59,10 +67,10 @@ jobs:
           path: ~/data
 
   canary-publish:
-    needs: [get-data]
+    needs: [get-data, check-condition]
     name: canary publish
     runs-on: ubuntu-latest
-    if: ${{ success() }}
+    if: success()
     steps:
       - name: download data file
         uses: actions/download-artifact@v2
@@ -133,7 +141,7 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
-    if: ${{ success() || failure() }}
+    if: success() || failure()
     needs: [start-comment, canary-publish]
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
