@@ -7,6 +7,8 @@ const buildRollupOptions = (
     outputs: Output | Output[],
     plugins?: Plugins
 ): RollupOptions[] | RollupOptions => {
+    console.log('test for pr 4');
+
     // output 세팅
     if (!Array.isArray(outputs)) outputs = [outputs];
 
