@@ -13,6 +13,7 @@ jobs:
       startsWith(github.event.comment.body, '/canary-remove')
     steps:
       - name: pass condition
+        run: echo "pass condition"
 
   start-comment:
     name: start comment
