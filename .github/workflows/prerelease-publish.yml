@@ -1,0 +1,20 @@
+name: preprelease publish when pull request merged
+
+on:
+  pull_request:
+    branches: [release]
+    types: [closed]
+
+jobs:
+  publish-prerelease-version:
+    name: publish prerelease version
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.merged }}
+    steps:
+      - name: echo context
+        run: echo $GITHUB
+        env:
+          GITHUB: ${{ toJSON(github) }}
+
+
+

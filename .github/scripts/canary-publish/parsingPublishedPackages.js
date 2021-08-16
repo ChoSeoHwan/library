@@ -12,7 +12,6 @@ module.exports = async ({core}) => {
 
     const regexp = /(?<=Successfully published:)( - ([\w@/.\-+]+))*/gm;
     if (!regexp.test(PUBLISHED)) {
-        core.setFailed('can not found published packages.');
         return [];
     }
 

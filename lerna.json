@@ -7,8 +7,7 @@
   "useWorkspaces": true,
   "command": {
     "version": {
-      "conventionalCommits": true,
-      "allowBranch": ["main", "release/*"]
+      "conventionalCommits": true
     },
     "publish": {
       "conventionalCommits": true

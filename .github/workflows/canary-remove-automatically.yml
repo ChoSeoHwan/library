@@ -124,7 +124,7 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
-    needs: [start-comment, canary-remove]
+    needs: [start-comment, canary-remove-automatically]
     if: success() || failure()
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
