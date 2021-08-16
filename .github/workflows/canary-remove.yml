@@ -5,12 +5,18 @@ on:
     types: [ created ]
 
 jobs:
-  start-comment:
-    name: start comment
+  check-condition:
+    name: check condition
     runs-on: ubuntu-latest
     if:
       (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
       startsWith(github.event.comment.body, '/canary-remove')
+
+  start-comment:
+    name: start comment
+    runs-on: ubuntu-latest
+    needs: [check-condition]
+    if: success()
     steps:
       - name: Comment to command
         uses: hasura/comment-progress@v2.1.0
@@ -28,9 +34,8 @@ jobs:
   get-data:
     name: get data
     runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-remove')
+    needs: [check-condition]
+    if: success()
     steps:
       - name: checkout pull request version
         uses: actions/checkout@v2
@@ -60,11 +65,9 @@ jobs:
 
   canary-remove:
     name: canary-remove
-    needs: [get-data]
+    needs: [check-condition, get-data]
     runs-on: ubuntu-latest
-    if:
-      (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'CONTRIBUTOR') &&
-      startsWith(github.event.comment.body, '/canary-remove')
+    if: success()
     steps:
       - name: download data file
         uses: actions/download-artifact@v2
@@ -132,8 +135,8 @@ jobs:
   finish-comment:
     name: finish comment
     runs-on: ubuntu-latest
-    if: ${{ success() || failure() }}
     needs: [start-comment, canary-remove]
+    if: success() || failure()
     steps:
       - uses: technote-space/workflow-conclusion-action@v2.0.1
 
