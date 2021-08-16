@@ -9,23 +9,34 @@ jobs:
   publish-prerelease-version:
     name: publish prerelease version
     runs-on: ubuntu-latest
-    if: ${{ !github.event.pull_request.merged }}
+    if: ${{ github.event.pull_request.merged }}
     steps:
-      - name: checkout pull request version
+      - name: checkout pull request base branch
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.base.ref }}
+          repository: ${{ github.event.pull_request.base.repo.full_name }}
+          fetch-depth: 0
 
-      - name: get pr information
-        uses: actions/github-script@v4
-        id: pr
+      - name: setup Node
+        uses: actions/setup-node@v2
         with:
-          script: |
-            const getPrData = require('./.github/scripts/getPrData');
-            return await getPrData({ github, context, core });
+          node-version: 14.x
 
-      - name: echo pr
-        run: echo ${{ steps.pr.outputs.result }}
+      - name: set npm autority
+        run: |
+          yarn logout
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: install dependencies
+        run: yarn install
 
+      - name: build all packages
+        run: lerna run build
 
+      - name: publish package prerelease version
+        id: published
+        run: lerna publish --conventional-prerelease --preid next --dist-tag next --yes
