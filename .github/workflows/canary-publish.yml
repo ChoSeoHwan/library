@@ -90,6 +90,13 @@ jobs:
           repository: ${{ fromJSON(steps.data.outputs.pr).head.repo.full_name }}
           fetch-depth: 0
 
+      - name: print test
+        run: |
+          echo ref : $REF
+          git branch --show-current
+        env:
+          REF: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
+
       - name: setup Node
         uses: actions/setup-node@v2
         with:
