@@ -7,6 +7,8 @@ const buildRollupOptions = (
     outputs: Output | Output[],
     plugins?: Plugins
 ): RollupOptions[] | RollupOptions => {
+    console.log('feat: test for ci');
+
     // output 세팅
     if (!Array.isArray(outputs)) outputs = [outputs];
 
