@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.19-next.0...@choseohwan/utils@1.0.19) (2021-08-16)
+
+
+### Reverts
+
+* 테스트를 위한 수정 사항 원복 ([3bbdd93](https://github.com/ChoSeoHwan/library/commit/3bbdd939a9c4e7507f518a42d2b6b782435baee5))
+
+
+
+
+
 ## [1.0.19-next.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.18...@choseohwan/utils@1.0.19-next.0) (2021-08-16)
 
 
