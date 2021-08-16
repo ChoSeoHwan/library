@@ -2,7 +2,6 @@ name: check pull request branch
 
 on:
   pull_request:
-    branches: ["main"]
     types: [opened, synchronize, reopened, edited]
 
 jobs:
@@ -11,5 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check release branch
-        if: ${{ github.event.pull_request.head.ref != "release" }}
-        run: echo "::error ::Not a release branch"
+        if: ${{ github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref != 'release' }}
+        run: |
+          echo "::error ::Not a release branch"
+          exit 1;

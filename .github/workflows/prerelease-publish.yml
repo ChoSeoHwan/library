@@ -9,12 +9,34 @@ jobs:
   publish-prerelease-version:
     name: publish prerelease version
     runs-on: ubuntu-latest
-    if: ${{ !github.event.pull_request.merged }}
+    if: ${{ github.event.pull_request.merged }}
     steps:
-      - name: echo context
-        run: echo $GITHUB
+      - name: checkout pull request base branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          repository: ${{ github.event.pull_request.base.repo.full_name }}
+          fetch-depth: 0
+
+      - name: setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: set npm autority
+        run: |
+          yarn logout
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+          npm whoami
         env:
-          GITHUB: ${{ toJSON(github) }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: install dependencies
+        run: yarn install
 
+      - name: build all packages
+        run: lerna run build
 
+      - name: publish package prerelease version
+        id: published
+        run: lerna publish --conventional-prerelease --preid next --dist-tag next --yes

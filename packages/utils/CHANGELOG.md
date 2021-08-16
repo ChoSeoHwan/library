@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19-next.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.18...@choseohwan/utils@1.0.19-next.0) (2021-08-16)
+
+
+### Bug Fixes
+
+* **utils:** test for ci ([a947732](https://github.com/ChoSeoHwan/library/commit/a9477326141b055d69fd510174ff9a531b858117))
+* **utils:** test for ci ([09495ae](https://github.com/ChoSeoHwan/library/commit/09495ae6f9fc5d2311b10bf9252abec1fe11bc9f))
+
+
+
+
+
 ## [1.0.18](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.17...@choseohwan/utils@1.0.18) (2021-08-13)
 
 **Note:** Version bump only for package @choseohwan/utils
