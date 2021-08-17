@@ -60,7 +60,9 @@ module.exports = async ({core}) => {
             return;
         }
 
-        const versionRegexp = new RegExp(`(([\\d]+\\.){2}[\\d]+)-(${tag})\\.?`, 'g');
+        core.info(`all version list : ${JSON.stringify(versionList)}`);
+
+        const versionRegexp = new RegExp(`(([\\d]+\\.){2}[\\d]+)-(${tag})\\.`, 'g');
         const canaryVersionList = versionList.filter((version) => versionRegexp.test(version));
 
         core.info(`canary version list : ${JSON.stringify(canaryVersionList)}`);
