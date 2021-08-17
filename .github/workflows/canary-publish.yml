@@ -113,7 +113,7 @@ jobs:
         run: |
           yarn run upgrade:canary --preid alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes
           git add packages/*/{package.json,CHANGELOG.md}
-          git -m 'chore: alpha-${{ env.NUMBER }} version publish'
+          git commit -m 'chore: alpha-${{ env.NUMBER }} version publish'
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
 
