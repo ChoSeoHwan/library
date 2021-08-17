@@ -103,32 +103,16 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Set git authority
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: install dependencies
         run: yarn install
 
       - name: build all packages
         run: lerna run build
 
-      - name: versioning packages
-        run: |
-          yarn run upgrade:canary --preid alpha-${{ env.NUMBER }}.$(git rev-parse HEAD) --no-push --no-git-tag-version --yes
-          git add packages/*/{package.json,CHANGELOG.md}
-          git commit -m 'chore: alpha-${{ env.NUMBER }} version publish'
-        env:
-          NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
-
       - name: publish package
         id: published
         run: |
-          RESULT=$(lerna publish --preid alpha-${{ env.NUMBER }}.$(git rev-parse HEAD) --dist-tag alpha-${{ env.NUMBER }} --no-push --no-git-tag-version --yes)
+          RESULT=$(yarn run publish:canary --preid alpha-${{ env.NUMBER }}.$(git rev-parse HEAD) --dist-tag alpha-${{ env.NUMBER }} --yes)
           echo "::set-output name=result::$(echo $RESULT)"
         env:
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
