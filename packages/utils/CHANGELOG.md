@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.20-next.35ba26fa068bfe1a986e12bc432c1c45e67987b8.0...@choseohwan/utils@1.0.20) (2021-08-18)
+
+**Note:** Version bump only for package @choseohwan/utils
+
+
+
+
+
 ## [1.0.20-next.35ba26fa068bfe1a986e12bc432c1c45e67987b8.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.19...@choseohwan/utils@1.0.20-next.35ba26fa068bfe1a986e12bc432c1c45e67987b8.0) (2021-08-18)
 
 **Note:** Version bump only for package @choseohwan/utils
