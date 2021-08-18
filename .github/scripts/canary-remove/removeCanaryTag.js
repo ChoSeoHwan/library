@@ -6,12 +6,12 @@
 module.exports = async ({core}) => {
     const exec = require('@actions/exec');
 
-    const { NUMBER } = process.env;
+    const { NUMBER, REF } = process.env;
 
     let { LIST } = process.env;
     const parsedList = JSON.parse(LIST);
 
-    const tag = `alpha-${NUMBER}`;
+    const tag = REF === 'release' ? 'next' : `alpha-${NUMBER}`;
 
     const packageList = parsedList.map((item) => item.name);
 
