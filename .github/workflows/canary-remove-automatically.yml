@@ -109,6 +109,7 @@ jobs:
         env:
           LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
+          REF: ${{ fromJSON(steps.data.outputs.pr).head.ref }}
 
       - name: make data file
         run: echo $REMOVED_PACKAGES > ~/data/removed-packages.json
