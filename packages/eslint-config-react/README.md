@@ -1,11 +1,28 @@
 # `@choseohwan/eslint-config-react`
 
-> TODO: description
+eslint react config for SeoHwan Cho's project
+
+## Install
+
+### npm
+```shell
+npm install @choseohwan/eslint-config-react eslint prettier typescript react --save-dev
+```
+
+### yarn
+```shell
+yarn add @choseohwan/eslint-config-react eslint prettier typescript react -D
+```
 
 ## Usage
 
-```
-const eslintConfigReact = require('@choseohwan/eslint-config-react');
+Make `.eslintrc` file in the root directory of packages.
 
-// TODO: DEMONSTRATE API
+**`.eslintrc`**
+```json
+{
+    "extends": [
+        "@choseohwan/eslint-config-react"
+    ]
+}
 ```
