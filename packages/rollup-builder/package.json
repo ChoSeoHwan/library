@@ -31,8 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-typescript": "^7.15.0",
+    "@choseohwan/babel-preset-base": "0.0.0",
     "@choseohwan/eslint-config-base": "^1.0.12",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/tsconfig-base": "^1.0.11",
@@ -40,6 +39,7 @@
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@types/node": "^16.4.10",
+    "babel-jest": "^27.0.6",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
@@ -62,8 +62,8 @@
     "precommit": "yarn lint-staged"
   },
   "peerDependencies": {
-    "rollup": "^2.51",
-    "typescript": "^4.3"
+    "rollup": "^2",
+    "typescript": "^4"
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [

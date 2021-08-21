@@ -51,6 +51,7 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "devDependencies": {
+    "@choseohwan/babel-preset-base": "0.0.0",
     "@choseohwan/eslint-config-base": "^1.0.12",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/rollup-builder": "^1.1.0",
