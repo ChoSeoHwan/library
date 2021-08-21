@@ -3,7 +3,7 @@ import cleaner from "rollup-plugin-cleaner";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript, {RPT2Options} from "rollup-plugin-typescript2";
+import typescript from "rollup-plugin-typescript2";
 import babel from "@rollup/plugin-babel";
 import {DEFAULT_EXTENSIONS} from "@babel/core";
 import {terser} from "rollup-plugin-terser";
@@ -64,11 +64,7 @@ const plugins = new Plugins(
     new Plugin('@rollup/plugin-babel', babel, [
         {
             extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
-            babelHelpers: 'runtime',
-            plugins: [
-                '@babel/plugin-transform-runtime',
-                '@babel/plugin-transform-arrow-functions'
-            ]
+            babelHelpers: 'runtime'
         }
     ]),
     new Plugin('rollup-plugin-terser', terser, [])

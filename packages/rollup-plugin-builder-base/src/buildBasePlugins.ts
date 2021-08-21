@@ -62,7 +62,8 @@ const buildBasePlugins = (): Plugins => {
     const babelPlugin = new Plugin('@rollup/plugin-babel', babel, [
         {
             extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
-            babelHelpers: 'runtime'
+            babelHelpers: 'runtime',
+            plugins: ['@babel/plugin-transform-runtime']
         }
     ]);
 

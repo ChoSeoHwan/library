@@ -41,7 +41,7 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
     "@choseohwan/eslint-config-base": "^1.0.11",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/prettier-config-base": "^1.0.7",
@@ -57,6 +57,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
@@ -67,6 +69,8 @@
   },
   "peerDependencies": {
     "@babel/core": "^7",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
     "@choseohwan/rollup-builder": "^1",
     "@rollup/plugin-babel": "^5",
     "@rollup/plugin-commonjs": "^20",
