@@ -34,7 +34,8 @@
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
     "prepublish": "yarn build",
-    "build": "yarn eslint && yarn test:silent && rollup -c rollup.config.js"
+    "build": "yarn eslint && yarn test:silent && rollup -c rollup.config.js",
+    "precommit": "yarn lint-staged"
   },
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
