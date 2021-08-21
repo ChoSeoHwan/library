@@ -1,4 +1,4 @@
-# `@choseohwan/eslint-config-base`
+[# `@choseohwan/eslint-config-base`
 
 eslint base config for SeoHwan Cho's project
 
@@ -25,4 +25,4 @@ Make `.eslintrc` file in the root directory of packages.
         "@choseohwan/eslint-config-base"
     ]
 }
-```
+```]()
