@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "0.0.0",
+  "version": "0.1.0-next.b8e408e16f8e2b86b5785c9d46d171f9a725cda6.0",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",
@@ -45,7 +45,7 @@
     "@choseohwan/eslint-config-base": "^1.0.11",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/prettier-config-base": "^1.0.7",
-    "@choseohwan/rollup-builder": "^1.0.36",
+    "@choseohwan/rollup-builder": "^1.1.0-next.b8e408e16f8e2b86b5785c9d46d171f9a725cda6.0",
     "@choseohwan/tsconfig-base": "^1.0.11",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
