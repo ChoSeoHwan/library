@@ -23,8 +23,8 @@ jobs:
       - name: install dependencies
         run: yarn install
 
-      - name: Testing the packages
-        run: lerna run test:silent
-
       - name: Check if packages are buildable
         run: lerna run build
+
+      - name: Testing the packages
+        run: lerna run test:silent

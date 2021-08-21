@@ -1,0 +1,46 @@
+{
+  "name": "@choseohwan/eslint-config-react",
+  "version": "0.1.0-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+  "description": "eslint config for react",
+  "keywords": [
+    "eslint",
+    "react",
+    "config"
+  ],
+  "author": "ChoSeoHwan <wtae1216@naver.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "main": ".eslintrc.js",
+  "directories": {},
+  "files": [
+    ".eslintrc.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "eslint": "^7",
+    "prettier": "^2",
+    "react": "^17",
+    "typescript": "^4"
+  },
+  "dependencies": {
+    "@choseohwan/eslint-config-base": "^1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+    "@choseohwan/prettier-config-base": "^1.0.7"
+  }
+}

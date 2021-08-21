@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.0.20",
+  "version": "1.0.21-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -51,10 +51,11 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "devDependencies": {
-    "@choseohwan/eslint-config-base": "^1.0.11",
+    "@choseohwan/eslint-config-base": "^1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/prettier-config-base": "^1.0.7",
-    "@choseohwan/rollup-builder": "^1.0.36",
+    "@choseohwan/rollup-builder": "^1.1.0-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+    "@choseohwan/rollup-plugin-builder-base": "^0.1.0-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
     "@choseohwan/tsconfig-base": "^1.0.11"
   },
   "lint-staged": {
