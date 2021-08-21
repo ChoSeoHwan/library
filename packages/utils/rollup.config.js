@@ -1,4 +1,5 @@
-import buildRollupOptions, { Input, OutputBuilder, PluginsBuilder } from '@choseohwan/rollup-builder';
+import buildRollupOptions, { Input, OutputBuilder } from '@choseohwan/rollup-builder';
+import buildBasePlugins from "@choseohwan/rollup-plugin-builder-base";
 
 const input = new Input('src/index.ts', {
     es: {
@@ -11,7 +12,7 @@ const outputBuilder = new OutputBuilder({
     sourcemap: true
 });
 
-const plugins = PluginsBuilder.buildBasePlugins();
+const plugins = buildBasePlugins();
 
 export default buildRollupOptions(
     input,
