@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21-next.b8e408e16f8e2b86b5785c9d46d171f9a725cda6.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.20...@choseohwan/utils@1.0.21-next.b8e408e16f8e2b86b5785c9d46d171f9a725cda6.0) (2021-08-21)
+
+
+### Bug Fixes
+
+* **utils:** rollup-builder 변경으로 인해 utils 라이브러리 설정 변경 ([7eddbbf](https://github.com/ChoSeoHwan/library/commit/7eddbbf4505eab7867d9029bb2014cc172d50de8))
+
+
+
+
+
 ## [1.0.20](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.20-next.35ba26fa068bfe1a986e12bc432c1c45e67987b8.0...@choseohwan/utils@1.0.20) (2021-08-18)
 
 **Note:** Version bump only for package @choseohwan/utils

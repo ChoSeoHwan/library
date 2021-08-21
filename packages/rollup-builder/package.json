@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "1.0.36",
+  "version": "1.1.0-next.b8e408e16f8e2b86b5785c9d46d171f9a725cda6.0",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
@@ -25,12 +25,14 @@
   "files": [
     "dist/*"
   ],
+  "dependencies": {
+    "@babel/runtime": "^7.15.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
-    "@babel/runtime": "^7.14.6",
     "@choseohwan/eslint-config-base": "^1.0.11",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/prettier-config-base": "^1.0.7",
@@ -61,23 +63,12 @@
     "precommit": "yarn lint-staged"
   },
   "peerDependencies": {
-    "@babel/core": "^7.14",
-    "@babel/plugin-transform-runtime": "^7.14",
-    "@rollup/plugin-babel": "^5.3",
-    "@rollup/plugin-commonjs": "^20.0",
-    "@rollup/plugin-node-resolve": "^13.0",
     "rollup": "^2.51",
-    "rollup-plugin-cleaner": "^1.0",
-    "rollup-plugin-terser": "^7.0",
-    "rollup-plugin-typescript2": "^0.30",
-    "ttypescript": "^1.5",
-    "typescript": "^4.3",
-    "typescript-transform-paths": "^3.1"
+    "typescript": "^4.3"
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix",
-      "git add"
+      "yarn eslint:fix"
     ]
   }
 }
