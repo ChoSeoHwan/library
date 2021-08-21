@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-react",
-  "version": "0.1.0-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+  "version": "0.1.0",
   "description": "eslint config for react",
   "keywords": [
     "eslint",
@@ -40,7 +40,7 @@
     "typescript": "^4"
   },
   "dependencies": {
-    "@choseohwan/eslint-config-base": "^1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+    "@choseohwan/eslint-config-base": "^1.0.12",
     "@choseohwan/prettier-config-base": "^1.0.7"
   }
 }

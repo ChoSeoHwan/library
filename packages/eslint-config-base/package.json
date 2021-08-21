@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-base",
-  "version": "1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
+  "version": "1.0.12",
   "description": "eslint config library",
   "keywords": [
     "eslint",
