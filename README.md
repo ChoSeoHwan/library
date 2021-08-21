@@ -6,6 +6,10 @@ mono repository library for SeoHwan Cho's projects.
 
 ## Configs
 
+- `@choseohwan/babel-preset-base` **[README](./packages/babel-preset-base/README.md)**
+   - babel base preset for SeoHwan Cho's project
+
+
 - `@choseohwan/eslint-config-base` **[README](./packages/eslint-config-base/README.md)**
   - eslint base config for SeoHwan Cho's project
 

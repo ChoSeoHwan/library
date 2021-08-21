@@ -1,11 +1,28 @@
 # `@choseohwan/babel-preset-base`
 
-> TODO: description
+babel base preset for SeoHwan Cho's project
+
+## Install
+
+### npm
+```shell
+npm install @choseohwan/babel-preset-base @babel/core typescript --save-dev
+```
+
+### yarn
+```shell
+yarn add @choseohwan/babel-preset-base @babel/core typescript -D
+```
 
 ## Usage
 
-```
-const babelPresetBase = require('@choseohwan/babel-preset-base');
+Make `babel.config.js` file in the root directory of packages.
 
-// TODO: DEMONSTRATE API
+**`babel.config.js`**
+```javascript
+module.exports = {
+    "presets": [
+        "@choseohwan/babel-preset-base"
+    ]
+}
 ```
