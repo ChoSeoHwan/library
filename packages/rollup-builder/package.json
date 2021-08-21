@@ -25,12 +25,14 @@
   "files": [
     "dist/*"
   ],
+  "dependencies": {
+    "@babel/runtime": "^7.15.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
-    "@babel/runtime": "^7.14.6",
     "@choseohwan/eslint-config-base": "^1.0.11",
     "@choseohwan/jest-config-base": "^1.0.7",
     "@choseohwan/prettier-config-base": "^1.0.7",
