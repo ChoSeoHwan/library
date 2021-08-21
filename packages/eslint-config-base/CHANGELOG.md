@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.11...@choseohwan/eslint-config-base@1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0) (2021-08-21)
+
+
+### Bug Fixes
+
+* **eslint-config-base:** 사용되는 plugin 들 dependencies 로 이동, @choseohwan/prettier-config-base 추가 ([24e247f](https://github.com/ChoSeoHwan/library/commit/24e247f5ec66e031933521515e0c4e6ac1814006))
+
+
+
+
+
 ## [1.0.11](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.11-next.35ba26fa068bfe1a986e12bc432c1c45e67987b8.0...@choseohwan/eslint-config-base@1.0.11) (2021-08-18)
 
 **Note:** Version bump only for package @choseohwan/eslint-config-base

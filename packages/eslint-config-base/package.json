@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-base",
-  "version": "1.0.11",
+  "version": "1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0",
   "description": "eslint config library",
   "keywords": [
     "eslint",
@@ -29,12 +29,12 @@
   "scripts": {},
   "dependencies": {
     "@choseohwan/prettier-config-base": "^1.0.7",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsdoc": "^35.4.3",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0"
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^7.29.0",
