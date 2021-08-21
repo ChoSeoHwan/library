@@ -1,3 +1,5 @@
+import { Plugin } from '@choseohwan/rollup-builder';
+
 import buildBasePlugins from '~src/buildBasePlugins';
 
 describe('pluginBuilderBase', () => {
@@ -15,7 +17,7 @@ describe('pluginBuilderBase', () => {
         const plugins = buildBasePlugins();
 
         let executed = false;
-        plugins.getPlugins().forEach((plugin, index) => {
+        plugins.getPlugins().forEach((plugin: Plugin, index: number) => {
             const expectPluginName = expectPluginList[index];
 
             expect(plugin.getName()).toBe(expectPluginName);
