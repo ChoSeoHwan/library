@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22-next.53cda48abfac2dacf1d309e8781138cfcc1451f1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.21...@choseohwan/utils@1.0.22-next.53cda48abfac2dacf1d309e8781138cfcc1451f1.0) (2021-08-22)
+
+
+### Bug Fixes
+
+* **rollup-builder,rollup-plugin-builder-base,utils:** babel-preset-base 로 작업된 내용 라이브러리에 적용 ([b17695a](https://github.com/ChoSeoHwan/library/commit/b17695a5d58ca0db68759d5f20181a53cb68b5b9))
+
+
+
+
+
 ## [1.0.21](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.21-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0...@choseohwan/utils@1.0.21) (2021-08-21)
 
 **Note:** Version bump only for package @choseohwan/utils
