@@ -1,11 +1,28 @@
 # `@choseohwan/babel-preset-react`
 
-> TODO: description
+react base preset for SeoHwan Cho's project
+
+## Install
+
+### npm
+```shell
+npm install @choseohwan/babel-preset-react @babel/core typescript react --save-dev
+```
+
+### yarn
+```shell
+yarn add @choseohwan/babel-preset-react @babel/core typescript react -D
+```
 
 ## Usage
 
-```
-const babelPresetReact = require('@choseohwan/babel-preset-react');
+Make `babel.config.js` file in the root directory of packages.
 
-// TODO: DEMONSTRATE API
+**`babel.config.js`**
+```javascript
+module.exports = {
+    "presets": [
+        "@choseohwan/babel-preset-react"
+    ]
+}
 ```
