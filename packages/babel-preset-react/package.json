@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/babel-preset-react",
-  "version": "0.0.0",
+  "version": "0.1.0-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
   "description": "react babel preset library",
   "keywords": [
     "babel",
@@ -12,7 +12,9 @@
   "license": "ISC",
   "main": "babel.preset.js",
   "directories": {},
-  "files": ["babel.preset.js"],
+  "files": [
+    "babel.preset.js"
+  ],
   "publishConfig": {
     "access": "public"
   },
