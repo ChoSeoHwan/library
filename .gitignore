@@ -102,4 +102,4 @@ typings/
 
 .idea
 
-test.json
+packages/*/dist/

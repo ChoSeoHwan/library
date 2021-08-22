@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13-next.53cda48abfac2dacf1d309e8781138cfcc1451f1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.12...@choseohwan/eslint-config-base@1.0.13-next.53cda48abfac2dacf1d309e8781138cfcc1451f1.0) (2021-08-22)
+
+**Note:** Version bump only for package @choseohwan/eslint-config-base
+
+
+
+
+
 ## [1.0.12](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.12-next.2dbc46dbc7870df4e9935bf9413a51572d6c943d.0...@choseohwan/eslint-config-base@1.0.12) (2021-08-21)
 
 **Note:** Version bump only for package @choseohwan/eslint-config-base
