@@ -1,0 +1,37 @@
+{
+  "name": "@choseohwan/babel-preset-base",
+  "version": "0.0.0",
+  "description": "base babel preset library",
+  "keywords": [
+    "babel",
+    "preset"
+  ],
+  "author": "ChoSeoHwan <wtae1216@naver.com>",
+  "homepage": "https://github.com/ChoSeoHwan/library#readme",
+  "license": "ISC",
+  "main": "babel.preset.js",
+  "directories": {},
+  "files": [
+    "babel.preset.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoSeoHwan/library.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7",
+    "typescript": "^4"
+  }
+}

@@ -6,8 +6,16 @@ mono repository library for SeoHwan Cho's projects.
 
 ## Configs
 
+- `@choseohwan/babel-preset-base` **[README](./packages/babel-preset-base/README.md)**
+   - babel base preset for SeoHwan Cho's project
+
+
 - `@choseohwan/eslint-config-base` **[README](./packages/eslint-config-base/README.md)**
   - eslint base config for SeoHwan Cho's project
+
+
+- `@choseohwan/eslint-config-react` **[README](./packages/eslint-config-react/README.md)**
+  - eslint react config for SeoHwan Cho's project
 
 
 - `@choseohwan/jest-config-base` **[README](./packages/jest-config-base/README.md)**
@@ -24,6 +32,10 @@ mono repository library for SeoHwan Cho's projects.
 
 - `@choseohwan/rollup-builder` **[README](./packages/rollup-builder/README.md)**
   - rollup builder for rollup config easier
+  
+
+- `@choseohwan/rollup-plugin-builder-base` **[README](./packages/rollup-plugin-builder-base/README.md)**
+  - Base plugins builder about @choseohwan/rollup-builder
 
 
 ## Utilities

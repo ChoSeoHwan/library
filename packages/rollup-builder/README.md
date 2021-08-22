@@ -18,10 +18,12 @@ yarn add @choseohwan/rollup-builder -D
 
 ###  Overall usage example
 
-```typescript
-import { Input } from '@choseohwan/rollup-builder/option';
-import { OutputBuilder, PluginsBuilder } from '@choseohwan/rollup-builder/builder'; 
-import buildRollupOptions from '@choseohwan/rollup-builder'; 
+`rollup.config.js`
+```javascript
+import buildRollupOptions, {Input, OutputBuilder, Plugin, Plugins} from '@choseohwan/rollup-builder';
+import cleaner from "rollup-plugin-cleaner";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+// another imports...
 
 // makes input object (rollup config's input option)
 const input = new Input(
@@ -40,8 +42,28 @@ const outputBuilder = new OutputBuilder({
     sourcemap: true
 });
 
-// makes plugins object with plugin builder
-const plugins = PluginsBuilder.buildBasePlugins();
+// makes plugins object 
+const cleanerPlugin = new Plugin(
+    'rollup-builder-cleaner',
+    cleaner,
+    (output) => [
+        {
+            targets: [output.getOutputDir()]
+        }
+    ]
+);
+
+const peerDepsExternals = new Plugin(
+    'rollup-plugin-peer-deps-external',
+    peerDepsExternal,
+    []
+);
+
+const plugins = new Plugins(
+    cleanerPlugin,
+    peerDepsExternals,
+    // ...
+);
 
 // make rollup options with options
 export default buildRollupOptions(
