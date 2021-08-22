@@ -57,7 +57,7 @@ module.exports = async ({core}) => {
             versionList = JSON.parse(outputList.join(''));
         } catch (error) {
             core.warning(`Get version info failed: ${name}@${tag}`);
-            return;
+            continue;
         }
 
         core.info(`all version list : ${JSON.stringify(versionList)}`);
