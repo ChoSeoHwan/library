@@ -1,7 +1,2 @@
-import * as hoc from '~src/hoc';
-import * as hooks from '~src/hooks';
-
-export default {
-    hoc,
-    hooks
-};
+export * from '~src/hoc';
+export * from '~src/hooks';

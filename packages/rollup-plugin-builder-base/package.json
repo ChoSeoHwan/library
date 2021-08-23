@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "1.0.1",
+  "version": "1.0.2-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@babel/core": "^7.15.0",
     "@babel/runtime": "^7.15.3",
-    "@choseohwan/rollup-builder": "^1.1.4",
+    "@choseohwan/rollup-builder": "^1.1.5-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
@@ -55,10 +55,10 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.15.0",
-    "@choseohwan/babel-preset-base": "^1.0.0",
+    "@choseohwan/babel-preset-base": "^1.0.1-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
     "@choseohwan/eslint-config-base": "^1.0.13",
-    "@choseohwan/jest-preset-base": "^1.0.0",
-    "@choseohwan/tsconfig-base": "^1.0.11",
+    "@choseohwan/jest-preset-base": "^1.0.1-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
+    "@choseohwan/tsconfig-base": "^1.0.12-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
     "babel-jest": "^27.0.6",
     "typescript-transform-paths": "^3.3.1"
   },

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/react-utils@1.0.1...@choseohwan/react-utils@1.0.2-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* pacakge.json 의 exports 수정 ([79a975f](https://github.com/ChoSeoHwan/library/commit/79a975fb8976caa25fe1c57d35ae46512d9090c1))
+* **react-utils:** export 방식 변경 ([700eec7](https://github.com/ChoSeoHwan/library/commit/700eec7255df39475330654eac18ce0a736fa229))
+* **react-utils:** export 방식 변경 ([bee3a9a](https://github.com/ChoSeoHwan/library/commit/bee3a9af7cada87795ff8017dcfa6661a7bc534c))
+* **react-utils:** export 방식 변경 ([accee80](https://github.com/ChoSeoHwan/library/commit/accee8020064b3cf5ddede542d79f56d48a9c842))
+* **react-utils:** export 방식 변경 ([f36770d](https://github.com/ChoSeoHwan/library/commit/f36770de900516463c59c93acf3abe232da1e12e))
+* **react-utils:** main 을 cjs 로 변경 ([dab68e4](https://github.com/ChoSeoHwan/library/commit/dab68e4ed3dcf11560ebea3255adcf047ae6297d))
+* **react-utils:** umd build 및 main 변경 ([5b49368](https://github.com/ChoSeoHwan/library/commit/5b4936868102db53bbe6db2229f75df7a5d84c75))
+
+
+
+
+
 ## [1.0.1](https://github.com/ChoSeoHwan/library/compare/@choseohwan/react-utils@1.0.0...@choseohwan/react-utils@1.0.1) (2021-08-23)
 
 **Note:** Version bump only for package @choseohwan/react-utils

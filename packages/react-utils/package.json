@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/react-utils",
-  "version": "1.0.1",
+  "version": "1.0.2-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
   "description": "react utils for SeoHwan Cho's project",
   "keywords": [
     "react",
@@ -9,10 +9,10 @@
   "author": "ChoSeoHwan <wtae1216@naver.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/esm/index.js",
-  "types": "dist/esm/src/index.d.ts",
+  "main": "dist/umd/index.js",
+  "types": "dist/umd/src/index.d.ts",
   "exports": {
-    "./": "./dist/esm/index.js",
+    ".": "./dist/esm/index.js",
     "./hoc": "./dist/esm/hoc.js",
     "./hooks": "./dist/esm/hooks.js"
   },
@@ -60,11 +60,11 @@
     "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
-    "@choseohwan/eslint-config-react": "^1.0.0",
-    "@choseohwan/jest-preset-base": "^1.0.0",
-    "@choseohwan/rollup-builder": "^1.1.4",
-    "@choseohwan/rollup-plugin-builder-base": "^1.0.1",
-    "@choseohwan/tsconfig-base": "^1.0.11",
+    "@choseohwan/eslint-config-react": "^1.0.1-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
+    "@choseohwan/jest-preset-base": "^1.0.1-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
+    "@choseohwan/rollup-builder": "^1.1.5-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
+    "@choseohwan/rollup-plugin-builder-base": "^1.0.2-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
+    "@choseohwan/tsconfig-base": "^1.0.12-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "react-dom": "^17.0.2"
