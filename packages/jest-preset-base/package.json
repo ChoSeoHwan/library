@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "main": "jest.preset.js",
+  "main": "jest-preset.js",
   "scripts": {},
   "devDependencies": {
     "@types/jest": "^26.0.23",
