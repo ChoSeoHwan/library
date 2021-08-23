@@ -1,0 +1,16 @@
+{
+    "extends": "@choseohwan/tsconfig-base",
+    "compilerOptions": {
+        "rootDir": "./",
+        "baseUrl": "./",
+        "paths": {
+            "~src/*": ["src/*"]
+        },
+        "jsx": "react-jsx"
+    },
+    "include": [
+        "src/**/*",
+        ".jest/*"
+    ],
+    "exclude": ["dist/**/*"]
+}

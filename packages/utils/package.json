@@ -39,12 +39,12 @@
   "scripts": {
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
     "test": "jest",
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
-    "prepublish": "yarn build",
-    "lint-staged": "lint-staged",
-    "build": "yarn eslint && yarn test:silent && rollup -c rollup.config.js",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
   },
   "bugs": {
@@ -53,15 +53,14 @@
   "devDependencies": {
     "@choseohwan/babel-preset-base": "^0.1.1-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
     "@choseohwan/eslint-config-base": "^1.0.13",
-    "@choseohwan/jest-config-base": "^1.0.8",
+    "@choseohwan/jest-preset-base": "^0.0.0",
     "@choseohwan/rollup-builder": "^1.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
     "@choseohwan/rollup-plugin-builder-base": "^0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
     "@choseohwan/tsconfig-base": "^1.0.11"
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix",
-      "git add"
+      "yarn eslint:fix"
     ]
   },
   "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
