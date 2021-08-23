@@ -18,8 +18,8 @@ mono repository library for SeoHwan Cho's projects.
   - eslint react config for SeoHwan Cho's project
 
 
-- `@choseohwan/jest-config-base` **[README](./packages/jest-config-base/README.md)**
-  - jest base config for SeoHwan Cho's project
+- `@choseohwan/jest-preset-base` **[README](./packages/jest-preset-base/README.md)**
+  - jest base preset for SeoHwan Cho's project
 
 
 - `@choseohwan/prettier-config-base` **[README](./packages/prettier-config-base/README.md)**

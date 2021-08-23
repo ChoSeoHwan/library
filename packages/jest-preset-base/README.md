@@ -21,6 +21,6 @@ Make `jest.config.js` file in the root directory of packages.
 **`jest.config.js`**
 ```javascript
 module.exports = {
-    preset: "@choseohwan/jest-config-base"
+    preset: "@choseohwan/jest-preset-base"
 };
 ```
