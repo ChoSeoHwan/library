@@ -1,4 +1,4 @@
-# `jest-config-base`
+# `jest-preset-base`
 
 jest base preset for SeoHwan Cho's project
 
