@@ -1,1 +1,1 @@
-export * as withLoading from '~src/hoc/withLoading';
+export { default as withLoading } from '~src/hoc/withLoading';
