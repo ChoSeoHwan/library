@@ -1,7 +1,5 @@
-const jestBaseConfig = require("@choseohwan/jest-config-base");
-
 module.exports = {
-    ...jestBaseConfig,
+    preset: "@choseohwan/jest-preset-base",
     moduleNameMapper: {
         '~src/(.*)': '<rootDir>/src/$1',
     }
