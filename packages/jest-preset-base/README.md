@@ -16,9 +16,9 @@ yarn add @choseohwan/jest-preset-base jest @types/jest ts-jest -D
 
 ## Usage
 
-Make `jest.config.js` file in the root directory of packages.
+Make `jest.config.ts` file in the root directory of packages.
 
-**`jest.config.js`**
+**`jest.config.ts`**
 ```javascript
 module.exports = {
     preset: "@choseohwan/jest-preset-base"
