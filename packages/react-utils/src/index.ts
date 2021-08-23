@@ -1,2 +1,2 @@
-export * as hoc from '~src/hoc';
-export * as hooks from '~src/hooks';
+export * from '~src/hoc';
+export * from '~src/hooks';
