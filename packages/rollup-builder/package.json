@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f",
+  "gitHead": "3b6d3236b26b16ccdb7bc62e8648af013c287f9d",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
   "directories": {

@@ -28,5 +28,6 @@
     "@types/jest": "^26",
     "jest": "^27",
     "ts-jest": "^27"
-  }
+  },
+  "gitHead": "a50bba34c5d8c37117a73b6bf93168d6155d9e9d"
 }

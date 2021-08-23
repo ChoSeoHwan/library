@@ -76,5 +76,6 @@
     "*.(js|jsx|ts|tsx)": [
       "yarn eslint:fix"
     ]
-  }
+  },
+  "gitHead": "3b6d3236b26b16ccdb7bc62e8648af013c287f9d"
 }
