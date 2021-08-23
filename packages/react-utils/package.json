@@ -9,10 +9,10 @@
   "author": "ChoSeoHwan <wtae1216@naver.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/esm/index.js",
-  "types": "dist/esm/src/index.d.ts",
+  "main": "dist/umd/index.js",
+  "types": "dist/umd/src/index.d.ts",
   "exports": {
-    "./": "./dist/esm/index.js",
+    ".": "./dist/esm/index.js",
     "./hoc": "./dist/esm/hoc.js",
     "./hooks": "./dist/esm/hooks.js"
   },

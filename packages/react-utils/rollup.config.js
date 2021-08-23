@@ -24,6 +24,13 @@ export default buildRollupOptions(
         outputBuilder.buildCJS({
             exports: 'named',
             dir: 'dist/cjs'
+        }),
+        outputBuilder.buildUMD('reactUtils', {
+            dir: 'dist/umd',
+            globals: {
+                react: 'react',
+                'react/jsx-runtime': 'react/jsx-runtime'
+            }
         })
     ],
     plugins
