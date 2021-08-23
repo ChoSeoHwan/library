@@ -1,5 +1,1 @@
-import useInfinityScroll from '~src/hooks/useInfinityScroll';
-
-export default {
-    useInfinityScroll
-};
+export * as useInfinityScroll from '~src/hooks/useInfinityScroll';
