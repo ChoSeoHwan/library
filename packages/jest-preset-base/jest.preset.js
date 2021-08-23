@@ -4,14 +4,21 @@ module.exports = {
     rootDir: "./",
     modulePaths: ["<rootDir>/src/"],
     reporters: [
-        "default",
-        ["jest-html-reporter", {
-            pageTitle: "JS COMMON TEST",
-            outputPath: "./.jest/report.html",
-            sort: "titleAsc",
-            includeConsoleLog: true,
-            includeFailureMsg: true
-        }]
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '.jest',
+                filename: 'report.html',
+                expand: false
+            }
+        ]
+    ],
+    collectCoverage: false,
+    coverageReporters: ['json', 'html'],
+    collectCoverageFrom: [
+        '<rootDir>/src/**/*.{ts,tsx,js,jsx}',
+        '!<rootDir>/src/**/*.stories.{ts,tsx,js,jsx}'
     ],
     globals: {
         "ts-jest": {
