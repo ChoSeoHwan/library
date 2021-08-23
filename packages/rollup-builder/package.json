@@ -57,8 +57,8 @@
     "test": "jest",
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
-    "prepublish": "yarn build",
-    "build": "yarn eslint && yarn test:silent && rollup -c rollup.config.js",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
   },
   "peerDependencies": {

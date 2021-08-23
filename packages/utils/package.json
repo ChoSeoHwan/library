@@ -39,12 +39,12 @@
   "scripts": {
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
     "test": "jest",
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
-    "prepublish": "yarn build",
-    "lint-staged": "lint-staged",
-    "build": "yarn eslint && yarn test:silent && rollup -c rollup.config.js",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
   },
   "bugs": {
@@ -60,8 +60,7 @@
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix",
-      "git add"
+      "yarn eslint:fix"
     ]
   },
   "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
