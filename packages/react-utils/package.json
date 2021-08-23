@@ -12,7 +12,7 @@
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/src/index.d.ts",
   "exports": {
-    "./": "./dist/esm/index.js",
+    ".": "./dist/esm/index.js",
     "./hoc": "./dist/esm/hoc.js",
     "./hooks": "./dist/esm/hooks.js"
   },

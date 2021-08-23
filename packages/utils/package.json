@@ -12,7 +12,7 @@
   "main": "dist/umd/index.js",
   "types": "dist/umd/src/index.d.ts",
   "exports": {
-    "./": "./dist/esm/index.js",
+    ".": "./dist/esm/index.js",
     "./prototypes": "./dist/esm/prototypes.js"
   },
   "typesVersions": {
