@@ -9,13 +9,28 @@
   "author": "ChoSeoHwan <wtae1216@naver.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "lib/react-utils.js",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/src/index.d.ts",
+  "exports": {
+    "./": "./dist/esm/index.js",
+    "./hoc": "./dist/esm/hoc.js",
+    "./hooks": "./dist/esm/hooks.js"
+  },
+  "typesVersions": {
+    "*": {
+      "hoc": [
+        "dist/esm/src/hoc/index.d.ts"
+      ],
+      "hooks": [
+        "dist/esm/src/hooks/index.d.ts"
+      ]
+    }
+  },
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -25,9 +40,38 @@
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "eslint": "eslint './src/**/*.ts'",
+    "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "test:silent": "yarn test --silent",
+    "test:watch": "yarn test --watchAll",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
+    "precommit": "yarn lint-staged"
   },
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.19",
+    "@types/underscore": "^1.11.3",
+    "react": "^17.0.2",
+    "underscore": "^1.13.1"
+  },
+  "devDependencies": {
+    "@choseohwan/eslint-config-react": "^0.1.1",
+    "@choseohwan/jest-config-base": "^1.0.8",
+    "@choseohwan/rollup-builder": "1.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
+    "@choseohwan/rollup-plugin-builder-base": "0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
+    "@choseohwan/tsconfig-base": "^1.0.11"
+  },
+  "peerDependencies": {
+    "react": "^17"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
   }
 }
