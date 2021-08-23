@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/babel-preset-react@0.1.0...@choseohwan/babel-preset-react@1.0.0) (2021-08-23)
+
+**Note:** Version bump only for package @choseohwan/babel-preset-react
+
+
+
+
+
 # [0.1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/babel-preset-react@0.1.0-next.3b7c79d7dca7b5492bcd865ac09f33c3866ac811.0...@choseohwan/babel-preset-react@0.1.0) (2021-08-23)
 
 **Note:** Version bump only for package @choseohwan/babel-preset-react

@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "1.0.0-next",
+  "version": "1.0.0",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",

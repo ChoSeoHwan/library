@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/babel-preset-react",
-  "version": "1.0.0-next",
+  "version": "1.0.0",
   "description": "react babel preset library",
   "keywords": [
     "babel",
