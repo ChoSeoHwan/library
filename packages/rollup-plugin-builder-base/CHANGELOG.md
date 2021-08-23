@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2-next.3b7c79d7dca7b5492bcd865ac09f33c3866ac811.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0...@choseohwan/rollup-plugin-builder-base@0.1.2-next.3b7c79d7dca7b5492bcd865ac09f33c3866ac811.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* 기존 jest-config-base 에서 jest-preset-base 로 변경 ([7075987](https://github.com/ChoSeoHwan/library/commit/707598796c03b85c58a19e9eb0d7db56a3f89eb0))
+
+
+
+
+
+## [0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@0.1.1...@choseohwan/rollup-plugin-builder-base@0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0) (2021-08-22)
+
+**Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
+
+
+
+
+
 ## [0.1.1](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@0.1.1-next.53cda48abfac2dacf1d309e8781138cfcc1451f1.0...@choseohwan/rollup-plugin-builder-base@0.1.1) (2021-08-22)
 
 **Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
