@@ -40,14 +40,14 @@
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
   "scripts": {
-    "eslint": "eslint './src/**/*.ts'",
+    "eslint": "eslint './src/**/*.ts?(x)'",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
-    "test": "jest",
+    "test": "jest --config=.jest/jest.config.ts",
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c rollup.config.js --environment NODE_ENV:production",
     "precommit": "yarn lint-staged"
   },
   "bugs": {
@@ -55,16 +55,19 @@
   },
   "dependencies": {
     "@types/react": "^17.0.19",
-    "@types/underscore": "^1.11.3",
+    "@types/throttle-debounce": "^2.1.0",
     "react": "^17.0.2",
-    "underscore": "^1.13.1"
+    "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
     "@choseohwan/eslint-config-react": "^0.1.1",
     "@choseohwan/jest-preset-base": "^0.0.0",
     "@choseohwan/rollup-builder": "1.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
     "@choseohwan/rollup-plugin-builder-base": "0.1.2-next.18ea34ec1d3a86a98195d1b80608edb7da156d6f.0",
-    "@choseohwan/tsconfig-base": "^1.0.11"
+    "@choseohwan/tsconfig-base": "^1.0.11",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "react-dom": "^17.0.2"
   },
   "peerDependencies": {
     "react": "^17"

@@ -1,20 +1,24 @@
 import { RefObject, useEffect } from 'react';
-import { throttle } from 'underscore';
+import { throttle } from 'throttle-debounce';
 
-const useInfinityScroll = (
-    handler: (event: Event) => void,
-    object?: RefObject<HTMLElement>
+interface ScrollHandlerInterface {
+    (event: Event, currentTarget: Event['currentTarget']): void;
+}
+
+const useInfinityScroll = <T extends HTMLElement>(
+    handler: EventListener,
+    object?: RefObject<T>
 ): void => {
     useEffect(() => {
-        let scrollHandler: ((event: Event) => void) | null = null,
-            element: null | Window | HTMLElement = null;
+        let scrollHandler: ScrollHandlerInterface | null = null,
+            element: Window | T | null = null;
 
         if (object === undefined) {
             // window 객체 세팅
             element = window;
 
             // 스크롤 시 발생 이벤트
-            scrollHandler = (event: Event) => {
+            scrollHandler = (event) => {
                 if (
                     window.scrollY + window.innerHeight >=
                     document.body.offsetHeight
@@ -31,8 +35,8 @@ const useInfinityScroll = (
             element = object.current;
 
             // 해당 element 에 이벤트 부여
-            scrollHandler = (event: Event) => {
-                const target = event.currentTarget as HTMLElement;
+            scrollHandler = (event, currentTarget) => {
+                const target = currentTarget as T;
 
                 if (
                     target.scrollTop + target.clientHeight >=
@@ -45,13 +49,18 @@ const useInfinityScroll = (
 
         if (element === null || scrollHandler === null) return;
 
-        scrollHandler = throttle(scrollHandler, 100);
-        element.addEventListener('scroll', scrollHandler);
+        const throttledHandler = throttle(100, scrollHandler);
+        const eventHandler = (event: Event) => {
+            const currentTarget = event.currentTarget;
+            throttledHandler(event, currentTarget);
+        };
+
+        element.addEventListener('scroll', eventHandler);
 
         return () => {
-            if (element === null || scrollHandler === null) return;
+            if (element === null) return;
 
-            element.removeEventListener('scroll', scrollHandler);
+            element.removeEventListener('scroll', eventHandler);
         };
     }, [handler, object]);
 };
