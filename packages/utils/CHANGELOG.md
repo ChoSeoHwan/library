@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.25...@choseohwan/utils@1.0.26-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* pacakge.json 의 exports 수정 ([79a975f](https://github.com/ChoSeoHwan/library/commit/79a975fb8976caa25fe1c57d35ae46512d9090c1))
+* **utils:** index export 방식 변경 ([72adb30](https://github.com/ChoSeoHwan/library/commit/72adb3086eeb3de3729f4b96115a9bbf63db1406))
+* **utils:** main 을 umd 로 변경 ([ab243cd](https://github.com/ChoSeoHwan/library/commit/ab243cd8e4cc6249992dcecd1c7dfd73e7d1a497))
+
+
+
+
+
 ## [1.0.25](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.24...@choseohwan/utils@1.0.25) (2021-08-23)
 
 **Note:** Version bump only for package @choseohwan/utils

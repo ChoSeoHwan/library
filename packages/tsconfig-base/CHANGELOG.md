@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/tsconfig-base@1.0.11...@choseohwan/tsconfig-base@1.0.12-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **tsconfig-base:** tsconfig base 에서 참조하는 dependency 가 존재하지 않는 버그 수정 ([30c14ad](https://github.com/ChoSeoHwan/library/commit/30c14ad87bfa9629ebe76ca829ff35014ecf9632))
+
+
+
+
+
 ## [1.0.11](https://github.com/ChoSeoHwan/library/compare/@choseohwan/tsconfig-base@1.0.10...@choseohwan/tsconfig-base@1.0.11) (2021-08-12)
 
 **Note:** Version bump only for package @choseohwan/tsconfig-base
