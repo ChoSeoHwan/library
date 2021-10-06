@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.0.26",
+  "version": "1.0.27-next.9c8fe7f68fe6b446149e57bc272c9c091bf1dc7a.0",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -55,7 +55,7 @@
     "@choseohwan/eslint-config-base": "^1.0.13",
     "@choseohwan/jest-preset-base": "^1.0.1",
     "@choseohwan/rollup-builder": "^1.1.5",
-    "@choseohwan/rollup-plugin-builder-base": "^1.0.2",
+    "@choseohwan/rollup-plugin-builder-base": "^1.0.3-next.9c8fe7f68fe6b446149e57bc272c9c091bf1dc7a.0",
     "@choseohwan/tsconfig-base": "^1.0.12"
   },
   "lint-staged": {
