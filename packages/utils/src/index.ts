@@ -1,3 +1,4 @@
-import '~src/prototypes';
+import '~/prototypes';
 
-export * from '~src/utils';
+export * as constant from '~/constant';
+export * from '~/utils';

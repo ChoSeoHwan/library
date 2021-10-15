@@ -13,12 +13,16 @@
   "types": "dist/umd/src/index.d.ts",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./prototypes": "./dist/esm/prototypes.js"
+    "./prototypes": "./dist/esm/prototypes.js",
+    "./constant": "./dist/esm/constant.js"
   },
   "typesVersions": {
     "*": {
       "prototypes": [
         "dist/esm/src/prototypes/index.d.ts"
+      ],
+      "constant": [
+        "dist/esm/src/constant/index.d.ts"
       ]
     }
   },

@@ -4,7 +4,8 @@ import buildBasePlugins from "@choseohwan/rollup-plugin-builder-base";
 const input = new Input('src/index.ts', {
     es: {
         index: "src/index.ts",
-        prototypes: "src/prototypes/index.ts"
+        prototypes: "src/prototypes/index.ts",
+        constant: "src/constant/index.ts"
     }
 });
 

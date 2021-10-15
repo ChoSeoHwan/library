@@ -1,4 +1,4 @@
-import { delay } from '~src/utils';
+import { delay } from '~/utils';
 
 afterEach(() => {
     jest.useRealTimers();
