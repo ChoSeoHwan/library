@@ -3,7 +3,7 @@ import express from 'express';
 abstract class Application {
     protected app;
 
-    protected constructor() {
+    constructor() {
         this.app = express();
 
         // before middleware 세팅
