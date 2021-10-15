@@ -4,8 +4,10 @@
         "rootDir": "./",
         "baseUrl": "./",
         "paths": {
-            "~src/*": ["src/*"]
-        }
+            "~/*": ["src/*"]
+        },
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": ["src/**/*"],
     "exclude": ["dist/**/*"]
