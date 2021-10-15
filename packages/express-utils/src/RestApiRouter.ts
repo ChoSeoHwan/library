@@ -1,6 +1,6 @@
+import { HTTPMethod } from '@choseohwan/utils/constant';
 import { Router } from 'express';
 
-import HTTPMethod from '~/constant/HTTPMethod';
 import { Handler } from '~/type/express';
 
 export interface RouterPath {
@@ -31,7 +31,7 @@ abstract class RestApiRouter {
     private readonly routerPaths: RouterPath[] = [];
     private readonly middleware: Handler[] = [];
 
-    protected constructor() {
+    constructor() {
         this.router = Router();
 
         // 기본 rest api router 세팅

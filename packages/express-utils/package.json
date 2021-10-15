@@ -13,16 +13,12 @@
   "types": "dist/umd/src/index.d.ts",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./type": "./dist/esm/type.js",
-    "./constant": "./dist/esm/constant.js"
+    "./type": "./dist/esm/type.js"
   },
   "typesVersions": {
     "*": {
       "type": [
         "dist/esm/src/type/index.d.ts"
-      ],
-      "constant": [
-        "dist/esm/src/constant/index.d.ts"
       ]
     }
   },
@@ -47,6 +43,7 @@
     "@choseohwan/rollup-builder": "^1.1.5",
     "@choseohwan/rollup-plugin-builder-base": "^1.0.3",
     "@choseohwan/tsconfig-base": "^1.0.12",
+    "@choseohwan/utils": "^1.0.27",
     "@types/express": "^4.17.13",
     "express": "^4.17.1"
   },
