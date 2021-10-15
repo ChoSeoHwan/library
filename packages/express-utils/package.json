@@ -9,13 +9,17 @@
   "author": "ChoSeoHwan <wtae1216@naver.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "lib/express-utils.js",
+  "main": "dist/umd/index.js",
+  "types": "dist/umd/src/index.d.ts",
+  "exports": {
+    ".": "./dist/esm/index.js"
+  },
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src",
+    "dist": "dist"
   },
   "files": [
-    "lib"
+    "dist/*"
   ],
   "publishConfig": {
     "access": "public"
@@ -24,10 +28,31 @@
     "type": "git",
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
+  "dependencies": {
+    "@choseohwan/babel-preset-base": "^1.0.1",
+    "@choseohwan/eslint-config-base": "^1.0.13",
+    "@choseohwan/jest-preset-base": "^1.0.1",
+    "@choseohwan/rollup-builder": "^1.1.5",
+    "@choseohwan/rollup-plugin-builder-base": "^1.0.3",
+    "@choseohwan/tsconfig-base": "^1.0.12"
+  },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "eslint": "eslint './src/**/*.ts'",
+    "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "test:silent": "yarn test --silent",
+    "test:watch": "yarn test --watchAll",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
+    "precommit": "yarn lint-staged"
   },
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
   }
 }
