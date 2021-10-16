@@ -6,12 +6,12 @@ javascript/typescript utility functions for @choseohwan project
 
 ### npm
 ```shell
-npm install @choseohwan/utils --save-dev
+npm install @choseohwan/utils
 ```
 
 ### yarn
 ```shell
-yarn add @choseohwan/utils -D
+yarn add @choseohwan/utils
 ```
 
 ## API Definitions
@@ -58,6 +58,8 @@ Two
 ```
 
 ***
+
+## Prototype Utilities
 
 ### Number.prototype
 
@@ -135,6 +137,31 @@ console.log(`nagative: ${nagative.convertKorean()}`);
 number: 12.3만
 float: 123.4억
 nagative: -12.3조
+ */
+```
+
+***
+
+## Constants
+
+### HTTP
+
+#### HTTPMethod
+
+Http Method List
+
+***Syntax***
+> Method.{*GET | POST | PUT | DELETE | ...*}
+
+***Usage***
+
+```typescript
+import { HTTPMethod } from '@choseohwan/utils/constant';
+
+console.log(`Method : ${HTTPMethod.GET}, ${HTTPMethod.POST}, ...`);
+
+/* RESULT
+Method : GET, POST, ...
  */
 ```
 

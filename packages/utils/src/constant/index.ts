@@ -1,3 +1,1 @@
-import HTTPMethod from '~/constant/HTTPMethod';
-
-export { HTTPMethod };
+export * from '~/constant/HTTP';
