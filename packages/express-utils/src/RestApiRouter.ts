@@ -9,7 +9,7 @@ export interface RouterPath {
     handler: Handler | undefined;
 }
 
-interface RestApiRouterConstructor {
+export interface RestApiRouterConstructor {
     new (): RestApiRouter;
 }
 
@@ -39,6 +39,8 @@ abstract class RestApiRouter {
 
         // 유저 정의 middleware 추가
         if (this.addMiddleware) this.middleware.push(...this.addMiddleware());
+
+        console.log(this.middleware);
 
         // middleware 등록
         this.registerMiddleware();
@@ -78,7 +80,7 @@ abstract class RestApiRouter {
             target.addRouterPath = function () {
                 let routerPath: RouterPath[] = [];
                 if (originalMethod) {
-                    routerPath = originalMethod.apply(this);
+                    routerPath = [...originalMethod.apply(this)];
                 }
 
                 routerPath.push({ method, path, handler: descriptor.value });
@@ -105,7 +107,7 @@ abstract class RestApiRouter {
         target.addMiddleware = function () {
             let middleware: Handler[] = [];
             if (originalMethod) {
-                middleware = originalMethod.apply(this);
+                middleware = [...originalMethod.apply(this)];
             }
 
             if (descriptor.value) middleware.push(descriptor.value);
