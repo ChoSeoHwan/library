@@ -2,7 +2,7 @@
 
 javascript/typescript utility functions for @choseohwan project
 
-## Install
+# Install
 
 ### npm
 ```shell
@@ -14,11 +14,11 @@ npm install @choseohwan/utils
 yarn add @choseohwan/utils
 ```
 
-## API Definitions
+# API Definitions
 
-### Utility Functions
+## Utility Functions
 
-#### delay
+### delay
 
 Delay `microsecond` time
 
@@ -59,11 +59,9 @@ Two
 
 ***
 
-## Prototype Utilities
+## Number Prototype Utilities
 
-### Number.prototype
-
-#### Number.prototype.addSeparator
+### Number.prototype.addSeparator
 
 Add separator(,) to number.
 
@@ -103,7 +101,7 @@ nagative: -123,456,789
 
 ***
 
-#### Number.prototype.addSeparator
+### Number.prototype.addSeparator
 
 Add separator(,) to number.
 
@@ -142,11 +140,11 @@ nagative: -12.3조
 
 ***
 
-## Constants
+# Constants
 
-### HTTP
+## HTTP
 
-#### HTTPMethod
+### HTTPMethod
 
 Http Method List
 

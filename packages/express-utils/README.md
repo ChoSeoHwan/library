@@ -1,11 +1,29 @@
 # `@choseohwan/express-utils`
 
-> TODO: description
+express utilities for @choseohwan project
 
-## Usage
+# Install
 
+### npm
+
+```shell
+npm install @choseohwan/express-utils express
 ```
-const expressUtils = require('@choseohwan/express-utils');
 
-// TODO: DEMONSTRATE API
+### yarn
+
+```shell
+yarn add @choseohwan/utils express
 ```
+
+# Utilities
+
+## Application
+
+Abstract class to easily register express app
+
+### Implementation functions
+
+> initBeforeMiddleware(): void
+
+***Usage***
