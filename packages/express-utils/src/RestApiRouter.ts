@@ -149,28 +149,9 @@ abstract class RestApiRouter {
             // 실제 함수가 없을 경우 다음 router 등록
             if (!handler) return true;
 
-            switch (method) {
-                case 'GET':
-                    this.router.get(path, handler);
-                    break;
-
-                case 'POST':
-                    this.router.post(path, handler);
-                    break;
-
-                case 'PUT':
-                    this.router.put(path, handler);
-                    break;
-
-                case 'PATCH':
-                    this.router.patch(path, handler);
-                    break;
-
-                case 'DELETE':
-                    this.router.delete(path, handler);
-                    break;
-
-                default:
+            // 라우터 실행
+            if (this.router[method]) {
+                this.router[method](path, handler);
             }
         });
     }
