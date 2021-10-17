@@ -1,7 +1,7 @@
 import express from 'express';
 
 abstract class Application {
-    protected app;
+    protected app: ReturnType<typeof express>;
 
     constructor() {
         this.app = express();
