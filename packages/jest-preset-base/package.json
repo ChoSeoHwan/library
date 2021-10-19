@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/jest-preset-base",
-  "version": "1.0.2-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+  "version": "1.0.2",
   "description": "jest base preset for @choseohwan packages",
   "keywords": [
     "jest",

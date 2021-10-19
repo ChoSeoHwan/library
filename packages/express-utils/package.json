@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/express-utils",
-  "version": "0.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+  "version": "0.1.0",
   "description": "express utils for SeoHwan Cho's project",
   "keywords": [
     "express",
@@ -32,11 +32,11 @@
   "dependencies": {
     "@choseohwan/babel-preset-base": "^1.0.1",
     "@choseohwan/eslint-config-base": "^1.0.13",
-    "@choseohwan/jest-preset-base": "^1.0.2-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
-    "@choseohwan/rollup-builder": "^1.1.6-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
-    "@choseohwan/rollup-plugin-builder-base": "^1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+    "@choseohwan/jest-preset-base": "^1.0.2",
+    "@choseohwan/rollup-builder": "^1.1.6",
+    "@choseohwan/rollup-plugin-builder-base": "^1.1.0",
     "@choseohwan/tsconfig-base": "^1.0.12",
-    "@choseohwan/utils": "^1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+    "@choseohwan/utils": "^1.1.0",
     "@types/express": "^4.17.13",
     "express": "^4.17.1"
   },
