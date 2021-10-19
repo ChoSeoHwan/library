@@ -1,13 +1,7 @@
 import buildRollupOptions, { Input, OutputBuilder } from '@choseohwan/rollup-builder';
 import buildBasePlugins from "@choseohwan/rollup-plugin-builder-base";
 
-const input = new Input({
-    index: "src/index.ts",
-    prototypes: "src/prototypes/index.ts",
-    constant: "src/constant/index.ts"
-}, {
-    umd: 'src/index.ts'
-});
+const input = new Input('src/index.ts');
 
 const outputBuilder = new OutputBuilder({
     sourcemap: true

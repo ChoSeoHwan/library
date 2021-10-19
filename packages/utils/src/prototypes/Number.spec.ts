@@ -1,4 +1,4 @@
-import '~src/prototypes/Number';
+import '~/prototypes/Number';
 
 describe('prototypes/Number', () => {
     describe('addSeparator()', () => {

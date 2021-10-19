@@ -1,1 +1,1 @@
-import '~src/prototypes/Number';
+import '~/prototypes/Number';

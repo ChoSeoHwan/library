@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.0.27",
+  "version": "1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -9,16 +9,20 @@
   "author": "wtae1216 <wtae1216@gmail.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/umd/index.js",
-  "types": "dist/umd/src/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/src/index.d.ts",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./prototypes": "./dist/esm/prototypes.js"
+    "./prototypes": "./dist/esm/prototypes.js",
+    "./constant": "./dist/esm/constant.js"
   },
   "typesVersions": {
     "*": {
       "prototypes": [
         "dist/esm/src/prototypes/index.d.ts"
+      ],
+      "constant": [
+        "dist/esm/src/constant/index.d.ts"
       ]
     }
   },
@@ -36,6 +40,23 @@
     "type": "git",
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "devDependencies": {
+    "@choseohwan/babel-preset-base": "^1.0.1",
+    "@choseohwan/eslint-config-base": "^1.0.13",
+    "@choseohwan/jest-preset-base": "^1.0.2-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+    "@choseohwan/rollup-builder": "^1.1.6-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+    "@choseohwan/rollup-plugin-builder-base": "^1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0",
+    "@choseohwan/tsconfig-base": "^1.0.12"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
+  },
+  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c",
   "scripts": {
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
@@ -46,22 +67,5 @@
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
     "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
-  },
-  "bugs": {
-    "url": "https://github.com/ChoSeoHwan/library/issues"
-  },
-  "devDependencies": {
-    "@choseohwan/babel-preset-base": "^1.0.1",
-    "@choseohwan/eslint-config-base": "^1.0.13",
-    "@choseohwan/jest-preset-base": "^1.0.1",
-    "@choseohwan/rollup-builder": "^1.1.5",
-    "@choseohwan/rollup-plugin-builder-base": "^1.0.3",
-    "@choseohwan/tsconfig-base": "^1.0.12"
-  },
-  "lint-staged": {
-    "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix"
-    ]
-  },
-  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
+  }
 }
