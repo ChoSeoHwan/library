@@ -40,8 +40,6 @@ abstract class RestApiRouter {
         // 유저 정의 middleware 추가
         if (this.addMiddleware) this.middleware.push(...this.addMiddleware());
 
-        console.log(this.middleware);
-
         // middleware 등록
         this.registerMiddleware();
 
@@ -69,7 +67,7 @@ abstract class RestApiRouter {
      * @param {string} path router url path
      * @returns {void}
      */
-    public static registerRouter(method: HTTPMethod, path: string) {
+    protected static registerRouter(method: HTTPMethod, path: string) {
         return <T extends Handler>(
             target: RestApiRouter,
             propertyKey: string,
@@ -97,7 +95,7 @@ abstract class RestApiRouter {
      * @param {TypedPropertyDescriptor} descriptor 등록하고자 하는 함수
      * @returns {void}
      */
-    public static registerMiddleware<T extends Handler>(
+    protected static registerMiddleware<T extends Handler>(
         target: RestApiRouter,
         propertyKey: string,
         descriptor: TypedPropertyDescriptor<T>

@@ -106,7 +106,7 @@ export default MyApp;
 
 ***
 
-> getApp(): ReturnType<typeof express>
+> getApp(): ReturnType\<typeof express>
 
 Get express application
 
@@ -150,3 +150,163 @@ app.listen(8001, () => {
 
 ## RestApiRouter
 
+Rest Api router for express
+
+### Implementation functions
+
+> index / show / store / update / delete (*req: Request*, *res: Response*, *next: NextFunction*);
+
+Basic rest api method. 
+
+| router    | http method   | route path    | desc                                  |
+|:---------:|:-------------:|:--------------|:--------------------------------------|
+| index     | GET           | /             | Show a list of the items in resource  |
+| show      | GET           | /:id          | Show an item of resource              |
+| store     | POST          | /             | Store a new item in resource          |
+| update    | PATCH         | /:id          | Edit an item of resource              |
+| delete    | DELETE        | /:id          | Delete an item of resource            |
+
+***Usage***
+
+```typescript
+import { RestApiRouter } from '@choseohwan/express-utils';
+import { NextFunction, Request, Response } from 'express';
+
+
+class MyRouter extends RestApiRouter {
+    protected index(req: Request, res: Response, next: NextFunction): void {
+        res.json({
+            method: 'index'
+        });
+        
+        // ...
+        
+        next();
+    }
+
+    protected show(req: Request, res: Response, next: NextFunction): void {
+        res.json({
+            id: req.params.id
+        });
+        
+        // ...
+
+        next();
+    }
+
+    // ...
+}
+
+export default MyRouter;
+```
+
+***
+
+> RestApiRouter.registerRouter(*method: HTTPMethod*, *path: string*)
+
+Decorator to register custom express router
+
+***Usage***
+
+```typescript
+import { RestApiRouter } from '@choseohwan/express-utils';
+import { HTTPMethod } from '@choseohwan/utils/constant';
+import { NextFunction, Request, Response } from 'express';
+
+class MyRouter extends RestApiRouter {
+    
+    @RestApiRouter.registerRouter(HTTPMethod.PATCH, '/custom/:id')
+    protected customPatch(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): void {
+        // ...
+        
+        res.json({
+            router: 'customPost'
+        });
+
+        next();
+    }
+    
+    // ...
+}
+
+export default MyRouter;
+```
+
+***
+
+> addMiddleware(): Handler[]
+
+Register middleware list in express router
+
+***Usage***
+
+```typescript
+import { RestApiRouter } from '@choseohwan/express-utils';
+import { Handler } from '@choseohwan/express-utils/type';
+
+class MyRouter extends RestApiRouter {
+    protected addMiddleware(): Handler[] {
+        // ...
+        
+        return [myMiddleware, myMiddleware2];
+    }
+    
+    // ...
+}
+
+export default MyRouter;
+```
+
+***
+
+> RestApiRouter.registerMiddleware
+
+Decorator to register custom middleware
+
+***Usage***
+
+```typescript
+import { RestApiRouter } from '@choseohwan/express-utils';
+import { NextFunction, Request, Response } from 'express';
+
+class MyRouter extends RestApiRouter {
+    @RestApiRouter.registerMiddleware
+    protected customMiddleware(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): void {
+        // ...
+
+        next();
+    }
+    
+    // ...
+}
+
+export default MyRouter;
+```
+
+### Extension functions
+
+> makeRouter(*routerClass: RestApiRouterConstructor*)
+
+Make express router object
+
+
+***Usage***
+
+```typescript
+import express from "express";
+import { makeRouter } from "@choseohwan/express-utils";
+
+const app = express();
+
+app.use('/resource', makeRouter(MyRouter));
+
+// ...
+```
