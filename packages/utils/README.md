@@ -2,23 +2,23 @@
 
 javascript/typescript utility functions for @choseohwan project
 
-## Install
+# Install
 
 ### npm
 ```shell
-npm install @choseohwan/utils --save-dev
+npm install @choseohwan/utils
 ```
 
 ### yarn
 ```shell
-yarn add @choseohwan/utils -D
+yarn add @choseohwan/utils
 ```
 
-## API Definitions
+# API Definitions
 
-### Utility Functions
+## Utility Functions
 
-#### delay
+### delay
 
 Delay `microsecond` time
 
@@ -57,11 +57,9 @@ Two
  */
 ```
 
-***
+## Number Prototype Utilities
 
-### Number.prototype
-
-#### Number.prototype.addSeparator
+### Number.prototype.addSeparator
 
 Add separator(,) to number.
 
@@ -99,9 +97,7 @@ nagative: -123,456,789
  */
 ```
 
-***
-
-#### Number.prototype.addSeparator
+### Number.prototype.addSeparator
 
 Add separator(,) to number.
 
@@ -138,4 +134,25 @@ nagative: -12.3조
  */
 ```
 
-***
+# Constants
+
+## HTTP
+
+### HTTPMethod
+
+Http Method List
+
+***Syntax***
+> Method.{*GET | POST | PUT | DELETE | ...*}
+
+***Usage***
+
+```typescript
+import { HTTPMethod } from '@choseohwan/utils/constant';
+
+console.log(`Method : ${HTTPMethod.GET}, ${HTTPMethod.POST}, ...`);
+
+/* RESULT
+Method : GET, POST, ...
+ */
+```

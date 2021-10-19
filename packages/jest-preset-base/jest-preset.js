@@ -1,5 +1,7 @@
+const { defaults: tsjPreset } = require('ts-jest/presets');
+
 module.exports = {
-    preset: 'ts-jest',
+    ...tsjPreset,
     testEnvironment: 'node',
     rootDir: "./",
     modulePaths: ["<rootDir>/src/"],
@@ -22,7 +24,7 @@ module.exports = {
     ],
     globals: {
         "ts-jest": {
-            tsConfig: "<rootDir>/tsconfig.json",
+            tsconfig: "<rootDir>/tsconfig.json",
             babelConfig: true
         },
     },
