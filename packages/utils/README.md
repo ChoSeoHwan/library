@@ -57,8 +57,6 @@ Two
  */
 ```
 
-***
-
 ## Number Prototype Utilities
 
 ### Number.prototype.addSeparator
@@ -99,8 +97,6 @@ nagative: -123,456,789
  */
 ```
 
-***
-
 ### Number.prototype.addSeparator
 
 Add separator(,) to number.
@@ -138,8 +134,6 @@ nagative: -12.3조
  */
 ```
 
-***
-
 # Constants
 
 ## HTTP
@@ -162,5 +156,3 @@ console.log(`Method : ${HTTPMethod.GET}, ${HTTPMethod.POST}, ...`);
 Method : GET, POST, ...
  */
 ```
-
-***
