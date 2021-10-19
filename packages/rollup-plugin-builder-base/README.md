@@ -26,6 +26,10 @@ yarn add @choseohwan/rollup-plugin-builder-base @choseohwan/rollup-builder -D
     - Automatically externalize `peerDependencies` in a `rollup` bundle.
 
 
+- **[@rollup/plugin-json](https://www.npmjs.com/package/@rollup/plugin-json)**
+    - A Rollup plugin which Converts .json files to ES6 modules.
+
+
 - **[@rollup/plugin-node-resolve](https://www.npmjs.com/package/@rollup/plugin-node-resolve)**
     - A Rollup plugin which locates modules using the Node resolution algorithm, <br>
     for using third party modules in node_modules.

@@ -2,6 +2,7 @@ import { DEFAULT_EXTENSIONS } from '@babel/core';
 import { Plugin, Plugins } from '@choseohwan/rollup-builder';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import cleaner from 'rollup-plugin-cleaner';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -24,6 +25,8 @@ const buildBasePlugins = (): Plugins => {
         peerDepsExternal,
         []
     );
+
+    const jsonPlugin = new Plugin('@rollup/plugin-json', json, []);
 
     const resolvePlugin = new Plugin('@rollup/plugin-node-resolve', resolve, [
         {
@@ -73,6 +76,7 @@ const buildBasePlugins = (): Plugins => {
     return new Plugins(
         cleanerPlugin,
         peerDepsExternalPlugin,
+        jsonPlugin,
         resolvePlugin,
         typescriptPlugin,
         commonjsPlugin,

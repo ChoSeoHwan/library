@@ -7,6 +7,7 @@ describe('pluginBuilderBase', () => {
         const expectPluginList = [
             'rollup-builder-cleaner',
             'rollup-plugin-peer-deps-external',
+            '@rollup/plugin-json',
             '@rollup/plugin-node-resolve',
             'rollup-plugin-typescript2',
             '@rollup/plugin-commonjs',
