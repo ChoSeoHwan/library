@@ -30,7 +30,6 @@ const buildBasePlugins = (): Plugins => {
 
     const resolvePlugin = new Plugin('@rollup/plugin-node-resolve', resolve, [
         {
-            browser: true,
             preferBuiltins: true
         }
     ]);
