@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.27...@choseohwan/utils@1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0) (2021-10-19)
+
+
+### Bug Fixes
+
+* **utils:** build 방식 변으 ([b921ed5](https://github.com/ChoSeoHwan/library/commit/b921ed50a4c21345d74e94c8eaaa996349331722))
+* **utils:** constant 내 HTTPMethod 값 변경 ([34ef607](https://github.com/ChoSeoHwan/library/commit/34ef607fa5e8c35e3911d6a0edd34c6179540391))
+* **utils:** import path 수정 ([908f121](https://github.com/ChoSeoHwan/library/commit/908f121bfa6ff7dfd0acbabea6e5879134c33aeb))
+
+
+### Features
+
+* export 방식 변경, README 추가 ([2f757ce](https://github.com/ChoSeoHwan/library/commit/2f757ce7cbc55bd3a87195bc8ddfa7801bbd82c3))
+* **utils:** 상수 라이브러리 추가 ([c08b0d8](https://github.com/ChoSeoHwan/library/commit/c08b0d83040cdff398ccd3dcb3eb7556aea004c6))
+
+
+
+
+
 ## [1.0.27](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.0.27-next.9c8fe7f68fe6b446149e57bc272c9c091bf1dc7a.0...@choseohwan/utils@1.0.27) (2021-10-06)
 
 **Note:** Version bump only for package @choseohwan/utils

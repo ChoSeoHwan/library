@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-builder@1.1.5...@choseohwan/rollup-builder@1.1.6-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0) (2021-10-19)
+
+**Note:** Version bump only for package @choseohwan/rollup-builder
+
+
+
+
+
 ## [1.1.5](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-builder@1.1.5-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0...@choseohwan/rollup-builder@1.1.5) (2021-08-23)
 
 **Note:** Version bump only for package @choseohwan/rollup-builder

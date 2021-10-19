@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@1.0.3...@choseohwan/rollup-plugin-builder-base@1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0) (2021-10-19)
+
+
+### Bug Fixes
+
+* **rollup-plugin-builder-base:** warning 수정 ([8fd4855](https://github.com/ChoSeoHwan/library/commit/8fd48557267fafd74fa70f99755b36b6ea2102b7))
+
+
+### Features
+
+* **rollup-plugin-builder-base:** rollup-plugin-builder-base 에 플러그인 추가 및 설정 수정 ([00f1d82](https://github.com/ChoSeoHwan/library/commit/00f1d827ef4628948718c6d88d3ee8b4eca7b9e0))
+
+
+
+
+
 ## [1.0.3](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@1.0.3-next.9c8fe7f68fe6b446149e57bc272c9c091bf1dc7a.0...@choseohwan/rollup-plugin-builder-base@1.0.3) (2021-10-06)
 
 **Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
