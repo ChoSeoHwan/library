@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-react@1.0.2-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0...@choseohwan/eslint-config-react@1.0.2) (2021-11-12)
+
+**Note:** Version bump only for package @choseohwan/eslint-config-react
+
+
+
+
+
 ## [1.0.2-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-react@1.0.1...@choseohwan/eslint-config-react@1.0.2-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0) (2021-11-12)
 
 **Note:** Version bump only for package @choseohwan/eslint-config-react

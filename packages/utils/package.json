@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0",
+  "version": "1.1.1",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -45,10 +45,10 @@
   },
   "devDependencies": {
     "@choseohwan/babel-preset-base": "^1.0.1",
-    "@choseohwan/eslint-config-base": "^1.0.14-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0",
+    "@choseohwan/eslint-config-base": "^1.0.14",
     "@choseohwan/jest-preset-base": "^1.0.2",
-    "@choseohwan/rollup-builder": "^1.1.7-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0",
-    "@choseohwan/rollup-plugin-builder-base": "^1.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0",
+    "@choseohwan/rollup-builder": "^1.1.7",
+    "@choseohwan/rollup-plugin-builder-base": "^1.1.1",
     "@choseohwan/tsconfig-base": "^1.0.12"
   },
   "lint-staged": {
