@@ -58,7 +58,7 @@ const buildBasePlugins = (): Plugins => {
     const commonjsPlugin = new Plugin('@rollup/plugin-commonjs', commonjs, [
         {
             extensions: ['.js', '.ts'],
-            include: ['node_modules/**']
+            include: ['node_modules/**', '../../node_modules/**']
         }
     ]);
 
