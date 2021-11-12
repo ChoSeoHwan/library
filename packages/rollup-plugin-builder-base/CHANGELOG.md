@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@1.1.0...@choseohwan/rollup-plugin-builder-base@1.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0) (2021-11-12)
+
+
+### Bug Fixes
+
+* **rollup-plugin-builder-base:** monorepo 에서 commonjs 해결하지 못하는 문제 수정 ([8311583](https://github.com/ChoSeoHwan/library/commit/8311583f24ace2a7be048644ef5570e9e40f6b0a))
+
+
+
+
+
 # [1.1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@1.1.0-next.2ada46e30e7ff52b3b1c40453fdd4ca775892585.0...@choseohwan/rollup-plugin-builder-base@1.1.0) (2021-10-19)
 
 **Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
