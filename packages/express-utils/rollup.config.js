@@ -13,6 +13,8 @@ export default buildRollupOptions(
     input,
     [
         outputBuilder.buildES({
+            entryFileNames: '[name].mjs',
+            chunkFileNames: '[name]-[hash].mjs',
             dir: 'dist/esm'
         }),
         outputBuilder.buildCJS({

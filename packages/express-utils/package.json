@@ -10,9 +10,10 @@
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
   "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
   "types": "dist/cjs/src/index.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
+    "import": "./dist/esm/index.mjs",
     "require": "./dist/cjs/index.js"
   },
   "typesVersions": {},
