@@ -4,7 +4,7 @@ module.exports = {
     ...jestConfigBase,
     moduleNameMapper: {
         '~/(.*)': '<rootDir>/src/$1',
-        '@choseohwan/utils(.*)': `@choseohwan/utils/dist/cjs$1`,
+        '@choseohwan/utils/(.*)': '@choseohwan/utils/dist/cjs/$1.cjs',
     },
     globals: {
         "ts-jest": {
