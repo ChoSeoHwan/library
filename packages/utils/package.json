@@ -9,21 +9,21 @@
   "author": "wtae1216 <wtae1216@gmail.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/cjs/index.cjs",
+  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/cjs/src/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.js"
     },
     "./prototypes": {
       "import": "./dist/esm/prototypes.mjs",
-      "require": "./dist/cjs/prototype.cjs"
+      "require": "./dist/cjs/prototypes.js"
     },
     "./constant": {
       "import": "./dist/esm/constant.mjs",
-      "require": "./dist/cjs/constant.cjs"
+      "require": "./dist/cjs/constant.js"
     }
   },
   "typesVersions": {

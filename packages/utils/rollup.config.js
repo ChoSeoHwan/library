@@ -20,10 +20,10 @@ export default buildRollupOptions(
     [
         outputBuilder.buildES({
             entryFileNames: '[name].mjs',
+            chunkFileNames: '[name]-[hash].mjs',
             dir: 'dist/esm'
         }),
         outputBuilder.buildCJS({
-            entryFileNames: '[name].cjs',
             exports: 'named',
             dir: 'dist/cjs'
         }),
