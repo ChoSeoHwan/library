@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/express-utils",
-  "version": "0.1.2-next.4d53abea0b287334305b98642104181af5643b48.0",
+  "version": "0.1.2",
   "description": "express utils for SeoHwan Cho's project",
   "keywords": [
     "express",
@@ -38,7 +38,7 @@
     "@choseohwan/rollup-builder": "^1.1.7",
     "@choseohwan/rollup-plugin-builder-base": "^1.1.1",
     "@choseohwan/tsconfig-base": "^1.0.12",
-    "@choseohwan/utils": "^1.1.2-next.4d53abea0b287334305b98642104181af5643b48.0",
+    "@choseohwan/utils": "^1.1.2",
     "@types/express": "^4.17.13",
     "express": "^4.17.1"
   },
