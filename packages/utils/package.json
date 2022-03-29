@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "1.1.1",
+  "version": "1.1.2-next.4d53abea0b287334305b98642104181af5643b48.0",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -10,11 +10,21 @@
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
   "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
   "types": "dist/cjs/src/index.d.ts",
   "exports": {
-    ".": "./dist/esm/index.js",
-    "./prototypes": "./dist/esm/prototypes.js",
-    "./constant": "./dist/esm/constant.js"
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./prototypes": {
+      "import": "./dist/esm/prototypes.mjs",
+      "require": "./dist/cjs/prototypes.js"
+    },
+    "./constant": {
+      "import": "./dist/esm/constant.mjs",
+      "require": "./dist/cjs/constant.js"
+    }
   },
   "typesVersions": {
     "*": {

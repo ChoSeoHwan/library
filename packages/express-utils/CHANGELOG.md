@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2-next.4d53abea0b287334305b98642104181af5643b48.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/express-utils@0.1.1...@choseohwan/express-utils@0.1.2-next.4d53abea0b287334305b98642104181af5643b48.0) (2022-03-29)
+
+
+### Bug Fixes
+
+* **express-utils:** exports 수정 ([a553612](https://github.com/ChoSeoHwan/library/commit/a5536121e2de5e9524c5dde2b3e5e524a8be82b7))
+* **express-utils:** exports 정의 변경 ([3bbc585](https://github.com/ChoSeoHwan/library/commit/3bbc585908dc3eff0ca12d0362e2832e397961b8))
+
+
+
+
+
 ## [0.1.1](https://github.com/ChoSeoHwan/library/compare/@choseohwan/express-utils@0.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0...@choseohwan/express-utils@0.1.1) (2021-11-12)
 
 **Note:** Version bump only for package @choseohwan/express-utils

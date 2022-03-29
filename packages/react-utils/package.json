@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/react-utils",
-  "version": "1.0.5",
+  "version": "1.0.6-next.4d53abea0b287334305b98642104181af5643b48.0",
   "description": "react utils for SeoHwan Cho's project",
   "keywords": [
     "react",
@@ -9,12 +9,22 @@
   "author": "ChoSeoHwan <wtae1216@naver.com>",
   "homepage": "https://github.com/ChoSeoHwan/library#readme",
   "license": "ISC",
-  "main": "dist/umd/index.js",
-  "types": "dist/umd/src/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/cjs/src/index.d.ts",
   "exports": {
-    ".": "./dist/esm/index.js",
-    "./hoc": "./dist/esm/hoc.js",
-    "./hooks": "./dist/esm/hooks.js"
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./hoc": {
+      "import": "./dist/esm/hoc.mjs",
+      "require": "./dist/cjs/hoc.js"
+    },
+    "./hooks": {
+      "import": "./dist/esm/hooks.mjs",
+      "require": "./dist/cjs/hooks.js"
+    }
   },
   "typesVersions": {
     "*": {

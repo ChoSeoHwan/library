@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2-next.4d53abea0b287334305b98642104181af5643b48.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.1.1...@choseohwan/utils@1.1.2-next.4d53abea0b287334305b98642104181af5643b48.0) (2022-03-29)
+
+
+### Bug Fixes
+
+* **utils:** cjs > js 로 변경, exports 수정 ([4a447bc](https://github.com/ChoSeoHwan/library/commit/4a447bc74afe73a854cefbcf25aa409c803a7307))
+* **utils:** exports 정의 변경 ([680d21c](https://github.com/ChoSeoHwan/library/commit/680d21c0a1f67b01feb2acd73fd10fb396b0f509))
+* **utils:** exports 정의 변경 및 build file 확장자 변경 ([9ee2e72](https://github.com/ChoSeoHwan/library/commit/9ee2e72a75bf56a045c1865bd950381c8870bd4b))
+* **utils:** exports 정의 변경 및 build file 확장자 변경 ([d8faad7](https://github.com/ChoSeoHwan/library/commit/d8faad7d6b231976a1d70725667f273d805ebf64))
+
+
+
+
+
 ## [1.1.1](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.1.1-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0...@choseohwan/utils@1.1.1) (2021-11-12)
 
 **Note:** Version bump only for package @choseohwan/utils
