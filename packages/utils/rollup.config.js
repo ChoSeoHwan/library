@@ -19,9 +19,11 @@ export default buildRollupOptions(
     input,
     [
         outputBuilder.buildES({
+            entryFileNames: '[name].mjs',
             dir: 'dist/esm'
         }),
         outputBuilder.buildCJS({
+            entryFileNames: '[name].cjs',
             exports: 'named',
             dir: 'dist/cjs'
         }),
