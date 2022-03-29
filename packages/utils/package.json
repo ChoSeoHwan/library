@@ -12,9 +12,12 @@
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/src/index.d.ts",
   "exports": {
-    ".": "./dist/esm/index.js",
-    "./prototypes": "./dist/esm/prototypes.js",
-    "./constant": "./dist/esm/constant.js"
+    "import": {
+      ".": "./dist/esm/index.js",
+      "./prototypes": "./dist/esm/prototypes.js",
+      "./constant": "./dist/esm/constant.js"
+    },
+    "require": "./dist/cjs/index.js"
   },
   "typesVersions": {
     "*": {
