@@ -22,7 +22,7 @@
       "require": "./dist/cjs/prototype.cjs"
     },
     "./constant": {
-      "import": "./dist/esm/constant.js",
+      "import": "./dist/esm/constant.mjs",
       "require": "./dist/cjs/constant.cjs"
     }
   },
