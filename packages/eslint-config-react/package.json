@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-react",
-  "version": "1.0.3-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0",
+  "version": "1.0.3",
   "description": "eslint config for react",
   "keywords": [
     "eslint",
@@ -38,7 +38,7 @@
     "typescript": "^4"
   },
   "dependencies": {
-    "@choseohwan/eslint-config-base": "^1.1.0-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0",
+    "@choseohwan/eslint-config-base": "^1.1.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0"
   },
