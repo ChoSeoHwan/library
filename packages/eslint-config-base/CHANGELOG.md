@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.14...@choseohwan/eslint-config-base@1.1.0-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0) (2022-06-18)
+
+
+### Features
+
+* **eslint-config-base:** dependency 업데이트 ([4ff49b2](https://github.com/ChoSeoHwan/library/commit/4ff49b20fae98d0fb5951161cb0e5aa7d9fdd0db))
+
+
+
+
+
 ## [1.0.14](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.0.14-next.8f420769d87f13f116c3c84c5ea713e0f060496a.0...@choseohwan/eslint-config-base@1.0.14) (2021-11-12)
 
 **Note:** Version bump only for package @choseohwan/eslint-config-base
