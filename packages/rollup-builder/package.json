@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "1.1.7",
+  "version": "1.1.8-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
@@ -32,7 +32,7 @@
     "@babel/core": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@choseohwan/babel-preset-base": "^1.0.1",
-    "@choseohwan/eslint-config-base": "^1.0.14",
+    "@choseohwan/eslint-config-base": "^1.1.0-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0",
     "@choseohwan/jest-preset-base": "^1.0.2",
     "@choseohwan/tsconfig-base": "^1.0.12",
     "@rollup/plugin-babel": "^5.3.0",
