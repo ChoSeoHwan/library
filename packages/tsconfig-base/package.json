@@ -24,11 +24,12 @@
   "files": [
     "lib"
   ],
-  "dependencies": {
+  "devDpendencies": {
     "@tsconfig/recommended": "^1.0.1"
   },
   "peerDependencies": {
-    "typescript": "^4"
+    "@tsconfig/recommended": ">=1",
+    "typescript": ">=4"
   },
   "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
 }

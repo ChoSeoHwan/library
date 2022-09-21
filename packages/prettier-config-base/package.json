@@ -21,7 +21,7 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "peerDependencies": {
-    "prettier": "^2.3.2"
+    "prettier": ">=2"
   },
   "gitHead": "96295d43173bbcddd160ecb28d6d6452a201ca6f"
 }
