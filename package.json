@@ -30,5 +30,6 @@
   },
   "dependencies": {
     "@choseohwan/prettier-config-base": "^1.0.7"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
