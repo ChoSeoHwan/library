@@ -26,9 +26,9 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
+    "eslint": "^8.23.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3"
   },
   "peerDependencies": {
     "eslint": ">=7.0.0",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@choseohwan/eslint-config-base": "^1.0.14",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
 }

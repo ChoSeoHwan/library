@@ -7,20 +7,22 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
-    "@commitlint/config-lerna-scopes": "^13.1.0",
-    "husky": "^7.0.0",
-    "lerna": "^4.0.0",
-    "lint-staged": "^11.1.1",
-    "rollup": "^2.51.2",
-    "typescript": "^4.3.2"
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/config-lerna-scopes": "^17.0.2",
+    "husky": "^8.0.1",
+    "lerna": "^5.5.2",
+    "lint-staged": "^13.0.3",
+    "rollup": "^2.79.0",
+    "typescript": "^4.8.3"
   },
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
     "upgrade": "lerna version -m \"chore: release version publish\"",
     "upgrade:prerelease": "lerna version --conventional-prerelease -m \"chore: prerelease version publish\"",
     "upgrade:canary": "lerna version --conventional-prerelease -m \"chore: canary version publish\" ",

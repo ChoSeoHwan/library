@@ -27,16 +27,16 @@
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jsdoc": "^35.4.3",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0"
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^8.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.29.0",
-    "prettier": "^2.3.2"
+    "eslint": "^8.23.1",
+    "prettier": "^2.7.1"
   },
   "peerDependencies": {
     "eslint": ">=7.0.0",
