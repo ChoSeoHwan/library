@@ -70,6 +70,7 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.1",
     "@choseohwan/eslint-config-react": "^1.0.3",
     "@choseohwan/jest-preset-base": "^1.0.2",
     "@choseohwan/rollup-builder": "^1.1.8",
@@ -78,9 +79,25 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^29.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "babel-jest": "^29.0.3",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "jest": "^29.0.3",
+    "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "react-dom": "^18.2.0",
     "rollup": "^2.79.0",
+    "ts-jest": "^29.0.1",
     "typescript": "^4.8.3"
   },
   "peerDependencies": {
