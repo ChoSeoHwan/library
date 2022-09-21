@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@babel/core": "^7.19.1",
     "@babel/runtime": "^7.19.0",
-    "@choseohwan/rollup-builder": "^1.1.7",
+    "@choseohwan/rollup-builder": "^1.1.8",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
@@ -57,12 +57,14 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.19.1",
     "@choseohwan/babel-preset-base": "^1.0.1",
-    "@choseohwan/eslint-config-base": "^1.0.14",
+    "@choseohwan/eslint-config-base": "^1.1.0",
     "@choseohwan/jest-preset-base": "^1.0.2",
     "@choseohwan/tsconfig-base": "^1.0.12",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.7.18",
     "babel-jest": "^29.0.3",
+    "eslint": "^8.23.1",
+    "eslint-plugin-import": "^2.26.0",
     "lint-staged": "^13.0.3",
     "rollup": "^2.79.0",
     "ts-node": "^10.9.1",

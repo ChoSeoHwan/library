@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/react-utils",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "react utils for SeoHwan Cho's project",
   "keywords": [
     "react",
@@ -70,10 +70,10 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
-    "@choseohwan/eslint-config-react": "^1.0.2",
+    "@choseohwan/eslint-config-react": "^1.0.3",
     "@choseohwan/jest-preset-base": "^1.0.2",
-    "@choseohwan/rollup-builder": "^1.1.7",
-    "@choseohwan/rollup-plugin-builder-base": "^1.1.1",
+    "@choseohwan/rollup-builder": "^1.1.8",
+    "@choseohwan/rollup-plugin-builder-base": "^1.1.2",
     "@choseohwan/tsconfig-base": "^1.0.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
