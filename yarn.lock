@@ -1657,8 +1657,10 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-typescript": ^7.18.6
   peerDependencies:
-    "@babel/core": ^7
-    typescript: ^4
+    "@babel/core": ">=7"
+    "@babel/preset-env": ">=7"
+    "@babel/preset-typescript": ">=7"
+    typescript: ">=4"
   languageName: unknown
   linkType: soft
 

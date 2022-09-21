@@ -3036,11 +3036,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:d6e1cfd2547f9d5d53bcf9886c43ae53e9ff51d76dc21881ea6507ce43860b27cf2287d7e444e3cd42505e06a9c8a1bb62cc2eace6476a9e40689538c30acad3#npm:7.19.1"],\
             ["@babel/preset-typescript", "virtual:d6e1cfd2547f9d5d53bcf9886c43ae53e9ff51d76dc21881ea6507ce43860b27cf2287d7e444e3cd42505e06a9c8a1bb62cc2eace6476a9e40689538c30acad3#npm:7.18.6"],\
             ["@types/babel__core", null],\
+            ["@types/babel__preset-env", null],\
+            ["@types/babel__preset-typescript", null],\
             ["@types/typescript", null],\
             ["typescript", null]\
           ],\
           "packagePeers": [\
             "@types/babel__core",\
+            "@types/babel__preset-env",\
+            "@types/babel__preset-typescript",\
             "@types/typescript",\
             "typescript"\
           ],\
