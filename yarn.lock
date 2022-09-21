@@ -335,7 +335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-replace-supers@npm:^7.18.6, @babel/helper-replace-supers@npm:^7.18.9, @babel/helper-replace-supers@npm:^7.19.1":
+"@babel/helper-replace-supers@npm:^7.18.6, @babel/helper-replace-supers@npm:^7.18.9":
   version: 7.19.1
   resolution: "@babel/helper-replace-supers@npm:7.19.1"
   dependencies:
@@ -535,21 +535,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.12.0
   checksum: b8d7ae99ed5ad784f39e7820e3ac03841f91d6ed60ab4a98c61d6112253da36013e12807bae4ffed0ef3cb318e47debac112ed614e03b403fb8b075b09a828ee
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-proposal-decorators@npm:^7.19.1":
-  version: 7.19.1
-  resolution: "@babel/plugin-proposal-decorators@npm:7.19.1"
-  dependencies:
-    "@babel/helper-create-class-features-plugin": ^7.19.0
-    "@babel/helper-plugin-utils": ^7.19.0
-    "@babel/helper-replace-supers": ^7.19.1
-    "@babel/helper-split-export-declaration": ^7.18.6
-    "@babel/plugin-syntax-decorators": ^7.19.0
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: a80c048ce1940a91dd468cab7f6f7087903c64fd83f669da74a420e1d0f3eeac623f16b6bc02532148733a4e602771d19e080f5b858fbd0e69cfb74317226ed6
   languageName: node
   linkType: hard
 
@@ -756,17 +741,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 3e80814b5b6d4fe17826093918680a351c2d34398a914ce6e55d8083d72a9bdde4fbaf6a2dcea0e23a03de26dc2917ae3efd603d27099e2b98380345703bf948
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-syntax-decorators@npm:^7.19.0":
-  version: 7.19.0
-  resolution: "@babel/plugin-syntax-decorators@npm:7.19.0"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.19.0
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 105a13d581a8643ba145d4d0d31f34a492b352defa5b155e785702da6ce9c3ff0c1843ba9bee176e35f6e38afa19dc7bd12c120220af0495de4b128f1dd27f6e
   languageName: node
   linkType: hard
 
@@ -1731,7 +1705,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@choseohwan/express-utils@workspace:packages/express-utils"
   dependencies:
-    "@babel/plugin-proposal-decorators": ^7.19.1
     "@choseohwan/babel-preset-base": ^1.0.1
     "@choseohwan/eslint-config-base": ^1.0.14
     "@choseohwan/jest-preset-base": ^1.0.2
@@ -1742,9 +1715,12 @@ __metadata:
     "@types/express": ^4.17.14
     "@types/supertest": ^2.0.12
     express: ^4.18.1
+    jest: ^29.0.3
     lint-staged: ^13.0.3
+    rollup: ^2.79.0
     supertest: ^6.2.4
     ts-jest: ^29.0.1
+    typescript: ^4.8.3
   peerDependencies:
     express: ^4
   languageName: unknown
@@ -1758,9 +1734,10 @@ __metadata:
     jest: ^29.0.3
     jest-html-reporters: ^3.0.11
     ts-jest: ^29.0.1
+    typescript: ^4.8.3
   peerDependencies:
-    "@types/jest": ^27
-    jest: ^27
+    "@types/jest": ">=29"
+    jest: ">=29"
   languageName: unknown
   linkType: soft
 
@@ -1788,7 +1765,9 @@ __metadata:
     lint-staged: ^13.0.3
     react: ^18.2.0
     react-dom: ^18.2.0
+    rollup: ^2.79.0
     throttle-debounce: ^5.0.0
+    typescript: ^4.8.3
   peerDependencies:
     react: ^17
   languageName: unknown
@@ -1810,6 +1789,7 @@ __metadata:
     "@rollup/plugin-node-resolve": ^14.1.0
     "@types/node": ^18.7.18
     babel-jest: ^29.0.3
+    jest: ^29.0.3
     lint-staged: ^13.0.3
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-peer-deps-external: ^2.2.4
@@ -1842,13 +1822,17 @@ __metadata:
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
+    "@types/node": ^18.7.18
     babel-jest: ^29.0.3
     lint-staged: ^13.0.3
+    rollup: ^2.79.0
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-typescript2: ^0.34.0
+    ts-node: ^10.9.1
     ttypescript: ^1.5.13
+    typescript: ^4.8.3
     typescript-transform-paths: ^3.3.1
   peerDependencies:
     "@babel/core": ^7
@@ -1889,6 +1873,8 @@ __metadata:
     "@choseohwan/rollup-plugin-builder-base": ^1.1.1
     "@choseohwan/tsconfig-base": ^1.0.12
     lint-staged: ^13.0.3
+    rollup: ^2.79.0
+    typescript: ^4.8.3
   languageName: unknown
   linkType: soft
 
@@ -8878,6 +8864,7 @@ __metadata:
     husky: ^8.0.1
     lerna: ^5.5.2
     lint-staged: ^13.0.3
+    prettier: ^2.7.1
     rollup: ^2.79.0
     typescript: ^4.8.3
   languageName: unknown
