@@ -1875,6 +1875,7 @@ __metadata:
     "@choseohwan/rollup-builder": ^1.1.7
     "@choseohwan/rollup-plugin-builder-base": ^1.1.1
     "@choseohwan/tsconfig-base": ^1.0.12
+    lint-staged: ^13.0.3
   languageName: unknown
   linkType: soft
 

@@ -3461,7 +3461,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/jest-preset-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/jest-preset-base"],\
             ["@choseohwan/rollup-builder", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder"],\
             ["@choseohwan/rollup-plugin-builder-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-plugin-builder-base"],\
-            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"]\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
+            ["lint-staged", "npm:13.0.3"]\
           ],\
           "linkType": "SOFT"\
         }]\

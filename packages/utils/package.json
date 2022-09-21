@@ -59,7 +59,8 @@
     "@choseohwan/jest-preset-base": "^1.0.2",
     "@choseohwan/rollup-builder": "^1.1.7",
     "@choseohwan/rollup-plugin-builder-base": "^1.1.1",
-    "@choseohwan/tsconfig-base": "^1.0.12"
+    "@choseohwan/tsconfig-base": "^1.0.12",
+    "lint-staged": "^13.0.3"
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
