@@ -60,6 +60,7 @@
     "@choseohwan/eslint-config-base": "^1.0.14",
     "@choseohwan/jest-preset-base": "^1.0.2",
     "@choseohwan/tsconfig-base": "^1.0.12",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.7.18",
     "babel-jest": "^29.0.3",
     "lint-staged": "^13.0.3",

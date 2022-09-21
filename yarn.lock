@@ -1714,6 +1714,7 @@ __metadata:
     "@choseohwan/rollup-plugin-builder-base": ^1.1.1
     "@choseohwan/tsconfig-base": ^1.0.12
     "@choseohwan/utils": ^1.1.2
+    "@tsconfig/recommended": ^1.0.1
     "@types/express": ^4.17.14
     "@types/supertest": ^2.0.12
     express: ^4.18.1
@@ -1765,6 +1766,7 @@ __metadata:
     "@choseohwan/tsconfig-base": ^1.0.12
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
+    "@tsconfig/recommended": ^1.0.1
     "@types/react": ^18.0.20
     "@types/throttle-debounce": ^5.0.0
     lint-staged: ^13.0.3
@@ -1792,6 +1794,7 @@ __metadata:
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^14.1.0
+    "@tsconfig/recommended": ^1.0.1
     "@types/node": ^18.7.18
     babel-jest: ^29.0.3
     jest: ^29.0.3
@@ -1827,6 +1830,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^14.1.0
+    "@tsconfig/recommended": ^1.0.1
     "@types/node": ^18.7.18
     babel-jest: ^29.0.3
     lint-staged: ^13.0.3
@@ -1880,6 +1884,7 @@ __metadata:
     jest: ^29.0.3
     lint-staged: ^13.0.3
     rollup: ^2.79.0
+    ts-jest: ^29.0.1
     typescript: ^4.8.3
   languageName: unknown
   linkType: soft

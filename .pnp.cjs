@@ -77,12 +77,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@choseohwan/eslint-config-base", ["virtual:6e6e645e8c69d54d180a6d62f18e816a3572451dc30f8b843a0341b7435664a2308d9708dc43c5de2ccaae8554bfd89866c86da191917c182c0cdc0b43dae977#workspace:packages/eslint-config-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/eslint-config-base", "workspace:packages/eslint-config-base"]],\
       ["@choseohwan/eslint-config-react", ["virtual:17d7c987b2d9b7c7c2b0d2adeca07ce9b00b6095ea6f307e1d7dceaf7038b1de5f5929a5727bc4152869dfe4e90ff901c7f854bcf019eafb14f383759a6cf8f8#workspace:packages/eslint-config-react", "workspace:packages/eslint-config-react"]],\
       ["@choseohwan/express-utils", ["workspace:packages/express-utils"]],\
-      ["@choseohwan/jest-preset-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/jest-preset-base", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#workspace:packages/jest-preset-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/jest-preset-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base", "workspace:packages/jest-preset-base"]],\
+      ["@choseohwan/jest-preset-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/jest-preset-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/jest-preset-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base", "workspace:packages/jest-preset-base"]],\
       ["@choseohwan/prettier-config-base", ["virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base", "workspace:packages/prettier-config-base"]],\
       ["@choseohwan/react-utils", ["workspace:packages/react-utils"]],\
       ["@choseohwan/rollup-builder", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder", "workspace:packages/rollup-builder"]],\
       ["@choseohwan/rollup-plugin-builder-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-plugin-builder-base", "workspace:packages/rollup-plugin-builder-base"]],\
-      ["@choseohwan/tsconfig-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base", "workspace:packages/tsconfig-base"]],\
+      ["@choseohwan/tsconfig-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/tsconfig-base", "workspace:packages/tsconfig-base"]],\
       ["@choseohwan/utils", ["workspace:packages/utils"]],\
       ["library", ["workspace:."]]\
     ],\
@@ -3180,11 +3180,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/express-utils", "workspace:packages/express-utils"],\
             ["@choseohwan/babel-preset-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/babel-preset-base"],\
             ["@choseohwan/eslint-config-base", "virtual:6e6e645e8c69d54d180a6d62f18e816a3572451dc30f8b843a0341b7435664a2308d9708dc43c5de2ccaae8554bfd89866c86da191917c182c0cdc0b43dae977#workspace:packages/eslint-config-base"],\
-            ["@choseohwan/jest-preset-base", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#workspace:packages/jest-preset-base"],\
+            ["@choseohwan/jest-preset-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/jest-preset-base"],\
             ["@choseohwan/rollup-builder", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder"],\
             ["@choseohwan/rollup-plugin-builder-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-plugin-builder-base"],\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
             ["@choseohwan/utils", "workspace:packages/utils"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/express", "npm:4.17.14"],\
             ["@types/supertest", "npm:2.0.12"],\
             ["express", "npm:4.18.1"],\
@@ -3192,7 +3193,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["rollup", "npm:2.79.0"],\
             ["supertest", "npm:6.2.4"],\
-            ["ts-jest", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#npm:29.0.1"],\
+            ["ts-jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
@@ -3209,29 +3210,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typescript", null],\
             ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
             ["jest-html-reporters", "npm:3.0.11"],\
-            ["ts-jest", "virtual:ac36e25299d6865941dec59356755d939366b3e88d3ef4198f69ddabcec5e0e242ba316cf7348ee985d5841c40a6d1dea0fc047595e5c4b5361882d6a35669dc#npm:29.0.1"],\
-            ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
-          ],\
-          "packagePeers": [\
-            "@types/jest-html-reporters",\
-            "@types/ts-jest",\
-            "@types/typescript",\
-            "jest",\
-            "typescript"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#workspace:packages/jest-preset-base", {\
-          "packageLocation": "./.yarn/__virtual__/@choseohwan-jest-preset-base-virtual-f2ac338bcd/1/packages/jest-preset-base/",\
-          "packageDependencies": [\
-            ["@choseohwan/jest-preset-base", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#workspace:packages/jest-preset-base"],\
-            ["@types/jest", "npm:29.0.3"],\
-            ["@types/jest-html-reporters", null],\
-            ["@types/ts-jest", null],\
-            ["@types/typescript", null],\
-            ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
-            ["jest-html-reporters", "npm:3.0.11"],\
-            ["ts-jest", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#npm:29.0.1"],\
+            ["ts-jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "packagePeers": [\
@@ -3299,7 +3278,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typescript", null],\
             ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
             ["jest-html-reporters", "npm:3.0.11"],\
-            ["ts-jest", "virtual:ac36e25299d6865941dec59356755d939366b3e88d3ef4198f69ddabcec5e0e242ba316cf7348ee985d5841c40a6d1dea0fc047595e5c4b5361882d6a35669dc#npm:29.0.1"],\
+            ["ts-jest", "virtual:acd29ae0ab9057b69e482f98d0d44e93e501842969b033987c1b288f541761b875f9b212628f7d344c2bae02edaba79130d7a296d6803dadba6bb76ddc4b3454#npm:29.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "packagePeers": [\
@@ -3317,7 +3296,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.0.3"],\
             ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
             ["jest-html-reporters", "npm:3.0.11"],\
-            ["ts-jest", "virtual:ac36e25299d6865941dec59356755d939366b3e88d3ef4198f69ddabcec5e0e242ba316cf7348ee985d5841c40a6d1dea0fc047595e5c4b5361882d6a35669dc#npm:29.0.1"],\
+            ["ts-jest", "virtual:acd29ae0ab9057b69e482f98d0d44e93e501842969b033987c1b288f541761b875f9b212628f7d344c2bae02edaba79130d7a296d6803dadba6bb76ddc4b3454#npm:29.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
@@ -3354,9 +3333,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base"],\
             ["@choseohwan/rollup-builder", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder"],\
             ["@choseohwan/rollup-plugin-builder-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-plugin-builder-base"],\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:17d7c987b2d9b7c7c2b0d2adeca07ce9b00b6095ea6f307e1d7dceaf7038b1de5f5929a5727bc4152869dfe4e90ff901c7f854bcf019eafb14f383759a6cf8f8#npm:13.4.0"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/react", "npm:18.0.20"],\
             ["@types/throttle-debounce", "npm:5.0.0"],\
             ["lint-staged", "npm:13.0.3"],\
@@ -3380,10 +3360,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/babel-preset-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/babel-preset-base"],\
             ["@choseohwan/eslint-config-base", "virtual:6e6e645e8c69d54d180a6d62f18e816a3572451dc30f8b843a0341b7435664a2308d9708dc43c5de2ccaae8554bfd89866c86da191917c182c0cdc0b43dae977#workspace:packages/eslint-config-base"],\
             ["@choseohwan/jest-preset-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/jest-preset-base"],\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
             ["@rollup/plugin-babel", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:5.3.1"],\
             ["@rollup/plugin-commonjs", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:22.0.2"],\
             ["@rollup/plugin-node-resolve", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:14.1.0"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/node", "npm:18.7.18"],\
             ["@types/rollup", null],\
             ["@types/typescript", null],\
@@ -3424,6 +3405,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-babel", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#npm:5.3.1"],\
             ["@rollup/plugin-commonjs", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#npm:22.0.2"],\
             ["@rollup/plugin-node-resolve", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#npm:14.1.0"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/node", "npm:18.7.18"],\
             ["babel-jest", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:29.0.3"],\
             ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
@@ -3453,11 +3435,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/eslint-config-base", "virtual:6e6e645e8c69d54d180a6d62f18e816a3572451dc30f8b843a0341b7435664a2308d9708dc43c5de2ccaae8554bfd89866c86da191917c182c0cdc0b43dae977#workspace:packages/eslint-config-base"],\
             ["@choseohwan/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base"],\
             ["@choseohwan/rollup-builder", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder"],\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
             ["@rollup/plugin-babel", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:5.3.1"],\
             ["@rollup/plugin-commonjs", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:22.0.2"],\
             ["@rollup/plugin-json", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#npm:4.1.0"],\
             ["@rollup/plugin-node-resolve", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:14.1.0"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/babel__core", null],\
             ["@types/babel__plugin-transform-runtime", null],\
             ["@types/babel__runtime", null],\
@@ -3515,11 +3498,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@choseohwan/eslint-config-base", "virtual:6e6e645e8c69d54d180a6d62f18e816a3572451dc30f8b843a0341b7435664a2308d9708dc43c5de2ccaae8554bfd89866c86da191917c182c0cdc0b43dae977#workspace:packages/eslint-config-base"],\
             ["@choseohwan/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base"],\
             ["@choseohwan/rollup-builder", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder"],\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
+            ["@choseohwan/tsconfig-base", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/tsconfig-base"],\
             ["@rollup/plugin-babel", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:5.3.1"],\
             ["@rollup/plugin-commonjs", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:22.0.2"],\
             ["@rollup/plugin-json", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#npm:4.1.0"],\
             ["@rollup/plugin-node-resolve", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:14.1.0"],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/node", "npm:18.7.18"],\
             ["babel-jest", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
@@ -3558,27 +3542,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@choseohwan-tsconfig-base-virtual-d2d6140d5e/1/packages/tsconfig-base/",\
           "packageDependencies": [\
             ["@choseohwan/tsconfig-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/tsconfig-base"],\
-            ["@tsconfig/recommended", null],\
+            ["@tsconfig/recommended", "npm:1.0.1"],\
             ["@types/tsconfig__recommended", null],\
             ["@types/typescript", null],\
             ["typescript", null]\
-          ],\
-          "packagePeers": [\
-            "@tsconfig/recommended",\
-            "@types/tsconfig__recommended",\
-            "@types/typescript",\
-            "typescript"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base", {\
-          "packageLocation": "./.yarn/__virtual__/@choseohwan-tsconfig-base-virtual-863f235d0a/1/packages/tsconfig-base/",\
-          "packageDependencies": [\
-            ["@choseohwan/tsconfig-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/tsconfig-base"],\
-            ["@tsconfig/recommended", null],\
-            ["@types/tsconfig__recommended", null],\
-            ["@types/typescript", null],\
-            ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "packagePeers": [\
             "@tsconfig/recommended",\
@@ -3611,6 +3578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["rollup", "npm:2.79.0"],\
+            ["ts-jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
@@ -15652,10 +15620,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#npm:29.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-b974f3e4fc/0/cache/ts-jest-npm-29.0.1-8372086266-f126675beb.zip/node_modules/ts-jest/",\
+        ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-1a8b6109af/0/cache/ts-jest-npm-29.0.1-8372086266-f126675beb.zip/node_modules/ts-jest/",\
           "packageDependencies": [\
-            ["ts-jest", "virtual:986758b6d16ba783be3ccc4be91eb4961385aa3e448b0d25e42869345340b8b5a6568c857b0674502771d49ccd05cdc7dc68931f4d54b34092a83d9d8c46b87b#npm:29.0.1"],\
+            ["ts-jest", "virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#npm:29.0.1"],\
             ["@babel/core", null],\
             ["@jest/types", null],\
             ["@types/babel-jest", null],\
@@ -15693,10 +15661,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:ac36e25299d6865941dec59356755d939366b3e88d3ef4198f69ddabcec5e0e242ba316cf7348ee985d5841c40a6d1dea0fc047595e5c4b5361882d6a35669dc#npm:29.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-c6e0245d36/0/cache/ts-jest-npm-29.0.1-8372086266-f126675beb.zip/node_modules/ts-jest/",\
+        ["virtual:acd29ae0ab9057b69e482f98d0d44e93e501842969b033987c1b288f541761b875f9b212628f7d344c2bae02edaba79130d7a296d6803dadba6bb76ddc4b3454#npm:29.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-jest-virtual-9942c1ac84/0/cache/ts-jest-npm-29.0.1-8372086266-f126675beb.zip/node_modules/ts-jest/",\
           "packageDependencies": [\
-            ["ts-jest", "virtual:ac36e25299d6865941dec59356755d939366b3e88d3ef4198f69ddabcec5e0e242ba316cf7348ee985d5841c40a6d1dea0fc047595e5c4b5361882d6a35669dc#npm:29.0.1"],\
+            ["ts-jest", "virtual:acd29ae0ab9057b69e482f98d0d44e93e501842969b033987c1b288f541761b875f9b212628f7d344c2bae02edaba79130d7a296d6803dadba6bb76ddc4b3454#npm:29.0.1"],\
             ["@babel/core", null],\
             ["@jest/types", null],\
             ["@types/babel-jest", null],\
