@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.1.3...@choseohwan/utils@2.0.0) (2022-09-22)
+
+
+### Features
+
+* 모든 패키지 최신으로 upgrade ([63cda3a](https://github.com/ChoSeoHwan/library/commit/63cda3af360067548a515a8989719ff0081cf9ee))
+* 전체적으로 peer dependency warning 수정 ([5612bd1](https://github.com/ChoSeoHwan/library/commit/5612bd1c5c85c00c57b01d468931eceb30f2f152))
+* 전체적으로 peer dependency 수정 ([16d3b89](https://github.com/ChoSeoHwan/library/commit/16d3b8900dab33fb53fe27b43bbefda7c6825d1f))
+* 전체적으로 peer dependency 수정 ([623a17d](https://github.com/ChoSeoHwan/library/commit/623a17da457ab921480cb7a4e53ae94c00870943))
+* 전체적으로 peer dependency 수정 ([3d3fe6e](https://github.com/ChoSeoHwan/library/commit/3d3fe6ea599201bb4e94bd317c443482d84f06e2))
+* 전체적으로 peer dependency 수정 ([6642cdc](https://github.com/ChoSeoHwan/library/commit/6642cdcb3bf33f1acf8f85b7ebbcacd93bac9733))
+* 전체적으로 peer dependency 수정 ([451e62e](https://github.com/ChoSeoHwan/library/commit/451e62e3f5acc760b912abd99ac5f1369cd39e0e))
+
+
+### BREAKING CHANGES
+
+* 의존성 패키지 전부 교체
+
+
+
+
+
 ## [1.1.3](https://github.com/ChoSeoHwan/library/compare/@choseohwan/utils@1.1.3-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0...@choseohwan/utils@1.1.3) (2022-06-18)
 
 **Note:** Version bump only for package @choseohwan/utils

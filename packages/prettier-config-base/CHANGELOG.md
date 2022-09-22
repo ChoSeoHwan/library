@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/prettier-config-base@1.0.6...@choseohwan/prettier-config-base@1.1.0) (2022-09-22)
+
+
+### Features
+
+* yarn berry 로 migrate ([0aa48da](https://github.com/ChoSeoHwan/library/commit/0aa48da43affaffc7e4be0bec669bd1882c23dea))
+* 전체적으로 peer dependency 수정 ([451e62e](https://github.com/ChoSeoHwan/library/commit/451e62e3f5acc760b912abd99ac5f1369cd39e0e))
+
+
+
+
+
 ## [1.0.7](https://github.com/ChoSeoHwan/library/compare/@choseohwan/prettier-config-base@1.0.6...@choseohwan/prettier-config-base@1.0.7) (2021-08-13)
 
 **Note:** Version bump only for package @choseohwan/prettier-config-base

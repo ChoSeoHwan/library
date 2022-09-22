@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.1.0...@choseohwan/eslint-config-base@2.0.0) (2022-09-22)
+
+
+### Features
+
+* **eslint-config-base:** 기존 패키지 peer dependency 에 추가 ([f6867d0](https://github.com/ChoSeoHwan/library/commit/f6867d0e7738b4f9dec23dc2462e618f0b39ae43))
+* yarn berry 로 migrate ([0aa48da](https://github.com/ChoSeoHwan/library/commit/0aa48da43affaffc7e4be0bec669bd1882c23dea))
+* 모든 패키지 최신으로 upgrade ([af1f3a8](https://github.com/ChoSeoHwan/library/commit/af1f3a8e78d0aacf03e31bb67c8642b613c1ca13))
+* 전체적으로 peer dependency 수정 ([623a17d](https://github.com/ChoSeoHwan/library/commit/623a17da457ab921480cb7a4e53ae94c00870943))
+* 전체적으로 peer dependency 수정 ([3d3fe6e](https://github.com/ChoSeoHwan/library/commit/3d3fe6ea599201bb4e94bd317c443482d84f06e2))
+
+
+### BREAKING CHANGES
+
+* 의존성 패키지 전부 교체
+
+
+
+
+
 # [1.1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/eslint-config-base@1.1.0-next.19b49d8d8aaf3967365fcf1b3562179a824b8876.0...@choseohwan/eslint-config-base@1.1.0) (2022-06-18)
 
 **Note:** Version bump only for package @choseohwan/eslint-config-base
