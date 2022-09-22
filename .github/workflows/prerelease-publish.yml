@@ -21,7 +21,7 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Set npm autority
         run: |
@@ -39,11 +39,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cache node modules
-        uses: c-hive/gha-yarn-cache@v2
-
       - name: install dependencies
-        run: yarn install
+        run: yarn install --silent --immutable --immutable-cache
 
       - name: build all packages
         run: lerna run build
