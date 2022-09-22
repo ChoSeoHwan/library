@@ -53,8 +53,8 @@ jobs:
         id: pr
         with:
           script: |
-            __original_require__('./.pnp.cjs');
-            const getPrData = __original_require__('./.github/scripts/getPrData');
+            require('./.pnp.cjs');
+            const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
       - name: make data file
@@ -122,8 +122,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            __original_require__('./.pnp.cjs');
-            const removeCanaryTag = __original_require__('./.github/scripts/canary-remove/removeCanaryTag');
+            require('./.pnp.cjs');
+            const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
             return await removeCanaryTag({ core });
         env:
           LIST: ${{ steps.packages.outputs.list }}
@@ -175,8 +175,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            __original_require__('./.pnp.cjs');
-            const makeComment = __original_require__('./.github/scripts/canary-remove/makeComment');
+            require('./.pnp.cjs');
+            const makeComment = require('./.github/scripts/canary-remove/makeComment');
             return await makeComment();
         env:
           STATUS: ${{ env.WORKFLOW_CONCLUSION }}
