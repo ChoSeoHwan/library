@@ -53,8 +53,8 @@ jobs:
         id: pr
         with:
           script: |
-            __original_require__('./.pnp.cjs');
-            const getPrData = __original_require__('./.github/scripts/getPrData');
+            require('./.pnp.cjs');
+            const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
       - name: make data file
@@ -126,8 +126,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            __original_require__('./.pnp.cjs');
-            const parsingPublishedPackages = __original_require__('./.github/scripts/canary-publish/parsingPublishedPackages');
+            require('./.pnp.cjs');
+            const parsingPublishedPackages = require('./.github/scripts/canary-publish/parsingPublishedPackages');
             return await parsingPublishedPackages({ core });
         env:
           PUBLISHED: ${{ steps.published.outputs.result }}
@@ -176,8 +176,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            __original_require__('./.pnp.cjs');
-            const makeComment = __original_require__('./.github/scripts/canary-publish/makeComment');
+            require('./.pnp.cjs');
+            const makeComment = require('./.github/scripts/canary-publish/makeComment');
             return await makeComment();
         env:
           STATUS: ${{ env.WORKFLOW_CONCLUSION }}
