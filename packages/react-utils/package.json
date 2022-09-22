@@ -49,17 +49,6 @@
     "type": "git",
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
-  "scripts": {
-    "eslint": "eslint \"./src/**/*.ts?(x)\"",
-    "eslint:fix": "yarn eslint --fix",
-    "lint-staged": "lint-staged",
-    "test": "jest --config=jest/jest.config.ts",
-    "test:silent": "yarn test --silent",
-    "test:watch": "yarn test --watchAll",
-    "prepublish": "yarn eslint && yarn test:silent && yarn build",
-    "build": "rollup -c rollup.config.js --environment NODE_ENV:production",
-    "precommit": "yarn lint-staged"
-  },
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
@@ -118,5 +107,16 @@
       "yarn eslint:fix"
     ]
   },
-  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
+  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c",
+  "scripts": {
+    "eslint": "eslint \"./src/**/*.ts?(x)\"",
+    "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest --config=jest/jest.config.ts",
+    "test:silent": "yarn test --silent",
+    "test:watch": "yarn test --watchAll",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js --environment NODE_ENV:production",
+    "precommit": "yarn lint-staged"
+  }
 }
