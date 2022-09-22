@@ -3,9 +3,7 @@
  * @param {Record<string, any>} core
  * @return {Promise<*>}
  */
-module.exports = async ({core}) => {
-    const exec = require('@actions/exec');
-
+module.exports = async ({ core, exec }) => {
     const { NUMBER, REF } = process.env;
 
     let { LIST } = process.env;
