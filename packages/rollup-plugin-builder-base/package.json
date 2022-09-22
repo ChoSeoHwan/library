@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "2.0.1",
+  "version": "2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",
@@ -26,24 +26,13 @@
     "type": "git",
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
-  "scripts": {
-    "eslint": "eslint \"./src/**/*.ts\"",
-    "eslint:fix": "yarn eslint --fix",
-    "lint-staged": "lint-staged",
-    "test": "jest",
-    "test:silent": "yarn test --silent",
-    "test:watch": "yarn test --watchAll",
-    "prepublish": "yarn eslint && yarn test:silent && yarn build",
-    "build": "rollup -c rollup.config.js",
-    "precommit": "yarn lint-staged"
-  },
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "dependencies": {
     "@babel/core": "^7.19.1",
     "@babel/runtime": "^7.19.0",
-    "@choseohwan/rollup-builder": "^2.0.1",
+    "@choseohwan/rollup-builder": "^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
@@ -79,7 +68,7 @@
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
+    "rollup": "^2.79.1",
     "ts-jest": "^29.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
@@ -106,5 +95,16 @@
       "yarn eslint:fix"
     ]
   },
-  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
+  "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c",
+  "scripts": {
+    "eslint": "eslint \"./src/**/*.ts\"",
+    "eslint:fix": "yarn eslint --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "test:silent": "yarn test --silent",
+    "test:watch": "yarn test --watchAll",
+    "prepublish": "yarn eslint && yarn test:silent && yarn build",
+    "build": "rollup -c rollup.config.js",
+    "precommit": "yarn lint-staged"
+  }
 }

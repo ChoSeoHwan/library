@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/express-utils",
-  "version": "1.0.0",
+  "version": "1.0.1-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
   "description": "express utils for SeoHwan Cho's project",
   "keywords": [
     "express",
@@ -35,10 +35,10 @@
     "@choseohwan/babel-preset-base": "^2.0.1",
     "@choseohwan/eslint-config-base": "^2.0.1",
     "@choseohwan/jest-preset-base": "^2.0.1",
-    "@choseohwan/rollup-builder": "^2.0.1",
-    "@choseohwan/rollup-plugin-builder-base": "^2.0.1",
+    "@choseohwan/rollup-builder": "^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
+    "@choseohwan/rollup-plugin-builder-base": "^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
     "@choseohwan/tsconfig-base": "^2.0.0",
-    "@choseohwan/utils": "^2.0.1",
+    "@choseohwan/utils": "^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
     "@types/express": "^4.17.14",
     "express": "^4.18.1"
   },
@@ -65,7 +65,7 @@
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
+    "rollup": "^2.79.1",
     "supertest": "^6.2.4",
     "ts-jest": "^29.0.1",
     "tslib": "^2.4.0",
@@ -73,7 +73,15 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
-    "express": "^4"
+    "express": ">=4"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
   },
   "scripts": {
     "eslint": "eslint \"./src/**/*.ts\"",
@@ -85,13 +93,5 @@
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
     "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
-  },
-  "bugs": {
-    "url": "https://github.com/ChoSeoHwan/library/issues"
-  },
-  "lint-staged": {
-    "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix"
-    ]
   }
 }

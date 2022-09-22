@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "2.0.1",
+  "version": "2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
@@ -56,7 +56,7 @@
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
+    "rollup": "^2.79.1",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-pnp-resolve": "^2.0.0",
@@ -68,6 +68,15 @@
     "ttypescript": "^1.5.13",
     "typescript-transform-paths": "^3.3.1"
   },
+  "peerDependencies": {
+    "rollup": ">=2",
+    "typescript": ">=4"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
+  },
   "scripts": {
     "eslint": "eslint \"./src/**/*.ts\"",
     "eslint:fix": "yarn eslint --fix",
@@ -78,14 +87,5 @@
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
     "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
-  },
-  "peerDependencies": {
-    "rollup": "^2",
-    "typescript": "^4"
-  },
-  "lint-staged": {
-    "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix"
-    ]
   }
 }
