@@ -65,7 +65,7 @@
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
+    "rollup": "^2.79.1",
     "supertest": "^6.2.4",
     "ts-jest": "^29.0.1",
     "tslib": "^2.4.0",
@@ -73,7 +73,15 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
-    "express": "^4"
+    "express": ">=4"
+  },
+  "bugs": {
+    "url": "https://github.com/ChoSeoHwan/library/issues"
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": [
+      "yarn eslint:fix"
+    ]
   },
   "scripts": {
     "eslint": "eslint \"./src/**/*.ts\"",
@@ -85,13 +93,5 @@
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
     "build": "rollup -c rollup.config.js",
     "precommit": "yarn lint-staged"
-  },
-  "bugs": {
-    "url": "https://github.com/ChoSeoHwan/library/issues"
-  },
-  "lint-staged": {
-    "*.(js|jsx|ts|tsx)": [
-      "yarn eslint:fix"
-    ]
   }
 }
