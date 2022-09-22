@@ -54,12 +54,12 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "dependencies": {
-    "@choseohwan/babel-preset-base": "^2.0.0",
-    "@choseohwan/eslint-config-base": "^2.0.0",
-    "@choseohwan/jest-preset-base": "^2.0.0",
-    "@choseohwan/rollup-builder": "^2.0.0",
-    "@choseohwan/rollup-plugin-builder-base": "^2.0.0",
-    "@choseohwan/tsconfig-base": "^1.1.0"
+    "@choseohwan/babel-preset-base": "^2.0.1-temp.0",
+    "@choseohwan/eslint-config-base": "^2.0.1-temp.0",
+    "@choseohwan/jest-preset-base": "^2.0.1-temp.0",
+    "@choseohwan/rollup-builder": "^2.0.1-temp.0",
+    "@choseohwan/rollup-plugin-builder-base": "^2.0.1-temp.0",
+    "@choseohwan/tsconfig-base": "^2.0.0-temp.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
