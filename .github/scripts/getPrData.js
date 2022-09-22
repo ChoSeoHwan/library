@@ -14,7 +14,7 @@ module.exports = async ({github, context, core}) => {
 
     core.info(`Getting PR #${request.pull_number} from ${request.owner}/${request.repo}`)
     try {
-        const result = await github.pulls.get(request)
+        const result = await github.rest.pulls.get(request)
         core.info(`Got PR: ${JSON.stringify(result.data)}`)
         return result.data
     } catch (err) {
