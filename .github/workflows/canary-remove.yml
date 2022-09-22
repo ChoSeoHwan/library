@@ -106,7 +106,7 @@ jobs:
       - name: install dependencies
         run: |
           yarn install --silent --immutable --immutable-cache
-          yarn add @actions/exec -W
+          yarn add @actions/exec
 
       - name: get lerna packages list
         id: packages
