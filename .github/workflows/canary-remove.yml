@@ -49,7 +49,7 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: get pr information
-        uses: actions/github-script@v6
+        uses: actions/github-script@v4
         id: pr
         with:
           script: |
@@ -117,7 +117,7 @@ jobs:
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
       - name: remove canary tag
-        uses: actions/github-script@v6
+        uses: actions/github-script@v4
         id: removed-packages
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -171,7 +171,7 @@ jobs:
       - name: make comment
         if: always()
         id: comment
-        uses: actions/github-script@v6
+        uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
