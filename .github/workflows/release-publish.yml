@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: install dependencies
-        run: yarn install --silent --immutable --immutable-cache
+        run: yarn install --silent
 
       - name: build all packages
         run: lerna run build

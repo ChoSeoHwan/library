@@ -104,7 +104,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: install dependencies
-        run: yarn install --silent --immutable --immutable-cache
+        run: yarn install --silent
 
       - name: build all packages
         run: lerna run build
