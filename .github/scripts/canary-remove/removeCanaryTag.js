@@ -4,7 +4,7 @@
  * @return {Promise<*>}
  */
 module.exports = async ({core}) => {
-    const exec = require('@actions/exec');
+    const exec = __original_require__('@actions/exec');
 
     const { NUMBER, REF } = process.env;
 
