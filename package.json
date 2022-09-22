@@ -31,10 +31,8 @@
     "upgrade:canary": "lerna version --conventional-prerelease -m \"chore: canary version publish\" ",
     "publish:release": "lerna publish -m \"chore: release version publish\" --conventional-graduate",
     "publish:next": "lerna publish -m \"chore: prerelease version publish\" --conventional-prerelease --preid next.$(git rev-parse HEAD) --dist-tag next",
-    "publish:canary": "lerna publish --conventional-prerelease --no-push --no-git-tag-version"
-  },
-  "dependencies": {
-    "@choseohwan/prettier-config-base": "^1.0.7"
+    "publish:canary": "lerna publish --conventional-prerelease --no-push --no-git-tag-version",
+    "version": "yarn install && git stage yarn.lock"
   },
   "packageManager": "yarn@3.2.3"
 }

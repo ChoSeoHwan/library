@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/eslint-config-react",
-  "version": "2.0.0",
+  "version": "2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
   "description": "eslint config for react",
   "keywords": [
     "eslint",
@@ -41,7 +41,7 @@
     "typescript": ">=4"
   },
   "dependencies": {
-    "@choseohwan/eslint-config-base": "^2.0.0"
+    "@choseohwan/eslint-config-base": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0"
   },
   "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
 }
