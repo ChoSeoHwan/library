@@ -110,7 +110,7 @@ jobs:
           script: |
             require('./.pnp.cjs');
             const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
-            return await removeCanaryTag({ core });
+            return await removeCanaryTag({ core, exec });
         env:
           LIST: ${{ steps.packages.outputs.list }}
           NUMBER: ${{ fromJSON(steps.data.outputs.pr).number }}
