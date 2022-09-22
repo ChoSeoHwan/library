@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     preset: "@choseohwan/jest-preset-base",
     rootDir: '../',
     testEnvironment: 'jsdom',
