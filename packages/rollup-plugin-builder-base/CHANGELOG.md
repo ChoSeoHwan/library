@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@2.0.3-next.2cc00499f4ab4b14c2e445fa495676e3c16958e9.0...@choseohwan/rollup-plugin-builder-base@2.0.3) (2022-09-22)
+
+**Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
+
+
+
+
+
 ## [2.0.3-next.2cc00499f4ab4b14c2e445fa495676e3c16958e9.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/rollup-plugin-builder-base@2.0.2...@choseohwan/rollup-plugin-builder-base@2.0.3-next.2cc00499f4ab4b14c2e445fa495676e3c16958e9.0) (2022-09-22)
 
 **Note:** Version bump only for package @choseohwan/rollup-plugin-builder-base
