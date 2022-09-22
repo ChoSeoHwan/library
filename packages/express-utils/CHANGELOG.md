@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/express-utils@0.2.0...@choseohwan/express-utils@1.0.0-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0) (2022-09-22)
+
+**Note:** Version bump only for package @choseohwan/express-utils
+
+
+
+
+
 # [0.2.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/express-utils@0.1.3...@choseohwan/express-utils@0.2.0) (2022-09-22)
 
 
