@@ -1679,10 +1679,10 @@ __metadata:
     "@choseohwan/babel-preset-base": ^2.0.1
     "@choseohwan/eslint-config-base": ^2.0.1
     "@choseohwan/jest-preset-base": ^2.0.1
-    "@choseohwan/rollup-builder": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
-    "@choseohwan/rollup-plugin-builder-base": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
+    "@choseohwan/rollup-builder": ^2.0.2
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.2
     "@choseohwan/tsconfig-base": ^2.0.0
-    "@choseohwan/utils": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
+    "@choseohwan/utils": ^2.0.2
     "@tsconfig/recommended": ^1.0.1
     "@types/express": ^4.17.14
     "@types/jest": ^29.0.3
@@ -1746,8 +1746,8 @@ __metadata:
     "@choseohwan/babel-preset-react": ^2.0.1
     "@choseohwan/eslint-config-react": ^2.0.1
     "@choseohwan/jest-preset-base": ^2.0.1
-    "@choseohwan/rollup-builder": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
-    "@choseohwan/rollup-plugin-builder-base": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
+    "@choseohwan/rollup-builder": ^2.0.2
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.2
     "@choseohwan/tsconfig-base": ^2.0.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -1786,7 +1786,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/rollup-builder@^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0, @choseohwan/rollup-builder@workspace:packages/rollup-builder":
+"@choseohwan/rollup-builder@^2.0.2, @choseohwan/rollup-builder@workspace:packages/rollup-builder":
   version: 0.0.0-use.local
   resolution: "@choseohwan/rollup-builder@workspace:packages/rollup-builder"
   dependencies:
@@ -1835,7 +1835,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/rollup-plugin-builder-base@^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0, @choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base":
+"@choseohwan/rollup-plugin-builder-base@^2.0.2, @choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base"
   dependencies:
@@ -1847,7 +1847,7 @@ __metadata:
     "@choseohwan/babel-preset-base": ^2.0.1
     "@choseohwan/eslint-config-base": ^2.0.1
     "@choseohwan/jest-preset-base": ^2.0.1
-    "@choseohwan/rollup-builder": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
+    "@choseohwan/rollup-builder": ^2.0.2
     "@choseohwan/tsconfig-base": ^2.0.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.2
@@ -1907,7 +1907,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/utils@^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0, @choseohwan/utils@workspace:packages/utils":
+"@choseohwan/utils@^2.0.2, @choseohwan/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@choseohwan/utils@workspace:packages/utils"
   dependencies:
@@ -1918,8 +1918,8 @@ __metadata:
     "@choseohwan/babel-preset-base": ^2.0.1
     "@choseohwan/eslint-config-base": ^2.0.1
     "@choseohwan/jest-preset-base": ^2.0.1
-    "@choseohwan/rollup-builder": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
-    "@choseohwan/rollup-plugin-builder-base": ^2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0
+    "@choseohwan/rollup-builder": ^2.0.2
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.2
     "@choseohwan/tsconfig-base": ^2.0.0
     "@tsconfig/recommended": ^1.0.1
     "@types/jest": ^29.0.3

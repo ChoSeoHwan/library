@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-builder",
-  "version": "2.0.2-next.c3261f7740aedc8c02aa5f2a760371c8c134ccc7.0",
+  "version": "2.0.2",
   "description": "Easier configuration of rollup settings",
   "keywords": [
     "rollup"
