@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/babel-preset-base",
-  "version": "2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
+  "version": "2.0.1",
   "description": "base babel preset library",
   "keywords": [
     "babel",

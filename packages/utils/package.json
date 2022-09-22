@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/utils",
-  "version": "2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
+  "version": "2.0.1",
   "description": "typescript utility functions",
   "keywords": [
     "utils",
@@ -54,12 +54,12 @@
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
   "dependencies": {
-    "@choseohwan/babel-preset-base": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
-    "@choseohwan/eslint-config-base": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
-    "@choseohwan/jest-preset-base": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
-    "@choseohwan/rollup-builder": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
-    "@choseohwan/rollup-plugin-builder-base": "^2.0.1-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0",
-    "@choseohwan/tsconfig-base": "^2.0.0-next.ddd377a5375440e1c6c72fc7e7ec779fa8aaaedc.0"
+    "@choseohwan/babel-preset-base": "^2.0.1",
+    "@choseohwan/eslint-config-base": "^2.0.1",
+    "@choseohwan/jest-preset-base": "^2.0.1",
+    "@choseohwan/rollup-builder": "^2.0.1",
+    "@choseohwan/rollup-plugin-builder-base": "^2.0.1",
+    "@choseohwan/tsconfig-base": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
