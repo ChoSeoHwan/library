@@ -35,10 +35,11 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: get pr information
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -102,11 +103,12 @@ jobs:
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
       - name: remove canary tag
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: removed-packages
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
             return await removeCanaryTag({ core });
         env:
@@ -155,10 +157,11 @@ jobs:
       - name: make comment
         if: always()
         id: comment
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-remove-automatically/makeComment');
             return await makeComment();
         env:

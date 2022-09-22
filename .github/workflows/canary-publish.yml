@@ -49,10 +49,11 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: get pr information
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -122,9 +123,10 @@ jobs:
 
       - name: parsing published packages
         id: published-packages
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
+            require('./.pnp.cjs');
             const parsingPublishedPackages = require('./.github/scripts/canary-publish/parsingPublishedPackages');
             return await parsingPublishedPackages({ core });
         env:
@@ -171,9 +173,10 @@ jobs:
       - name: make comment
         if: always()
         id: comment
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-publish/makeComment');
             return await makeComment();
         env:
