@@ -39,6 +39,7 @@ jobs:
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -107,6 +108,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
             return await removeCanaryTag({ core });
         env:
@@ -159,6 +161,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-remove-automatically/makeComment');
             return await makeComment();
         env:

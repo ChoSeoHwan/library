@@ -53,6 +53,7 @@ jobs:
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -125,6 +126,7 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
+            require('./.pnp.cjs');
             const parsingPublishedPackages = require('./.github/scripts/canary-publish/parsingPublishedPackages');
             return await parsingPublishedPackages({ core });
         env:
@@ -174,6 +176,7 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-publish/makeComment');
             return await makeComment();
         env:
