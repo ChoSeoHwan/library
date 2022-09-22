@@ -21,18 +21,14 @@
     "type": "git",
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
-  "scripts": {},
   "bugs": {
     "url": "https://github.com/ChoSeoHwan/library/issues"
   },
-  "dependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-typescript": "^7.15.0"
-  },
   "peerDependencies": {
-    "@babel/core": "^7",
-    "typescript": "^4"
+    "@babel/core": ">=7",
+    "@babel/preset-env": ">=7",
+    "@babel/preset-typescript": ">=7",
+    "typescript": ">=4"
   },
   "gitHead": "1cb63c3e587affe95ed1f984abbfe1ae60490a8c"
 }

@@ -1,22 +1,25 @@
-import { ComponentType, FC } from 'react';
+import { ComponentProps, ComponentType, createElement, FC } from 'react';
 
-export type LoadableComponentProps<T> = {
+export type LoadableComponentProps<T extends ComponentType> = {
     loading?: boolean;
-} & T;
+} & ComponentProps<T>;
 
-const withLoading = <O, L>(
-    OriginalComponent: ComponentType<O>,
-    LoadingComponent: ComponentType<L>
+const withLoading = <O extends ComponentType, L extends ComponentType>(
+    OriginalComponent: O,
+    LoadingComponent: L
 ): FC<LoadableComponentProps<O | L>> => {
-    const LoadableComponent: FC<LoadableComponentProps<O | L>> = ({
+    const LoadableComponent: ComponentType<LoadableComponentProps<O | L>> = ({
         loading = false,
         ...props
-    }: LoadableComponentProps<O | L>) =>
-        loading ? (
-            <LoadingComponent {...(props as L)} />
-        ) : (
-            <OriginalComponent {...(props as O)} />
-        );
+    }: LoadableComponentProps<O | L>) => {
+        if (loading) {
+            const loadingProps = props as ComponentProps<L>;
+            return createElement(LoadingComponent, loadingProps);
+        } else {
+            const originalProps = props as ComponentProps<L>;
+            return createElement(OriginalComponent, originalProps);
+        }
+    };
 
     return LoadableComponent;
 };

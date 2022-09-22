@@ -13,10 +13,6 @@ const typescriptOptions = {
     tsconfig: 'tsconfig.json'
 };
 
-const commonJSOptions = {
-    extensions: ['.js', '.ts']
-};
-
 const babelOptions = {
     extensions: [...DEFAULT_EXTENSIONS, '.ts'],
     babelHelpers: 'runtime'
@@ -51,7 +47,7 @@ export default {
                 }
             }
         }),
-        commonjs(commonJSOptions),
+        commonjs(),
         babel(babelOptions),
         terser()
     ]

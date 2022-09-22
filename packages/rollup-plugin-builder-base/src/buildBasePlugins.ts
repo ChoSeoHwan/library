@@ -1,4 +1,3 @@
-import { DEFAULT_EXTENSIONS } from '@babel/core';
 import { Plugin, Plugins } from '@choseohwan/rollup-builder';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
@@ -64,7 +63,7 @@ const buildBasePlugins = (): Plugins => {
 
     const babelPlugin = new Plugin('@rollup/plugin-babel', babel, [
         {
-            extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
+            extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx'],
             babelHelpers: 'runtime',
             plugins: ['@babel/plugin-transform-runtime']
         }
