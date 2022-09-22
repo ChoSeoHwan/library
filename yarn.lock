@@ -1604,7 +1604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@choseohwan/babel-preset-base@^1.0.1, @choseohwan/babel-preset-base@workspace:packages/babel-preset-base":
+"@choseohwan/babel-preset-base@^2.0.0, @choseohwan/babel-preset-base@workspace:packages/babel-preset-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/babel-preset-base@workspace:packages/babel-preset-base"
   peerDependencies:
@@ -1615,7 +1615,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/babel-preset-react@^1.0.1, @choseohwan/babel-preset-react@workspace:packages/babel-preset-react":
+"@choseohwan/babel-preset-react@^2.0.0, @choseohwan/babel-preset-react@workspace:packages/babel-preset-react":
   version: 0.0.0-use.local
   resolution: "@choseohwan/babel-preset-react@workspace:packages/babel-preset-react"
   peerDependencies:
@@ -1628,7 +1628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/eslint-config-base@^1.0.14, @choseohwan/eslint-config-base@^1.1.0, @choseohwan/eslint-config-base@workspace:packages/eslint-config-base":
+"@choseohwan/eslint-config-base@^2.0.0, @choseohwan/eslint-config-base@workspace:packages/eslint-config-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/eslint-config-base@workspace:packages/eslint-config-base"
   peerDependencies:
@@ -1645,11 +1645,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/eslint-config-react@^1.0.3, @choseohwan/eslint-config-react@workspace:packages/eslint-config-react":
+"@choseohwan/eslint-config-react@^2.0.0, @choseohwan/eslint-config-react@workspace:packages/eslint-config-react":
   version: 0.0.0-use.local
   resolution: "@choseohwan/eslint-config-react@workspace:packages/eslint-config-react"
   dependencies:
-    "@choseohwan/eslint-config-base": ^1.0.14
+    "@choseohwan/eslint-config-base": ^2.0.0
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": ">=5"
@@ -1676,13 +1676,13 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.19.1
     "@babel/preset-env": ^7.19.1
     "@babel/preset-typescript": ^7.18.6
-    "@choseohwan/babel-preset-base": ^1.0.1
-    "@choseohwan/eslint-config-base": ^1.1.0
-    "@choseohwan/jest-preset-base": ^1.0.2
-    "@choseohwan/rollup-builder": ^1.1.8
-    "@choseohwan/rollup-plugin-builder-base": ^1.1.2
-    "@choseohwan/tsconfig-base": ^1.0.12
-    "@choseohwan/utils": ^1.1.3
+    "@choseohwan/babel-preset-base": ^2.0.0
+    "@choseohwan/eslint-config-base": ^2.0.0
+    "@choseohwan/jest-preset-base": ^2.0.0
+    "@choseohwan/rollup-builder": ^2.0.0
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.0
+    "@choseohwan/tsconfig-base": ^1.1.0
+    "@choseohwan/utils": ^2.0.0
     "@tsconfig/recommended": ^1.0.1
     "@types/express": ^4.17.14
     "@types/jest": ^29.0.3
@@ -1713,7 +1713,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/jest-preset-base@^1.0.2, @choseohwan/jest-preset-base@workspace:packages/jest-preset-base":
+"@choseohwan/jest-preset-base@^2.0.0, @choseohwan/jest-preset-base@workspace:packages/jest-preset-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/jest-preset-base@workspace:packages/jest-preset-base"
   peerDependencies:
@@ -1743,12 +1743,12 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@choseohwan/babel-preset-react": ^1.0.1
-    "@choseohwan/eslint-config-react": ^1.0.3
-    "@choseohwan/jest-preset-base": ^1.0.2
-    "@choseohwan/rollup-builder": ^1.1.8
-    "@choseohwan/rollup-plugin-builder-base": ^1.1.2
-    "@choseohwan/tsconfig-base": ^1.0.12
+    "@choseohwan/babel-preset-react": ^2.0.0
+    "@choseohwan/eslint-config-react": ^2.0.0
+    "@choseohwan/jest-preset-base": ^2.0.0
+    "@choseohwan/rollup-builder": ^2.0.0
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.0
+    "@choseohwan/tsconfig-base": ^1.1.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@tsconfig/recommended": ^1.0.1
@@ -1786,7 +1786,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/rollup-builder@^1.1.8, @choseohwan/rollup-builder@workspace:packages/rollup-builder":
+"@choseohwan/rollup-builder@^2.0.0, @choseohwan/rollup-builder@workspace:packages/rollup-builder":
   version: 0.0.0-use.local
   resolution: "@choseohwan/rollup-builder@workspace:packages/rollup-builder"
   dependencies:
@@ -1795,10 +1795,10 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-typescript": ^7.18.6
     "@babel/runtime": ^7.19.0
-    "@choseohwan/babel-preset-base": ^1.0.1
-    "@choseohwan/eslint-config-base": ^1.1.0
-    "@choseohwan/jest-preset-base": ^1.0.2
-    "@choseohwan/tsconfig-base": ^1.0.12
+    "@choseohwan/babel-preset-base": ^2.0.0
+    "@choseohwan/eslint-config-base": ^2.0.0
+    "@choseohwan/jest-preset-base": ^2.0.0
+    "@choseohwan/tsconfig-base": ^1.1.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-node-resolve": ^14.1.0
@@ -1835,7 +1835,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/rollup-plugin-builder-base@^1.1.2, @choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base":
+"@choseohwan/rollup-plugin-builder-base@^2.0.0, @choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/rollup-plugin-builder-base@workspace:packages/rollup-plugin-builder-base"
   dependencies:
@@ -1844,11 +1844,11 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-typescript": ^7.18.6
     "@babel/runtime": ^7.19.0
-    "@choseohwan/babel-preset-base": ^1.0.1
-    "@choseohwan/eslint-config-base": ^1.1.0
-    "@choseohwan/jest-preset-base": ^1.0.2
-    "@choseohwan/rollup-builder": ^1.1.8
-    "@choseohwan/tsconfig-base": ^1.0.12
+    "@choseohwan/babel-preset-base": ^2.0.0
+    "@choseohwan/eslint-config-base": ^2.0.0
+    "@choseohwan/jest-preset-base": ^2.0.0
+    "@choseohwan/rollup-builder": ^2.0.0
+    "@choseohwan/tsconfig-base": ^1.1.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-json": ^4.1.0
@@ -1898,7 +1898,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/tsconfig-base@^1.0.12, @choseohwan/tsconfig-base@workspace:packages/tsconfig-base":
+"@choseohwan/tsconfig-base@^1.1.0, @choseohwan/tsconfig-base@workspace:packages/tsconfig-base":
   version: 0.0.0-use.local
   resolution: "@choseohwan/tsconfig-base@workspace:packages/tsconfig-base"
   peerDependencies:
@@ -1907,7 +1907,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@choseohwan/utils@^1.1.3, @choseohwan/utils@workspace:packages/utils":
+"@choseohwan/utils@^2.0.0, @choseohwan/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@choseohwan/utils@workspace:packages/utils"
   dependencies:
@@ -1915,12 +1915,12 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.19.1
     "@babel/preset-env": ^7.19.1
     "@babel/preset-typescript": ^7.18.6
-    "@choseohwan/babel-preset-base": ^1.0.1
-    "@choseohwan/eslint-config-base": ^1.1.0
-    "@choseohwan/jest-preset-base": ^1.0.2
-    "@choseohwan/rollup-builder": ^1.1.8
-    "@choseohwan/rollup-plugin-builder-base": ^1.1.2
-    "@choseohwan/tsconfig-base": ^1.0.12
+    "@choseohwan/babel-preset-base": ^2.0.0
+    "@choseohwan/eslint-config-base": ^2.0.0
+    "@choseohwan/jest-preset-base": ^2.0.0
+    "@choseohwan/rollup-builder": ^2.0.0
+    "@choseohwan/rollup-plugin-builder-base": ^2.0.0
+    "@choseohwan/tsconfig-base": ^1.1.0
     "@tsconfig/recommended": ^1.0.1
     "@types/jest": ^29.0.3
     "@types/node": ^18.7.18
