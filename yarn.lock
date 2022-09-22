@@ -1886,7 +1886,7 @@ __metadata:
     "@babel/runtime": ">=7"
     "@choseohwan/rollup-builder": ">=1"
     "@rollup/plugin-babel": ">=5"
-    "@rollup/plugin-commonjs": ">=20 <=21"
+    "@rollup/plugin-commonjs": ">=22"
     "@rollup/plugin-json": ">=4"
     "@rollup/plugin-node-resolve": ">=13"
     rollup-plugin-cleaner: ">=1"
