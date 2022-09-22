@@ -34,8 +34,5 @@
     "publish:canary": "lerna publish --conventional-prerelease --no-push --no-git-tag-version",
     "version": "yarn install && git stage yarn.lock"
   },
-  "dependencies": {
-    "@choseohwan/prettier-config-base": "^2.0.0-temp.0"
-  },
   "packageManager": "yarn@3.2.3"
 }

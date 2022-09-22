@@ -78,7 +78,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@choseohwan/eslint-config-react", ["virtual:17d7c987b2d9b7c7c2b0d2adeca07ce9b00b6095ea6f307e1d7dceaf7038b1de5f5929a5727bc4152869dfe4e90ff901c7f854bcf019eafb14f383759a6cf8f8#workspace:packages/eslint-config-react", "workspace:packages/eslint-config-react"]],\
       ["@choseohwan/express-utils", ["workspace:packages/express-utils"]],\
       ["@choseohwan/jest-preset-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/jest-preset-base", "virtual:d438b64bd6c02d24e496a5f4287141abb83b6753ddd257110e5404205be7aa672e0d72537ebbc3a28f3c1370d46d350250039d564cbdded58277ae7cd9cb953a#workspace:packages/jest-preset-base", "virtual:f4280e7710bc7202383052f40e4ea10bf4794835f8e2ed1b745769d085523025d4285904eb73074300de65ec97b1a3049348ba76105b52dc16b78816872ea7b9#workspace:packages/jest-preset-base", "virtual:fd7fcc58dcfa0edd661ea7c664c5daf935e1f2f73ded46cb841f5d2096086d43a7e0ed9c13297984f6b974d5fe75e74020191400fd28363101ccf4cea1ae1745#workspace:packages/jest-preset-base", "workspace:packages/jest-preset-base"]],\
-      ["@choseohwan/prettier-config-base", ["virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base", "workspace:packages/prettier-config-base"]],\
+      ["@choseohwan/prettier-config-base", ["workspace:packages/prettier-config-base"]],\
       ["@choseohwan/react-utils", ["workspace:packages/react-utils"]],\
       ["@choseohwan/rollup-builder", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-builder", "workspace:packages/rollup-builder"]],\
       ["@choseohwan/rollup-plugin-builder-base", ["virtual:0d3b63aade7ed78f86db651b813532837e78d988a98a4b88b1973004921460b498f68afe85968eac6743111e30b6908364119ed18ee0924ea16d52e6c27865c3#workspace:packages/rollup-plugin-builder-base", "workspace:packages/rollup-plugin-builder-base"]],\
@@ -93,7 +93,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@choseohwan/prettier-config-base", "virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base"],\
             ["@commitlint/cli", "npm:17.1.2"],\
             ["@commitlint/config-conventional", "npm:17.1.0"],\
             ["@commitlint/config-lerna-scopes", "virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#npm:17.0.2"],\
@@ -4700,19 +4699,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@choseohwan/prettier-config-base", [\
-        ["virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base", {\
-          "packageLocation": "./.yarn/__virtual__/@choseohwan-prettier-config-base-virtual-891e6e90fd/1/packages/prettier-config-base/",\
-          "packageDependencies": [\
-            ["@choseohwan/prettier-config-base", "virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base"],\
-            ["@types/prettier", "npm:2.7.0"],\
-            ["prettier", "npm:2.7.1"]\
-          ],\
-          "packagePeers": [\
-            "@types/prettier",\
-            "prettier"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
         ["workspace:packages/prettier-config-base", {\
           "packageLocation": "./packages/prettier-config-base/",\
           "packageDependencies": [\
@@ -14172,7 +14158,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["library", "workspace:."],\
-            ["@choseohwan/prettier-config-base", "virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#workspace:packages/prettier-config-base"],\
             ["@commitlint/cli", "npm:17.1.2"],\
             ["@commitlint/config-conventional", "npm:17.1.0"],\
             ["@commitlint/config-lerna-scopes", "virtual:67a34d3ecbd672fb417554ee95716d4265b8481b8750267ba1285baf8e74929f3f3039421a37d102723ee7bf501190ba3ffcd27e53a9734a2ace2241ae6a6341#npm:17.0.2"],\
