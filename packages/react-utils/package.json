@@ -53,7 +53,7 @@
     "eslint": "eslint \"./src/**/*.ts?(x)\"",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
-    "test": "jest --config=.jest/jest.config.ts",
+    "test": "jest --config=jest/jest.config.ts",
     "test:silent": "yarn test --silent",
     "test:watch": "yarn test --watchAll",
     "prepublish": "yarn eslint && yarn test:silent && yarn build",
