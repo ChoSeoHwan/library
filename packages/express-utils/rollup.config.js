@@ -20,9 +20,6 @@ export default buildRollupOptions(
         outputBuilder.buildCJS({
             exports: 'named',
             dir: 'dist/cjs'
-        }),
-        outputBuilder.buildUMD('utils', {
-            dir: 'dist/umd'
         })
     ],
     plugins

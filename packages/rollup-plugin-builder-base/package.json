@@ -27,7 +27,7 @@
     "url": "git+https://github.com/ChoSeoHwan/library.git"
   },
   "scripts": {
-    "eslint": "eslint './src/**/*.ts'",
+    "eslint": "eslint \"./src/**/*.ts\"",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
     "test": "jest",
