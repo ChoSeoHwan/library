@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ChoSeoHwan/library/compare/@choseohwan/tsconfig-base@1.0.12...@choseohwan/tsconfig-base@1.1.0) (2022-09-22)
+
+
+### Features
+
+* 전체적으로 peer dependency 수정 ([623a17d](https://github.com/ChoSeoHwan/library/commit/623a17da457ab921480cb7a4e53ae94c00870943))
+* 전체적으로 peer dependency 수정 ([451e62e](https://github.com/ChoSeoHwan/library/commit/451e62e3f5acc760b912abd99ac5f1369cd39e0e))
+
+
+
+
+
 ## [1.0.12](https://github.com/ChoSeoHwan/library/compare/@choseohwan/tsconfig-base@1.0.12-next.9cb3628ed63b35733e08a831d4a44bbc3aa880f3.0...@choseohwan/tsconfig-base@1.0.12) (2021-08-23)
 
 **Note:** Version bump only for package @choseohwan/tsconfig-base
