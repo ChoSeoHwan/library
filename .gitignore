@@ -24,7 +24,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
-packages/*/.jest/report.html
+packages/*/.jest/
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -103,3 +103,11 @@ typings/
 .idea
 
 packages/*/dist/
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

@@ -1,5 +1,8 @@
 name: canary publish
 
+env:
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
 on:
   issue_comment:
     types: [ created ]
@@ -46,10 +49,11 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: get pr information
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -93,21 +97,18 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: set npm autority
         run: |
-          yarn logout
+          yarn npm logout
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Cache node modules
-        uses: c-hive/gha-yarn-cache@v2
-
       - name: install dependencies
-        run: yarn install
+        run: yarn install --silent
 
       - name: build all packages
         run: lerna run build
@@ -122,9 +123,10 @@ jobs:
 
       - name: parsing published packages
         id: published-packages
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
+            require('./.pnp.cjs');
             const parsingPublishedPackages = require('./.github/scripts/canary-publish/parsingPublishedPackages');
             return await parsingPublishedPackages({ core });
         env:
@@ -171,9 +173,10 @@ jobs:
       - name: make comment
         if: always()
         id: comment
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-publish/makeComment');
             return await makeComment();
         env:

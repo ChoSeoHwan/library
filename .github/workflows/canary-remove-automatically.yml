@@ -1,5 +1,8 @@
 name: canary remove automactically
 
+env:
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
 on:
   pull_request:
     types: [closed]
@@ -32,10 +35,11 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: get pr information
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: pr
         with:
           script: |
+            require('./.pnp.cjs');
             const getPrData = require('./.github/scripts/getPrData');
             return await getPrData({ github, context, core });
 
@@ -79,34 +83,32 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: set npm autority
         run: |
-          yarn logout
+          yarn npm logout
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Cache node modules
-        uses: c-hive/gha-yarn-cache@v2
-
       - name: install dependencies
         run: |
-          yarn install
-          yarn add @actions/exec -W
+          yarn install --silent
+          yarn add @actions/exec
 
       - name: get lerna packages list
         id: packages
         run: echo "::set-output name=list::$(lerna list --json | awk '{print}' ORS='')"
 
       - name: remove canary tag
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: removed-packages
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const removeCanaryTag = require('./.github/scripts/canary-remove/removeCanaryTag');
             return await removeCanaryTag({ core });
         env:
@@ -155,10 +157,11 @@ jobs:
       - name: make comment
         if: always()
         id: comment
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            require('./.pnp.cjs');
             const makeComment = require('./.github/scripts/canary-remove-automatically/makeComment');
             return await makeComment();
         env:

@@ -1,5 +1,8 @@
 name: release version publish
 
+env:
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
 on:
   pull_request:
     branches: [main]
@@ -21,11 +24,11 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Set npm autority
         run: |
-          yarn logout
+          yarn npm logout
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm whoami
         env:
@@ -39,11 +42,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cache node modules
-        uses: c-hive/gha-yarn-cache@v2
-
       - name: install dependencies
-        run: yarn install
+        run: yarn install --silent
 
       - name: build all packages
         run: lerna run build
