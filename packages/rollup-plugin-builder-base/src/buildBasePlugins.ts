@@ -57,15 +57,15 @@ const buildBasePlugins = (): Plugins => {
     const commonjsPlugin = new Plugin('@rollup/plugin-commonjs', commonjs, [
         {
             extensions: ['.js', '.ts'],
-            include: ['node_modules/**', '../../node_modules/**']
+            ignoreDynamicRequires: true,
+            include: [/\.yarn/, /node_modules/]
         }
     ]);
 
     const babelPlugin = new Plugin('@rollup/plugin-babel', babel, [
         {
             extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx'],
-            babelHelpers: 'runtime',
-            plugins: ['@babel/plugin-transform-runtime']
+            babelHelpers: 'runtime'
         }
     ]);
 
