@@ -7,6 +7,7 @@ import cleaner from 'rollup-plugin-cleaner';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import typescript, { RPT2Options } from 'rollup-plugin-typescript2';
+import ttypescript from 'ttypescript';
 
 const buildBasePlugins = (): Plugins => {
     const cleanerPlugin = new Plugin(
@@ -38,7 +39,7 @@ const buildBasePlugins = (): Plugins => {
         typescript,
         (output): [RPT2Options] => [
             {
-                typescript: require('ttypescript'),
+                typescript: ttypescript,
                 tsconfigDefaults: {
                     compilerOptions: {
                         outDir: output.getOutputDir(),
@@ -57,16 +58,18 @@ const buildBasePlugins = (): Plugins => {
     const commonjsPlugin = new Plugin('@rollup/plugin-commonjs', commonjs, [
         {
             extensions: ['.js', '.ts'],
-            include: ['node_modules/**', '../../node_modules/**']
+            ignoreDynamicRequires: true,
+            include: [/\.yarn/, /node_modules/]
         }
     ]);
 
+    const babelOptions: object = {
+        extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx'],
+        babelHelpers: 'runtime',
+        plugins: ['@babel/plugin-transform-runtime']
+    };
     const babelPlugin = new Plugin('@rollup/plugin-babel', babel, [
-        {
-            extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', '.tsx'],
-            babelHelpers: 'runtime',
-            plugins: ['@babel/plugin-transform-runtime']
-        }
+        babelOptions
     ]);
 
     const terserPlugin = new Plugin('rollup-plugin-terser', terser, []);
