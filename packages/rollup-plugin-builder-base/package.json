@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/rollup-plugin-builder-base",
-  "version": "2.0.3",
+  "version": "2.0.4-next.d645c42f722fa4dd4c6c9858569155469a888b75.0",
   "description": "base plugin builder for @choseohwan/rollup-builder",
   "keywords": [
     "rollup",
@@ -32,7 +32,7 @@
   "dependencies": {
     "@babel/core": "^7.19.1",
     "@babel/runtime": "^7.19.0",
-    "@choseohwan/rollup-builder": "^2.0.2",
+    "@choseohwan/rollup-builder": "^2.0.3-next.d645c42f722fa4dd4c6c9858569155469a888b75.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",

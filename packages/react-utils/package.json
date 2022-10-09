@@ -1,6 +1,6 @@
 {
   "name": "@choseohwan/react-utils",
-  "version": "2.0.3",
+  "version": "2.0.4-next.d645c42f722fa4dd4c6c9858569155469a888b75.0",
   "description": "react utils for SeoHwan Cho's project",
   "keywords": [
     "react",
@@ -66,8 +66,8 @@
     "@choseohwan/babel-preset-react": "^2.0.1",
     "@choseohwan/eslint-config-react": "^2.0.1",
     "@choseohwan/jest-preset-base": "^2.0.1",
-    "@choseohwan/rollup-builder": "^2.0.2",
-    "@choseohwan/rollup-plugin-builder-base": "^2.0.3",
+    "@choseohwan/rollup-builder": "^2.0.3-next.d645c42f722fa4dd4c6c9858569155469a888b75.0",
+    "@choseohwan/rollup-plugin-builder-base": "^2.0.4-next.d645c42f722fa4dd4c6c9858569155469a888b75.0",
     "@choseohwan/tsconfig-base": "^2.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
